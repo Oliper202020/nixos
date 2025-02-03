@@ -4,7 +4,7 @@
   imports = [
     inputs.nixcord.homeManagerModules.nixcord
   ];
-  xdg.configFile."Vencord/themes".source = .Vencord/themes;
+  xdg.configFile."Vencord/themes".source = ./Vencord/themes;
   programs.nixcord = {
     enable = true;
     discord.vencord.unstable = true;
