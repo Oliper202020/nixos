@@ -11,9 +11,11 @@ in
   programs.spicetify = {
     enable = true;
     enabledExtensions = with spicePkgs.extensions; [
-      adblock
-      hidePodcasts
-      shuffle
+      addToQueueTop
+      history
+      volumePercentage
+      betterGenres
+      beautifulLyrics
     ];
     enabledCustomApps = with spicePkgs.apps; [
       newReleases
@@ -23,7 +25,7 @@ in
       rotatingCoverart
       pointer
     ];
-    theme = spicePkgs.themes.catppuccin;
-    colorScheme = "mocha";
+    theme = spicePkgs.themes.retroBlur;
   };
 }
+

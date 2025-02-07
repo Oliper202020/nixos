@@ -93,12 +93,16 @@
     variant = "nodeadkeys";
   };
   
-  #install ollama
+  # install Ollama
   #services.ollama = {
-  #  enable = true;
-  #  acceleration = "cuda";
+   # enable = true;
+    #acceleration = "cuda";
   #};
   
+  # Open WebUI for Ollama
+  #services.open-webui.enable = true;
+  
+  #install Solaar
   services.solaar = {
     enable = true; # Enable the service
     package = pkgs.solaar; # The package to use

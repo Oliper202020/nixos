@@ -52,7 +52,6 @@
           };
           modules = [
             ./home.nix
-            ./spicetify.nix # Ensure spicetify.nix is properly included
           ];
         };
       };
