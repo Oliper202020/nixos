@@ -4,14 +4,18 @@
   imports = [
     ./spicetify.nix 
     ./nixcord.nix
-    #./kitty.nix
-    ./ungoogled-chromium.nix
+    ./kitty.nix
+    #./ungoogled-chromium.nix
+    ./fish.nix
+    ./hyfetch.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   
   home.username = "oliver";
   home.homeDirectory = "/home/oliver";
+  
+
   #programs.kitty.enable = true;
   programs.git = {
     enable = true;
@@ -34,11 +38,11 @@
   # The option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    kitty
+    #kitty
     ungoogled-chromium
     vlc
     makemkv
-    neofetch
+    pokeget-rs
     # Other packages...
   ];
   # # Adds the 'hello' command to your environment. It prints a friendly
@@ -92,8 +96,9 @@
   #  /etc/profiles/per-user/oliver/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    XDG_STATE_HOME = "${config.home.homeDirectory}/.local/state";
     # EDITOR = "emacs";
+    BROWSER = "firefox";
+    TERMINAL = "kitty";
   };
 
   # Let Home Manager install and manage itself.

@@ -15,12 +15,14 @@
      # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       wget
       git
-      gnomeExtensions.dash-to-dock
       lshw
+      pokeget-rs
     ];
     
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.oliver = {
+      shell = pkgs.fish;
+      ignoreShellProgramCheck = true;
       isNormalUser = true;
       description = "Oliver Salvesen";
       extraGroups = [ "networkmanager" "wheel" ];
@@ -81,6 +83,7 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.excludePackages = [ pkgs.xterm ];
 
   # Configure keymap in X11
   services.xserver.xkb = {
