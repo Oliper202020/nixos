@@ -12,11 +12,11 @@
       # List packages installed in system profile. To search, run:
     # $ nix search wget
     environment.systemPackages = with pkgs; [
-    #  nix-software-center
-      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+     # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       wget
       git
       gnomeExtensions.dash-to-dock
+      lshw
     ];
     
     # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -25,11 +25,6 @@
       description = "Oliver Salvesen";
       extraGroups = [ "networkmanager" "wheel" ];
       packages = with pkgs; [
-        steam
-        ungoogled-chromium
-        vlc
-        lshw
-        spotify
     ];
   };
 
@@ -177,6 +172,6 @@ nixpkgs.config.allowUnfree = true;
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "unstable"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 
 }

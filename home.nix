@@ -4,14 +4,15 @@
   imports = [
     ./spicetify.nix 
     ./nixcord.nix
-    #./kitty
+    #./kitty.nix
+    ./ungoogled-chromium.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   
   home.username = "oliver";
   home.homeDirectory = "/home/oliver";
-
+  #programs.kitty.enable = true;
   programs.git = {
     enable = true;
     userName = "oliver";
@@ -32,7 +33,12 @@
 
   # The option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
+    kitty
+    ungoogled-chromium
+    vlc
+    makemkv
+    neofetch
     # Other packages...
   ];
   # # Adds the 'hello' command to your environment. It prints a friendly
