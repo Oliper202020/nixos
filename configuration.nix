@@ -27,8 +27,10 @@
       description = "Oliver Salvesen";
       extraGroups = [ "networkmanager" "wheel" ];
       packages = with pkgs; [
-    ];
-  };
+      ];
+    };
+  
+  fonts.packages = [  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -84,6 +86,26 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   services.xserver.excludePackages = [ pkgs.xterm ];
+  environment.gnome.excludePackages = with pkgs; [
+    # baobab      # disk usage analyzer
+    cheese      # photo booth
+    eog         # image viewer
+    epiphany    # web browser
+    # gedit       # text editor
+    simple-scan # document scanner
+    totem       # video player
+    yelp        # help viewer
+    evince      # document viewer
+    # file-roller # archive manager
+    geary       # email client
+    seahorse    # password manager
+
+    # these should be self explanatory
+    gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-contacts
+    gnome-font-viewer gnome-logs gnome-maps gnome-music gnome-photos gnome-screenshot
+    gnome-weather pkgs.gnome-connections gnome-terminal gnome-console gnome-software gnome-tour
+  ];
+  # services.gnome.core-utilities.enable = false;
 
   # Configure keymap in X11
   services.xserver.xkb = {

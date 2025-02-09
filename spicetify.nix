@@ -20,12 +20,14 @@ in
     enabledCustomApps = with spicePkgs.apps; [
       newReleases
       ncsVisualizer
+      lyricsPlus
     ];
     enabledSnippets = with spicePkgs.snippets; [
       rotatingCoverart
       pointer
     ];
-    theme = spicePkgs.themes.retroBlur;
+    theme = spicePkgs.themes.text;
+      colorScheme = "CatppuccinMocha";
   };
 }
 

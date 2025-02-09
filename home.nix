@@ -8,6 +8,8 @@
     #./ungoogled-chromium.nix
     ./fish.nix
     ./hyfetch.nix
+    ./nnn.nix
+    ./starship.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -38,12 +40,12 @@
   # The option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    #kitty
     ungoogled-chromium
     vlc
     makemkv
-    pokeget-rs
-    # Other packages...
+    starship
+    fd
+
   ];
   # # Adds the 'hello' command to your environment. It prints a friendly
   # # "Hello, world!" when run.
