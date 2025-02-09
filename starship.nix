@@ -21,7 +21,7 @@
       };
       git_branch = {
         format = "[ \$symbol\$branch(:\$remote_branch) ](\$style)";
-        symbol = "  ";
+        symbol = "  ";
         style = "fg:#1C3A5E bg:#FCF392";
       };
       git_status = {

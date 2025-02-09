@@ -45,7 +45,8 @@
     makemkv
     starship
     fd
-
+    sticky
+    emacs
   ];
   # # Adds the 'hello' command to your environment. It prints a friendly
   # # "Hello, world!" when run.
