@@ -26,9 +26,9 @@ in
       rotatingCoverart
       pointer
     ];
-    theme = spicePkgs.themes.retroBlur;
-    #theme = spicePkgs.themes.text;
-     # colorScheme = "CatppuccinMocha";
+    #theme = spicePkgs.themes.retroBlur;
+    theme = spicePkgs.themes.text;
+      colorScheme = "CatppuccinMocha";
   };
 }
 

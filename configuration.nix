@@ -1,36 +1,42 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, lib, inputs, ... }:
 {
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: {
   imports = [
-      ./hardware-configuration.nix
-      # Inculde the nvidia config
-      ./nvidia.nix
+    ./hardware-configuration.nix
+    # Inculde the nvidia config
+    ./nvidia.nix
+    ./theming/theming.nix
+  ];
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+    # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
+    git
+    lshw
+    pokeget-rs
+    dconf
+  ];
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.oliver = {
+    shell = pkgs.fish;
+    ignoreShellProgramCheck = true;
+    isNormalUser = true;
+    description = "Oliver Salvesen";
+    extraGroups = ["networkmanager" "wheel"];
+    packages = with pkgs; [
     ];
-      # List packages installed in system profile. To search, run:
-    # $ nix search wget
-    environment.systemPackages = with pkgs; [
-     # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-      wget
-      git
-      lshw
-      pokeget-rs
-    ];
-    
-    # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.users.oliver = {
-      shell = pkgs.fish;
-      ignoreShellProgramCheck = true;
-      isNormalUser = true;
-      description = "Oliver Salvesen";
-      extraGroups = [ "networkmanager" "wheel" ];
-      packages = with pkgs; [
-      ];
-    };
-  
-  fonts.packages = [  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+  };
+
+  fonts.packages = [] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -66,44 +72,57 @@
   # Enable flatpak
   services.flatpak.enable = true;
   systemd.services.flatpak-repo = {
-    wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.flatpak ];
+    wantedBy = ["multi-user.target"];
+    path = [pkgs.flatpak];
     script = ''
       flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     '';
   };
 
   # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  # Tell NixOS to use the flake in /etc/nixos as the system configuration
+  nix.settings.experimental-features = ["nix-command" "flakes"];
   # system.configuration = "/home/oliver/.dotfiles";
 
-  
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.excludePackages = [ pkgs.xterm ];
+  # Debloat
+  services.xserver.excludePackages = [pkgs.xterm];
   environment.gnome.excludePackages = with pkgs; [
     # baobab      # disk usage analyzer
-    cheese      # photo booth
-    eog         # image viewer
-    epiphany    # web browser
+    cheese # photo booth
+    eog # image viewer
+    epiphany # web browser
     # gedit       # text editor
     simple-scan # document scanner
-    totem       # video player
-    yelp        # help viewer
-    evince      # document viewer
+    totem # video player
+    yelp # help viewer
+    evince # document viewer
     # file-roller # archive manager
-    geary       # email client
-    seahorse    # password manager
+    geary # email client
+    seahorse # password manager
 
     # these should be self explanatory
-    gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-contacts
-    gnome-font-viewer gnome-logs gnome-maps gnome-music gnome-photos gnome-screenshot
-    gnome-weather pkgs.gnome-connections gnome-terminal gnome-console gnome-software gnome-tour
+    gnome-calculator
+    gnome-calendar
+    gnome-characters
+    gnome-clocks
+    gnome-contacts
+    gnome-font-viewer
+    gnome-logs
+    gnome-maps
+    gnome-music
+    gnome-photos
+    gnome-screenshot
+    gnome-weather
+    pkgs.gnome-connections
+    gnome-terminal
+    gnome-console
+    gnome-software
+    gnome-tour
   ];
   # services.gnome.core-utilities.enable = false;
 
@@ -111,17 +130,31 @@
   services.xserver.xkb = {
     layout = "dk";
     variant = "nodeadkeys";
+    options = "caps:escape"; # Remap Caps Lock to Escape
   };
-  
+
+  # Ensure GNOME doesn't override the keymap
+  environment.etc."X11/xorg.conf.d/00-keyboard.conf" = {
+    text = ''
+      Section "InputClass"
+        Identifier "keyboard"
+        MatchIsKeyboard "yes"
+        Option "XkbLayout" "dk"
+        Option "XkbVariant" "nodeadkeys"
+        Option "XkbOptions" "caps:escape"
+      EndSection
+    '';
+  };
+
   # install Ollama
   #services.ollama = {
-   # enable = true;
-    #acceleration = "cuda";
+  # enable = true;
+  #acceleration = "cuda";
   #};
-  
+
   # Open WebUI for Ollama
   #services.open-webui.enable = true;
-  
+
   #install Solaar
   services.solaar = {
     enable = true; # Enable the service
@@ -129,7 +162,7 @@
     window = "hide"; # Show the window on startup (show, *hide*, only [window only])
     batteryIcons = "regular"; # Which battery icons to use (*regular*, symbolic, solaar)
   };
-  
+
   # Configure console keymap
   console.keyMap = "dk-latin1";
 
@@ -166,11 +199,8 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
-  # Install firefox.
-programs.firefox.enable = true;
-
   # Allow unfree packages
-nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -198,5 +228,4 @@ nixpkgs.config.allowUnfree = true;
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
 }

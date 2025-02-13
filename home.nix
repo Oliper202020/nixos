@@ -10,6 +10,7 @@
     ./hyfetch.nix
     ./nnn.nix
     ./starship.nix
+    ./helix.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -25,6 +26,10 @@
     userEmail = "oliversalvesen@proton.me";
     extraConfig = {
       init.defaultBranch = "main";
+   # ignores = [
+     # ./hardware-configuration.nix
+     # ./nvidia.nix
+   # ];
     };
   };
 
@@ -42,11 +47,13 @@
   home.packages = with pkgs; [
     ungoogled-chromium
     vlc
+    firefox
     makemkv
     starship
     fd
     sticky
-    emacs
+    #emacs
+    #helix
   ];
   # # Adds the 'hello' command to your environment. It prints a friendly
   # # "Hello, world!" when run.
