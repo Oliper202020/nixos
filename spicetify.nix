@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 
 let
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
@@ -7,7 +7,6 @@ in
   imports = [
     inputs.spicetify-nix.homeManagerModules.default
   ];
-
   programs.spicetify = {
     enable = true;
     enabledExtensions = with spicePkgs.extensions; [
@@ -26,9 +25,8 @@ in
       rotatingCoverart
       pointer
     ];
-    #theme = spicePkgs.themes.retroBlur;
-    theme = spicePkgs.themes.text;
-      colorScheme = "CatppuccinMocha";
+    theme = lib.mkForce spicePkgs.themes.text;
+    colorScheme = lib.mkForce "RosePine";
   };
 }
 

@@ -3,8 +3,9 @@
 {
   programs.helix = {
     enable = true;
+    extraPackages = with pkgs; [ wl-clipboard ];
     settings = {
-      theme = "autumn_night_transparent";
+      #theme = "autumn_night_transparent";
       editor.cursor-shape = {
         normal = "block";
         insert = "bar";
@@ -28,11 +29,11 @@
         };
       };
     };
-    themes = {
-      autumn_night_transparent = {
-        "inherits" = "autumn_night";
-        "ui.background" = { };
-      };
-    };
+   # themes = {
+     # autumn_night_transparent = {
+       # "inherits" = "autumn_night";
+    #    "ui.background" = { };
+      #};
+#    };
   };
 }

@@ -4,11 +4,11 @@
   programs.hyfetch = {
     enable = true;
     settings = {
-      preset = "random";
-      mode = "rgb";
-      color_align = {
-        mode = "horizontal";
-      };
+     # preset = "random";
+      #mode = "rgb";
+      #color_align = {
+        #mode = "horizontal";
+      #};
     };  
   };
 }

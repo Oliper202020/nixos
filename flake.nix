@@ -58,9 +58,11 @@
           inherit inputs;
         };
         modules = [
+          inputs.stylix.homeManagerModules.stylix
           ./home.nix
         ];
       };
     };
   };
 }
+

@@ -1,26 +1,28 @@
-{ lib, stdenv, fetchzip }:
-
+{
+  lib,
+  stdenv,
+  fetchurl,
+}:
 stdenv.mkDerivation rec {
   pname = "apple-emoji-linux";
-  version = "ios-17.4";
+  version = "v17.4";
 
-  src = fetchzip {
-    url = "https://github.com/samuelngs/apple-emoji-linux/archive/refs/heads/master.zip";
-    sha256 = "0vld2ip96pkdj5rpnmfxv36vym0gh854w2n493izfrx3vqnb278i";
+  src = fetchurl {
+    url = "https://github.com/samuelngs/apple-emoji-linux/releases/download/${version}/AppleColorEmoji.ttf";
+    sha256 = "sha256-SG3JQLybhY/fMX+XqmB/BKhQSBB0N1VRqa+H6laVUPE=";
   };
 
-  buildInputs = [];
+  dontUnpack = true;
 
   installPhase = ''
-    mkdir -p $out/share/fonts
-    cp -r $src/fonts $out/share/fonts/apple-emoji
+    mkdir -p $out/share/fonts/
+    cp $src $out/share/fonts/apple-emoji-linux-${version}.ttf
   '';
 
   meta = with lib; {
-    description = "Apple's vibrant emojis for Linux";
+    description = "Apple color emoji font for Linux";
     homepage = "https://github.com/samuelngs/apple-emoji-linux";
     license = licenses.unfreeRedistributable;
     platforms = platforms.linux;
   };
 }
-

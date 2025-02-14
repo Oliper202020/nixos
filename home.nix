@@ -49,11 +49,6 @@
     vlc
     firefox
     makemkv
-    starship
-    fd
-    sticky
-    #emacs
-    #helix
   ];
   # # Adds the 'hello' command to your environment. It prints a friendly
   # # "Hello, world!" when run.
@@ -106,7 +101,7 @@
   #  /etc/profiles/per-user/oliver/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "helix";
     BROWSER = "firefox";
     TERMINAL = "kitty";
   };
@@ -114,3 +109,4 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
+

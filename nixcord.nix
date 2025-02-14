@@ -4,7 +4,7 @@
   imports = [
     inputs.nixcord.homeManagerModules.nixcord
   ];
-  xdg.configFile."vesktop/themes".source = vesktop/themes;
+#  xdg.configFile."vesktop/themes".source = vesktop/themes;
   programs.nixcord = {
     enable = true;
     discord.enable = false;
