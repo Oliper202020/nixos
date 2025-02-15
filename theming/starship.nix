@@ -1,12 +1,11 @@
 {
   config,
   pkgs,
+  inputs,
   ...
-}: let
-  { scheme = "${inputs.tt-schemes}/base16/${base16}.yaml"; }
-in {
+}: {
   imports = [
-    ./theming/theming.nix
+    ./theming.nix
   ];
   programs.starship = {
     enable = true;

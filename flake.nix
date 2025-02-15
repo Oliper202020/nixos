@@ -12,6 +12,13 @@
     stylix = {
       url = "github:danth/stylix";
     };
+    base16 = {
+      url = "github:SenchoPens/base16.nix";
+    };
+    tt-schemes = {
+      url = "github:tinted-theming/schemes";
+      flake = false;
+    };
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,28 +32,26 @@
     };
   };
 
-  outputs = {
-    nixpkgs,
-    home-manager,
-    ...
-  } @ inputs: let
+  outputs = {nixpkgs, ...} @ inputs: let
     lib = nixpkgs.lib;
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
     };
+    settings = import ./settings.nix;
   in {
     nixosConfigurations = {
       oliver = lib.nixosSystem {
         inherit system;
         modules = [
+          inputs.base16.nixosModule
           inputs.solaar.nixosModules.solaar
           inputs.stylix.nixosModules.stylix
           ./configuration.nix
         ];
         specialArgs = {
-          inherit inputs;
+          inherit inputs settings;
         };
       };
     };
@@ -55,7 +60,7 @@
       oliver = inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
-          inherit inputs;
+          inherit inputs settings;
         };
         modules = [
           inputs.stylix.homeManagerModules.stylix
@@ -65,4 +70,3 @@
     };
   };
 }
-

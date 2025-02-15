@@ -1,23 +1,27 @@
-{ config, pkgs, inputs, lib, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  lib,
+  settings,
+  ...
+}: {
   imports = [
-    ./spicetify.nix 
+    ./spicetify.nix
     ./nixcord.nix
     ./kitty.nix
     #./ungoogled-chromium.nix
     ./fish.nix
     ./hyfetch.nix
     ./nnn.nix
-    ./starship.nix
+    ./theming/starship.nix
     ./helix.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  
+
   home.username = "oliver";
   home.homeDirectory = "/home/oliver";
-  
 
   #programs.kitty.enable = true;
   programs.git = {
@@ -26,10 +30,10 @@
     userEmail = "oliversalvesen@proton.me";
     extraConfig = {
       init.defaultBranch = "main";
-   # ignores = [
-     # ./hardware-configuration.nix
-     # ./nvidia.nix
-   # ];
+      # ignores = [
+      # ./hardware-configuration.nix
+      # ./nvidia.nix
+      # ];
     };
   };
 
@@ -66,7 +70,6 @@
   # (pkgs.writeShellScriptBin "my-hello" ''
   #   echo "Hello, ${config.home.username}!"
   # '')
-
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -109,4 +112,3 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
-

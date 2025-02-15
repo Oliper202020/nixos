@@ -1,35 +1,23 @@
-{pkgs, ...}: let
+{pkgs, config, inputs, settings, ...}: 
+let
   apple-emoji-linux = pkgs.callPackage ../myPkgs/apple-emoji-linux/default.nix {};
 in {
   stylix = {
     enable = true;
     autoEnable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
-    image = ./nixos-wallpaper.png;
-    polarity = "dark";
-    opacity = {
-      applications = 0.8;
-      desktop = 0.8;
-      popups = 0.8;
-      terminal = 0.8;
-    };
-    # iconTheme = {
-    #   enable = true;
-    #   package = pkgs.rose-pine-icon-theme;
-    #   name = "rose-pine-icon-theme";
-    # };
-    # cursor = {
-    #   package = pkgs.rose-pine-cursor;
-    #   name = "rose-pine-cursor";
-    # };
+    base16Scheme = "${inputs.tt-schemes}/base16/${settings.base16}.yaml";  # Ensure this file path is correct
+    image = settings.wallpaper;
+    polarity = settings.polarity;
+    opacity = settings.opacity;
+
     fonts = {
       serif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Serif";
+        package = pkgs.${settings.fonts.serif.package};
+        name = settings.fonts.serif.name;
       };
       sansSerif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans";
+        package = pkgs.${settings.fonts.sansSerif.package};
+        name = settings.fonts.sansSerif.name;
       };
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
@@ -39,12 +27,7 @@ in {
         package = apple-emoji-linux;
         name = "Apple Color Emoji";
       };
-      sizes = {
-        applications = 10;
-        terminal = 12;
-        desktop = 10;
-        popups = 10;
-      };
+      sizes = settings.fonts.sizes;
     };
   };
 }

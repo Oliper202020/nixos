@@ -6,8 +6,10 @@
   pkgs,
   lib,
   inputs,
+  settings,
   ...
-}: {
+}: let
+in {
   imports = [
     ./hardware-configuration.nix
     # Inculde the nvidia config
@@ -23,6 +25,8 @@
     lshw
     pokeget-rs
     dconf
+    wl-clipboard
+    android-tools
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
