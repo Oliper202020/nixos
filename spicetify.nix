@@ -26,7 +26,7 @@ in
       pointer
     ];
     theme = lib.mkForce spicePkgs.themes.text;
-    colorScheme = lib.mkForce "RosePine";
+    colorScheme = lib.mkForce "Gruvbox";
   };
 }
 

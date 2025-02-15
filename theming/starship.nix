@@ -3,7 +3,9 @@
   pkgs,
   inputs,
   ...
-}: {
+}: let
+  colors = config.lib.stylix.colors;
+in {
   imports = [
     ./theming.nix
   ];
@@ -14,36 +16,69 @@
       command_timeout = 1000;
       add_newline = true;
       format = builtins.concatStringsSep "" [
-        "[](bg:#none fg:#5073bd)"
-        "[󰌽 ](bg:#5073bd fg:#090c0c)"
-        "[](fg:#5073bd bg:#1C3A5E)$time"
-        "[](fg:#1C3A5E bg:#3B76F0)$directory"
-        "[](fg:#3B76F0 bg:#FCF392)$git_branch$git_status$git_metrics"
-        "[](fg:#FCF392 bg:#none)$character"
+        "[](bg:#none fg:#${colors.base0C})"
+        "[󰌽 ](bg:#${colors.base0C} fg:#${colors.base01})"
+        "[](fg:#${colors.base0C} bg:#${colors.base02})$time$battery"
+        "[](fg:#${colors.base02} bg:#${colors.base0E})$directory"
+        "[](fg:#${colors.base0E} bg:#${colors.base09})$git_branch$git_status$git_metrics"
+        "[](fg:#${colors.base09} bg:#none)$character"
       ];
       time = {
         disabled = false;
         time_format = "%R"; # Hour:Minute Format
         style = "bg:#1d2230";
-        format = "[[ \$time ](bg:#1C3A5E fg:#8DFBD2)](\$style)";
+        format = "[[ \$time ](bg:#${colors.base02} fg:#${colors.base0B})](\$style)";
+      };
+      battery = {
+        disabled = false;
+        full_symbol = "🔋⚡";
+        charging_symbol = "⚡";
+        discharging_symbol = "🔌";
+        display = [
+          {
+            threshold = 100;
+            style = "fg:#${colors.base0B} bg:#${colors.base02}";
+            format = "🔋 Full: [$percentage](\$style)";
+          }
+          {
+            threshold = 75;
+            style = "fg:#${colors.base0A} bg:#${colors.base02}";
+            format = "🔋 High: [$percentage](\$style)";
+          }
+          {
+            threshold = 50;
+            style = "fg:#${colors.base09} bg:#${colors.base02}";
+            format = "🔋 Medium: [$percentage](\$style)";
+          }
+          {
+            threshold = 25;
+            style = "fg:#${colors.base08} bg:#${colors.base02}";
+            format = "🔋 Low: [$percentage](\$style)";
+          }
+          {
+            threshold = 10;
+            style = "fg:#${colors.base08} bg:#${colors.base02}";
+            format = "🪫 Critical: [$percentage](\$style)";
+          }
+        ];
       };
       directory = {
         format = "[ 󰝰 \$path ](\$style)";
-        style = "fg:#E4E4E4 bg:#3B76F0";
+        style = "fg:#${colors.base01} bg:#${colors.base0E}";
       };
       git_branch = {
         format = "[ \$symbol\$branch(:\$remote_branch) ](\$style)";
         symbol = "  ";
-        style = "fg:#1C3A5E bg:#FCF392";
+        style = "fg:#${colors.base02} bg:#${colors.base09}";
       };
       git_status = {
         format = "[$all_status](\$style)";
-        style = "fg:#1C3A5E bg:#FCF392";
+        style = "fg:#${colors.base02} bg:#${colors.base09}";
       };
       git_metrics = {
         format = "([+\$added](\$added_style))([-\$deleted](\$deleted_style))";
-        added_style = "fg:#1C3A5E bg:#FCF392";
-        deleted_style = "fg:#1C3A5E bg:#FCF392";
+        added_style = "fg:#${colors.base02} bg:#${colors.base09}";
+        deleted_style = "fg:#${colors.base02} bg:#${colors.base09}";
         disabled = false;
       };
       hg_branch = {
