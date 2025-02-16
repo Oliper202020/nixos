@@ -29,6 +29,8 @@ in {
     android-tools
   ];
 
+  virtualisation.virtualbox.host.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.oliver = {
     shell = pkgs.fish;
@@ -39,8 +41,6 @@ in {
     packages = with pkgs; [
     ];
   };
-
-  fonts.packages = [] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -87,14 +87,35 @@ in {
   nix.settings.experimental-features = ["nix-command" "flakes"];
   # system.configuration = "/home/oliver/.dotfiles";
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.xserver = {
+    enable = true;
+    excludePackages = [pkgs.xterm];
+    # Configure keymap in X11
+    xkb = {
+      layout = "dk";
+      variant = "nodeadkeys";
+      options = "caps:escape"; # Remap Caps Lock to Escape
+    };
+    # Enable the GNOME Desktop Environment.
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+  };
+  # caps to esc
+  services.keyd = {
+    enable = true;
+    keyboards = {
+      default = {
+        ids = ["*"];
+        settings = {
+          main = {
+            capslock = "escape";
+          };
+        };
+      };
+    };
+  };
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
   # Debloat
-  services.xserver.excludePackages = [pkgs.xterm];
   environment.gnome.excludePackages = with pkgs; [
     # baobab      # disk usage analyzer
     cheese # photo booth
@@ -108,7 +129,6 @@ in {
     # file-roller # archive manager
     geary # email client
     seahorse # password manager
-
     # these should be self explanatory
     gnome-calculator
     gnome-calendar
@@ -130,26 +150,6 @@ in {
   ];
   # services.gnome.core-utilities.enable = false;
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "dk";
-    variant = "nodeadkeys";
-    options = "caps:escape"; # Remap Caps Lock to Escape
-  };
-
-  # Ensure GNOME doesn't override the keymap
-  environment.etc."X11/xorg.conf.d/00-keyboard.conf" = {
-    text = ''
-      Section "InputClass"
-        Identifier "keyboard"
-        MatchIsKeyboard "yes"
-        Option "XkbLayout" "dk"
-        Option "XkbVariant" "nodeadkeys"
-        Option "XkbOptions" "caps:escape"
-      EndSection
-    '';
-  };
-
   # install Ollama
   #services.ollama = {
   # enable = true;
@@ -168,7 +168,9 @@ in {
   };
 
   # Configure console keymap
-  console.keyMap = "dk-latin1";
+  console = {
+    useXkbConfig = true;
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -184,8 +186,6 @@ in {
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -205,25 +205,6 @@ in {
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

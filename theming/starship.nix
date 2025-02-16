@@ -26,39 +26,61 @@ in {
       time = {
         disabled = false;
         time_format = "%R"; # Hour:Minute Format
-        style = "bg:#1d2230";
         format = "[[ \$time ](bg:#${colors.base02} fg:#${colors.base0B})](\$style)";
       };
       battery = {
         disabled = false;
-        full_symbol = "🔋⚡";
-        charging_symbol = "⚡";
-        discharging_symbol = "🔌";
+        format = "[[$symbol$percentage ](bg:#${colors.base02} fg:#${colors.base0B})](\$style)";
         display = [
           {
-            threshold = 100;
-            style = "fg:#${colors.base0B} bg:#${colors.base02}";
-            format = "🔋 Full: [$percentage](\$style)";
+            threshold = 10;
+            charging_symbol = "󰁺󱐋";
+            discharging_symbol = "󰂎";
           }
           {
-            threshold = 75;
-            style = "fg:#${colors.base0A} bg:#${colors.base02}";
-            format = "🔋 High: [$percentage](\$style)";
+            threshold = 20;
+            charging_symbol = "󰁻󱐋";
+            discharging_symbol = "󰁻";
+          }
+          {
+            threshold = 30;
+            charging_symbol = "󰁼󱐋";
+            discharging_symbol = "󰁼";
+          }
+          {
+            threshold = 40;
+            charging_symbol = "󰁽󱐋";
+            discharging_symbol = "󰁽";
           }
           {
             threshold = 50;
-            style = "fg:#${colors.base09} bg:#${colors.base02}";
-            format = "🔋 Medium: [$percentage](\$style)";
+            charging_symbol = "󰁾󱐋";
+            discharging_symbol = "󰁾";
           }
           {
-            threshold = 25;
-            style = "fg:#${colors.base08} bg:#${colors.base02}";
-            format = "🔋 Low: [$percentage](\$style)";
+            threshold = 60;
+            charging_symbol = "󰁿󱐋";
+            discharging_symbol = "󰁿";
           }
           {
-            threshold = 10;
-            style = "fg:#${colors.base08} bg:#${colors.base02}";
-            format = "🪫 Critical: [$percentage](\$style)";
+            threshold = 70;
+            charging_symbol = "󰂀󱐋";
+            discharging_symbol = "󰂀";
+          }
+          {
+            threshold = 80;
+            charging_symbol = "󰂁󱐋";
+            discharging_symbol = "󰂁";
+          }
+          {
+            threshold = 90;
+            charging_symbol = "󰂂󱐋";
+            discharging_symbol = "󰂂";
+          }
+          {
+            threshold = 100;
+            charging_symbol = "󰁹󱐋";
+            discharging_symbol = "󰁹";
           }
         ];
       };
