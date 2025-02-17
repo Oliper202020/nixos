@@ -31,6 +31,7 @@ in {
       battery = {
         disabled = false;
         format = "[[$symbol$percentage ](bg:#${colors.base02} fg:#${colors.base0B})](\$style)";
+        full_symbol = "󰁹󱐋";
         display = [
           {
             threshold = 10;

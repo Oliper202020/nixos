@@ -10,7 +10,7 @@
     shellAliases = {
      # ... =  "cd ..";
      clear = "command clear; and pokeget random --hide-name";
-     "rebuild" = "sudo nixos-rebuild switch --flake ~/.dotfiles; and home-manager switch --flake ~/.dotfiles";
+     "rebuild" = "nh os switch ~/.dotfiles; and nh home switch ~/.dotfiles";
     };
     interactiveShellInit = ''
       set -g fish_greeting ""

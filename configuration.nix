@@ -27,8 +27,16 @@ in {
     dconf
     wl-clipboard
     android-tools
+    #nh
   ];
 
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/oliver/.dotfiles";
+  };
+  
   virtualisation.virtualbox.host.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
