@@ -29,5 +29,6 @@ in {
       };
       sizes = settings.fonts.sizes;
     };
+    plymouthLogo = "./boot-logo.png";
   };
 }

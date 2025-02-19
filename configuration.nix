@@ -13,7 +13,8 @@ in {
   imports = [
     ./hardware-configuration.nix
     # Inculde the nvidia config
-    ./nvidia.nix
+    # ./nvidia.nix
+    #./nvidia/nvidia-selector.nix
     ./theming/theming.nix
   ];
   # List packages installed in system profile. To search, run:
@@ -27,7 +28,6 @@ in {
     dconf
     wl-clipboard
     android-tools
-    #nh
   ];
 
   programs.nh = {
@@ -36,7 +36,7 @@ in {
     clean.extraArgs = "--keep-since 4d --keep 3";
     flake = "/home/oliver/.dotfiles";
   };
-  
+
   virtualisation.virtualbox.host.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -51,19 +51,46 @@ in {
   };
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
 
-  networking.hostName = "oliver"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+    plymouth = {
+      enable = true;
+      #theme = "rings";
+      themePackages = with pkgs; [
+        # By default we would install all themes
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "rings" ];
+        })
+      ];
+    };
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
+    # Enable "Silent Boot"
+    consoleLogLevel = 0;
+    initrd.verbose = false;
+    kernelParams = [
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "loglevel=3"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
+    ];
+    # Hide the OS choice for bootloaders.
+    # It's still possible to open the bootloader list by pressing any key
+    # It will just not appear on screen unless a key is pressed
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+      timeout = 0;
+    };
+  };
+  
+  networking = {
+    hostName = "oliver"; # Define your hostname.
+    networkmanager.enable = true;
+  };
+  
   # Set your time zone.
   time.timeZone = "Europe/Copenhagen";
 
@@ -108,6 +135,7 @@ in {
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
   };
+  
   # caps to esc
   services.keyd = {
     enable = true;
@@ -184,7 +212,7 @@ in {
   services.printing.enable = true;
 
   # Enable bluetooth
-  hardware.bluetooth.enable = false;
+  hardware.bluetooth.enable = true;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
