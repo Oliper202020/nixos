@@ -1,11 +1,15 @@
-{pkgs, config, inputs, settings, ...}: 
-let
+{
+  pkgs,
+  inputs,
+  settings,
+  ...
+}: let
   apple-emoji-linux = pkgs.callPackage ../myPkgs/apple-emoji-linux/default.nix {};
 in {
   stylix = {
     enable = true;
     autoEnable = true;
-    base16Scheme = "${inputs.tt-schemes}/base16/${settings.base16}.yaml";  # Ensure this file path is correct
+    base16Scheme = "${inputs.tt-schemes}/base16/${settings.base16}.yaml";
     image = settings.wallpaper;
     polarity = settings.polarity;
     opacity = settings.opacity;
@@ -29,6 +33,6 @@ in {
       };
       sizes = settings.fonts.sizes;
     };
-    plymouthLogo = "./boot-logo.png";
+    targets.plymouth.logo = ./boot-logo.png;
   };
 }

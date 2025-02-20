@@ -29,7 +29,6 @@ in {
     wl-clipboard
     android-tools
   ];
-
   programs.nh = {
     enable = true;
     clean.enable = true;
@@ -37,7 +36,10 @@ in {
     flake = "/home/oliver/.dotfiles";
   };
 
-  virtualisation.virtualbox.host.enable = true;
+  virtualisation = {
+    virtualbox.host.enable = true;
+    waydroid.enable = true;
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.oliver = {
@@ -52,16 +54,16 @@ in {
 
   # Bootloader.
   boot = {
-
     plymouth = {
       enable = true;
-      #theme = "rings";
-      themePackages = with pkgs; [
-        # By default we would install all themes
-        (adi1090x-plymouth-themes.override {
-          selected_themes = [ "rings" ];
-        })
-      ];
+      logo = ./theming/boot-logo.png;
+      # #theme = "rings";
+      # themePackages = with pkgs; [
+      #   # By default we would install all themes
+      #   (adi1090x-plymouth-themes.override {
+      #     selected_themes = [ "rings" ];
+      #   })
+      # ];
     };
 
     # Enable "Silent Boot"
@@ -85,12 +87,12 @@ in {
       timeout = 0;
     };
   };
-  
+
   networking = {
     hostName = "oliver"; # Define your hostname.
     networkmanager.enable = true;
   };
-  
+
   # Set your time zone.
   time.timeZone = "Europe/Copenhagen";
 
@@ -135,7 +137,7 @@ in {
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
   };
-  
+
   # caps to esc
   services.keyd = {
     enable = true;

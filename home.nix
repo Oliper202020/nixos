@@ -15,6 +15,7 @@
     ./hyfetch.nix
     ./nnn.nix
     ./theming/starship.nix
+    ./theming/theming.nix
     ./helix.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
@@ -30,10 +31,6 @@
     userEmail = "oliversalvesen@proton.me";
     extraConfig = {
       init.defaultBranch = "main";
-      # ignores = [
-      # ./hardware-configuration.nix
-      # ./nvidia.nix
-      # ];
     };
   };
 
@@ -57,6 +54,7 @@
     bottles
     ventoy
     inkscape
+    gparted
   ];
   # # Adds the 'hello' command to your environment. It prints a friendly
   # # "Hello, world!" when run.
