@@ -1,0 +1,3 @@
+[submodule "vesktop/vesktop/vc-system-emoji"]
+	path = vesktop/vesktop/vc-system-emoji
+	url = https://codeberg.org/vap/vc-system-emoji.git
