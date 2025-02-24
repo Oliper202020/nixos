@@ -33,6 +33,6 @@ in {
       };
       sizes = settings.fonts.sizes;
     };
-    targets.plymouth.logo = ./boot-logo.png;
+    #targets.plymouth.logo = ./boot-logo.png;
   };
 }

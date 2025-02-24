@@ -9,6 +9,14 @@
     enable = true;
     discord.enable = false;
     vesktop.enable = true;
+    userPlugins = {
+      systemEmoji = /home/oliver/.dotfiles/vesktop/vc-system-emoji;
+    };
+    extraConfig = {
+      plugins = {
+        systemEmoji.enable = true;
+      };
+    };
     config = {
       useQuickCss = true;   # use out quickCSS
       transparent = true;

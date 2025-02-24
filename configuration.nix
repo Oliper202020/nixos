@@ -1,6 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   config,
   pkgs,
@@ -14,7 +11,7 @@ in {
     ./hardware-configuration.nix
     # Inculde the nvidia config
     # ./nvidia.nix
-    #./nvidia/nvidia-selector.nix
+    ./nvidia/nvidia-selector.nix
     ./theming/theming.nix
   ];
   # List packages installed in system profile. To search, run:
@@ -28,12 +25,24 @@ in {
     dconf
     wl-clipboard
     android-tools
+    protonup
   ];
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/home/oliver/.dotfiles";
+  programs = {
+    nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 4d --keep 3";
+      flake = "/home/oliver/.dotfiles";
+    };
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+    };
+    gamemode.enable = true;
+  };
+
+  environment.sessionVariables = {
+    STEAM_EXTRA_COMPAT_TOOL_PATHS = "/home/${settings.username}/.steam/root/compatibilitytoold.d";
   };
 
   virtualisation = {
@@ -200,7 +209,7 @@ in {
   #install Solaar
   services.solaar = {
     enable = true; # Enable the service
-    package = pkgs.solaar; # The package to use
+    # package = pkgs.solaar; # The package to use
     window = "hide"; # Show the window on startup (show, *hide*, only [window only])
     batteryIcons = "regular"; # Which battery icons to use (*regular*, symbolic, solaar)
   };

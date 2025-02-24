@@ -1,5 +1,6 @@
 
 {
+  username = "oliver";
   base16 = "gruvbox-dark-hard";
   wallpaper = ./theming/gruvbox.png;
   polarity = "dark";

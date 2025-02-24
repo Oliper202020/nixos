@@ -55,6 +55,7 @@
     ventoy
     inkscape
     gparted
+    mangohud
   ];
   # # Adds the 'hello' command to your environment. It prints a friendly
   # # "Hello, world!" when run.
