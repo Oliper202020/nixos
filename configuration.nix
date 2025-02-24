@@ -51,7 +51,7 @@ in {
 
   virtualisation = {
     virtualbox.host.enable = true;
-    waydroid.enable = true;
+    #waydroid.enable = true;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
