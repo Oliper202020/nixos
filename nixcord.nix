@@ -1,5 +1,4 @@
 { config, pkgs, inputs, ... }:
-
 {
   imports = [
     inputs.nixcord.homeManagerModules.nixcord
@@ -7,14 +6,16 @@
 #  xdg.configFile."vesktop/themes".source = vesktop/themes;
   programs.nixcord = {
     enable = true;
-    discord.enable = false;
-    vesktop.enable = true;
+    discord.enable = true;
+    discord.openASAR.enable = true;
     userPlugins = {
-      systemEmoji = /home/oliver/.dotfiles/vesktop/vc-system-emoji;
+      #systemEmoji = ./vesktop/vc-system-emoji;
+      #betterActivities = "github:D3SOX/vc-betterActivities/044b504666b8b753ab45d82c0cd0d316b1ea7e60";
     };
     extraConfig = {
       plugins = {
-        systemEmoji.enable = true;
+        #systemEmoji.enable = true;
+        #betterActivities.enable = true;
       };
     };
     config = {

@@ -34,9 +34,13 @@ in {
       clean.extraArgs = "--keep-since 4d --keep 3";
       flake = "/home/oliver/.dotfiles";
     };
+
     steam = {
       enable = true;
       gamescopeSession.enable = true;
+      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+      localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
     };
     gamemode.enable = true;
   };
@@ -128,11 +132,24 @@ in {
       flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     '';
   };
-
-  # Enable flakes
-  nix.settings.experimental-features = ["nix-command" "flakes"];
-  # system.configuration = "/home/oliver/.dotfiles";
-
+  
+  system.autoUpgrade = {
+    enable = true;
+    dates = "daily";
+  };
+  
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than 10d";
+    };
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = ["nix-command" "flakes"];
+    };
+  };
+  
   services.xserver = {
     enable = true;
     excludePackages = [pkgs.xterm];
@@ -189,7 +206,7 @@ in {
     gnome-photos
     gnome-screenshot
     gnome-weather
-    pkgs.gnome-connections
+    gnome-connections
     gnome-terminal
     gnome-console
     gnome-software

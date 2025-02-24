@@ -10,7 +10,7 @@
     shellAliases = {
      # ... =  "cd ..";
      clear = "command clear; and pokeget random --hide-name";
-     "rebuild" = "nh os switch -f ~/.dotfiles; and nh home switch ~/.dotfiles";
+     "rebuild" = "nh os switch ~/.dotfiles; and nh home switch ~/.dotfiles";
     };
     interactiveShellInit = ''
       set -g fish_greeting ""

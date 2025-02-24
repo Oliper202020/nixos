@@ -14,6 +14,7 @@
     ./fish.nix
     ./hyfetch.nix
     ./nnn.nix
+    ./ranger.nix
     ./theming/starship.nix
     ./theming/theming.nix
     ./helix.nix
@@ -56,6 +57,7 @@
     inkscape
     gparted
     mangohud
+    ghostty
   ];
   # # Adds the 'hello' command to your environment. It prints a friendly
   # # "Hello, world!" when run.

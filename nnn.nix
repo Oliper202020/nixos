@@ -1,8 +1,13 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs.nnn = {
     enable = true;
+    package = pkgs.nnn.override {withNerdIcons = true;};
+    plugins = {
+    };
     bookmarks = {
       d = "~/Documents";
       D = "~/Downloads";
@@ -10,7 +15,7 @@
       v = "~/Videos";
       #dot = "~/.dotfiles";
     };
-    extraPackages = with pkgs; [ 
+    extraPackages = with pkgs; [
       ffmpegthumbnailer
       mediainfo
       sxiv
