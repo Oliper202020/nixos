@@ -55,6 +55,7 @@
     bottles
     ventoy
     inkscape
+    gimp
     gparted
     mangohud
     ghostty

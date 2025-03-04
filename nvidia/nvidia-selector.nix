@@ -1,25 +1,24 @@
 { config, ... }: let
-  detectNvidia =
-    builtins.pathExists "/sys/class/drm/card0/device/vendor"
-    && builtins.readFile "/sys/class/drm/card0/device/vendor" == "0x10de\n";
+  readIfExists = path: if builtins.pathExists path then builtins.readFile path else null;
 
-  detectLaptop =
-    builtins.pathExists "/sys/class/dmi/id/chassis_type"
-    && builtins.elem (builtins.readFile "/sys/class/dmi/id/chassis_type") ["8\n" "9\n" "10\n" "11\n"];
+  vendorFile = readIfExists "/sys/class/drm/card0/device/vendor";
+  detectNvidia = true;# vendorFile == "0x10de\n";
 
-  hasNvidiaConfig = builtins.hasAttr "nvidia" config.hardware;
-  
-  # Determine imports based on hardware detection
-  importsList = if detectNvidia then
-    if detectLaptop then
-      [ ./nvidia-laptop.nix ]
+  chassisType = readIfExists "/sys/class/dmi/id/chassis_type";
+  detectLaptop = true;#builtins.elem chassisType ["8\n" "9\n" "10\n" "11\n"];
+
+  hasNvidiaConfig = config.hardware.nvidia.enable or false;
+
+  importsList =
+    if detectNvidia then
+      if detectLaptop then
+        [ ./nvidia-laptop.nix ]
+      else
+        [ ./nvidia-desktop.nix ]
     else
-      [ ./nvidia-desktop.nix ]
-  else
-    [];
+      [];
 
-  # Trace the decision for logging if NVIDIA is detected and no configuration exists yet
-  traceMessage = if detectNvidia && !hasNvidiaConfig then
+  traceMessage = if detectNvidia then# && !hasNvidiaConfig then
     builtins.trace (
       "NVIDIA detected: " + builtins.toString detectNvidia + 
       ", Laptop detected: " + builtins.toString detectLaptop + "\n" +
@@ -27,10 +26,6 @@
     ) importsList
   else
     importsList;
-in
-
-# Return imports, including the trace if needed
-{
+in {
   imports = traceMessage;
 }
-

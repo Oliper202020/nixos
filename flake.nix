@@ -40,7 +40,16 @@
       config.allowUnfree = true;
     };
     settings = import ./settings.nix;
+
+    # Add the deckthemes package here
+    deckthemes = pkgs.callPackage ./myPkgs/deckthemes/default.nix {};
+
   in {
+    # Add the package to the 'packages.x86_64-linux' attribute set
+    packages.x86_64-linux = {
+      deckthemes = deckthemes;
+    };
+
     nixosConfigurations = {
       oliver = lib.nixosSystem {
         inherit system;
@@ -70,3 +79,4 @@
     };
   };
 }
+
