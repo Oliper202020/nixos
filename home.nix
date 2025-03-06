@@ -18,6 +18,7 @@
     ./theming/starship.nix
     ./theming/theming.nix
     ./helix.nix
+    #./floorp
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -34,7 +35,6 @@
       init.defaultBranch = "main";
     };
   };
-
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoi breakage when a new Home Manager release
   # introduces backwards incompatible changes.

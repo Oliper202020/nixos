@@ -27,10 +27,16 @@ in {
     android-tools
     protonup
   ];
+  
   programs = {
     nh = {
       enable = true;
       flake = "/home/oliver/.dotfiles";
+      clean = {
+        enable = true;
+        dates = "daily";
+        extraArgs = "--keep-since 5d --keep 3";
+      };
     };
 
     steam = {
@@ -137,11 +143,6 @@ in {
   };
   
   nix = {
-    gc = {
-      automatic = true;
-      dates = "daily";
-      options = "--delete-older-than 10d";
-    };
     settings = {
       auto-optimise-store = true;
       experimental-features = ["nix-command" "flakes"];

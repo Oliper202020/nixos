@@ -7,7 +7,7 @@
   programs.nixcord = {
     enable = true;
     vesktop.enable = true;
-   # discord.enable = true;
+    discord.enable = false;
    # discord.openASAR.enable = true;
     userPlugins = {
       #systemEmoji = ./vesktop/vc-system-emoji;
