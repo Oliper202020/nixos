@@ -110,7 +110,7 @@
   #
   home.sessionVariables = {
     EDITOR = "helix";
-    BROWSER = "firefox";
+    BROWSER = "floorp";
     TERMINAL = "kitty";
   };
 
