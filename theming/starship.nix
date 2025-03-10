@@ -23,6 +23,16 @@ in {
         "[](fg:#${colors.base0E} bg:#${colors.base09})$git_branch$git_status$git_metrics"
         "[](fg:#${colors.base09} bg:#none)$character"
       ];
+      
+    #  right_format = builtins.concatStringsSep "" [
+    #    "${custom.any_nix_shell}"
+    #  ];
+      
+    #  custom.any_nix_shell = {
+    #    command = "any-nix-shell fish --info-right | source";
+    #    format = "[$output]";
+    #  };
+      
       time = {
         disabled = false;
         time_format = "%R"; # Hour:Minute Format

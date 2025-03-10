@@ -12,7 +12,8 @@
   #    pkgs.fishPlugins.forgit
 #    ];
     shellAliases = {
-     # ... =  "cd ..";
+     "hy" = "hyfetch";
+     "neo" = "fastfetch";
      clear = "command clear; and pokeget random --hide-name";
      "rebuild" = "nh os switch ~/.dotfiles; and nh home switch ~/.dotfiles";
     };

@@ -8,6 +8,12 @@
   base16 = "gruvbox-dark-hard";
   wallpaper = ./theming/gruvbox.png;
   polarity = "dark";
+  blur = {
+    applications = 0.8;
+    desktop = 0.8;
+    popups = 0.8;
+    terminal = 0.8;
+  };
   opacity = {
     applications = 0.8;
     desktop = 0.8;

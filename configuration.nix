@@ -31,6 +31,7 @@ in {
     wl-clipboard
     android-tools
     protonup
+    any-nix-shell
   ];
 
   virtualisation = {

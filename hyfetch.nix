@@ -6,7 +6,8 @@
     settings = {
       preset = "random";
       mode = "rgb";
-      # lightness = "0.50";
+      backend = "fastfetch";
+      light = "0.57";
       color_align = {
         mode = "horizontal";
       };
