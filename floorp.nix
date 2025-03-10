@@ -12,13 +12,24 @@
       isDefault = true;
       settings = {
         "extensions.autoDisableScopes" = 0;
-
+        
+        
+        /** floorpsettings  ***/
         "floorp.tabsleep.enabled" = true;
         "floorp.tabsleep.tabTimeoutMinutes" = 30;
+        "floorp.titlebar.favicon.color" = true;
+        "floorp.browser.tabs.verticaltab" = true;
+        "floorp.verticaltab.hover.enabled" = true;
+        "floorp.browser.tabbar.settings" = 2;
+        "floorp.tabbar.style" = 2;
+        "floorp.browser.workspaces.enabled" = false;
+        "browser.newtabpage.activity-stream.floorp.background.type" = 2;
+        "browser.newtabpage.activity-stream.floorp.newtab.releasenote.hide" = true;
+
+
         "extensions.webextensions.ExtensionStorageIDB.migrated.search@kagi.com" = true;
         "ui.key.menuAccessKeyFocuses" = false;
         "browser.firefox-view.feature-tour" = "{'screen':'','complete':true}";
-        "browser.newtabpage.pinned" = "[{'url':'https://kagi.com','label':'@kagi','searchTopSite':true}]";
         "browser.newtabpage.activity-stream.feeds.topsites" = false;
         "browser.bookmarks.addedImportButton" = false;
         "browser.download.useDownloadDir" = false;
@@ -60,7 +71,10 @@
         faststream
         don-t-fuck-with-paste
         videospeed
-        i-dont-care-about-cookies
+        istilldontcareaboutcookies
+        flagfox
+        floccus
+        stylus
       ];
     };
   };

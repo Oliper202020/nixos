@@ -13,6 +13,11 @@ in {
     # ./nvidia.nix
     ./nvidia/nvidia-selector.nix
     ./theming/theming.nix
+    ./steam.nix
+    ./system/nh.nix
+    ./system/users.nix
+    ./system/keyboard.nix
+    ./desktop/gnome.nix
   ];
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -27,46 +32,10 @@ in {
     android-tools
     protonup
   ];
-  
-  programs = {
-    nh = {
-      enable = true;
-      flake = "/home/oliver/.dotfiles";
-      clean = {
-        enable = true;
-        dates = "daily";
-        extraArgs = "--keep-since 5d --keep 3";
-      };
-    };
-
-    steam = {
-      enable = true;
-      gamescopeSession.enable = true;
-      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-      localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-    };
-    gamemode.enable = true;
-  };
-
-  environment.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOL_PATHS = "/home/${settings.username}/.steam/root/compatibilitytoold.d";
-  };
 
   virtualisation = {
     virtualbox.host.enable = true;
     #waydroid.enable = true;
-  };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.oliver = {
-    shell = pkgs.fish;
-    ignoreShellProgramCheck = true;
-    isNormalUser = true;
-    description = "Oliver Salvesen";
-    extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-    ];
   };
 
   # Bootloader.
@@ -105,11 +74,6 @@ in {
     };
   };
 
-  networking = {
-    hostName = "oliver"; # Define your hostname.
-    networkmanager.enable = true;
-  };
-
   # Set your time zone.
   time.timeZone = "Europe/Copenhagen";
 
@@ -128,14 +92,14 @@ in {
   };
 
   # Enable flatpak
-  services.flatpak.enable = true;
-  systemd.services.flatpak-repo = {
-    wantedBy = ["multi-user.target"];
-    path = [pkgs.flatpak];
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
-  };
+ # services.flatpak.enable = true;
+  #systemd.services.flatpak-repo = {
+   # wantedBy = ["multi-user.target"];
+    #path = [pkgs.flatpak];
+    #script = ''
+     # flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    #'';
+ # };
   
   system.autoUpgrade = {
     enable = true;
@@ -148,70 +112,6 @@ in {
       experimental-features = ["nix-command" "flakes"];
     };
   };
-  
-  services.xserver = {
-    enable = true;
-    excludePackages = [pkgs.xterm];
-    # Configure keymap in X11
-    xkb = {
-      layout = "dk";
-      variant = "nodeadkeys";
-      options = "caps:escape"; # Remap Caps Lock to Escape
-    };
-    # Enable the GNOME Desktop Environment.
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-  };
-
-  # caps to esc
-  services.keyd = {
-    enable = true;
-    keyboards = {
-      default = {
-        ids = ["*"];
-        settings = {
-          main = {
-            capslock = "escape";
-          };
-        };
-      };
-    };
-  };
-
-  # Debloat
-  environment.gnome.excludePackages = with pkgs; [
-    # baobab      # disk usage analyzer
-    cheese # photo booth
-    eog # image viewer
-    epiphany # web browser
-    # gedit       # text editor
-    simple-scan # document scanner
-    totem # video player
-    yelp # help viewer
-    evince # document viewer
-    # file-roller # archive manager
-    geary # email client
-    seahorse # password manager
-    # these should be self explanatory
-    gnome-calculator
-    gnome-calendar
-    gnome-characters
-    gnome-clocks
-    gnome-contacts
-    gnome-font-viewer
-    gnome-logs
-    gnome-maps
-    gnome-music
-    gnome-photos
-    gnome-screenshot
-    gnome-weather
-    gnome-connections
-    gnome-terminal
-    gnome-console
-    gnome-software
-    gnome-tour
-  ];
-  # services.gnome.core-utilities.enable = false;
 
   # install Ollama
   #services.ollama = {
@@ -257,14 +157,6 @@ in {
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
-  # Enable automatic login for the user.
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "oliver";
-
-  # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
