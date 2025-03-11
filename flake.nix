@@ -5,6 +5,9 @@
     nixpkgs = {
       url = "nixpkgs/nixos-unstable";
     };
+    nixos-cachyos-kernel = {
+      url = "github:drakon64/nixos-cachyos-kernel";
+    };
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -40,13 +43,17 @@
     };
   };
 
-  outputs = {nixpkgs, nur, ...} @ inputs: let
+  outputs = {
+    nixpkgs,
+    nur,
+    ...
+  } @ inputs: let
     lib = nixpkgs.lib;
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
-      overlays = [ nur.overlay ];
+      overlays = [nur.overlay];
     };
     settings = import ./settings.nix;
   in {
@@ -54,6 +61,7 @@
       oliver = lib.nixosSystem {
         inherit system;
         modules = [
+          inputs.nixos-cachyos-kernel.nixosModules.default
           inputs.base16.nixosModule
           inputs.solaar.nixosModules.solaar
           inputs.stylix.nixosModules.stylix

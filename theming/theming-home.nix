@@ -14,7 +14,7 @@
     opacity = settings.opacity;
     targets.floorp = {
       profileNames = ["oliver"];
-      colorTheme.enable = true;
+      #colorTheme.enable = true;
     };
   };
 }

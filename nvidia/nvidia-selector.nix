@@ -5,7 +5,7 @@
   detectNvidia = true;# vendorFile == "0x10de\n";
 
   chassisType = readIfExists "/sys/class/dmi/id/chassis_type";
-  detectLaptop = true;#builtins.elem chassisType ["8\n" "9\n" "10\n" "11\n"];
+  detectLaptop = false;#builtins.elem chassisType ["8\n" "9\n" "10\n" "11\n"];
 
   hasNvidiaConfig = config.hardware.nvidia.enable or false;
 

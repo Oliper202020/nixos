@@ -1,16 +1,17 @@
 {pkgs, ...}: {
   # Bootloader.
   boot = {
+    kernelPackages = with pkgs; linuxPackagesFor linuxPackages_cachyos;
     plymouth = {
       enable = true;
-      logo = ./theming/boot-logo.png;
-       theme = "rings";
-       themePackages = with pkgs; [
-         # By default we would install all themes
-          (adi1090x-plymouth-themes.override {
-            selected_themes = [ "rings" ];
-         })
-       ];
+      #  logo = ./theming/boot-logo.png;
+      # #theme = "rings";
+      # themePackages = with pkgs; [
+      #   # By default we would install all themes
+      #   (adi1090x-plymouth-themes.override {
+      #     selected_themes = [ "rings" ];
+      #   })
+      # ];
     };
 
     # Enable "Silent Boot"
@@ -35,3 +36,6 @@
     };
   };
 }
+# #theme = "rings";
+# themePackages =
+
