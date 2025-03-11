@@ -1,5 +1,4 @@
-{ config, pkgs, settings, ... }:
-{
+{settings, ...}: {
   programs.nh = {
     enable = true;
     flake = "/home/${settings.username}/.dotfiles";

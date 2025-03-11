@@ -1,9 +1,11 @@
-{ config, pkgs, inputs, lib, ... }:
-
-let
-  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-in
 {
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: let
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+in {
   imports = [
     inputs.spicetify-nix.homeManagerModules.default
   ];
@@ -29,4 +31,3 @@ in
     colorScheme = lib.mkForce "Gruvbox";
   };
 }
-

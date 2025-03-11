@@ -1,9 +1,4 @@
-{
-  config,
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.floorp = {
     enable = true;
     profiles.oliver = {
@@ -12,9 +7,10 @@
       isDefault = true;
       settings = {
         "extensions.autoDisableScopes" = 0;
-        
-        
-        /** floorpsettings  ***/
+
+        /*
+        * floorpsettings  **
+        */
         "floorp.tabsleep.enabled" = true;
         "floorp.tabsleep.tabTimeoutMinutes" = 30;
         "floorp.titlebar.favicon.color" = true;
@@ -25,7 +21,6 @@
         "floorp.browser.workspaces.enabled" = false;
         "browser.newtabpage.activity-stream.floorp.background.type" = 2;
         "browser.newtabpage.activity-stream.floorp.newtab.releasenote.hide" = true;
-
 
         "extensions.webextensions.ExtensionStorageIDB.migrated.search@kagi.com" = true;
         "ui.key.menuAccessKeyFocuses" = false;
@@ -38,9 +33,10 @@
         "browser.urlbar.suggest.quicksuggest.sponsored" = false;
         "browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
         "browser.urlbar.trending.featureGate" = false;
-        
 
-        /** TELEMETRY ***/
+        /*
+        * TELEMETRY **
+        */
         "datareporting.policy.dataSubmissionEnabled" = false;
         "datareporting.healthreport.uploadEnabled" = false;
         "toolkit.telemetry.unified" = false;
@@ -58,24 +54,27 @@
         "browser.newtabpage.activity-stream.feeds.telemetry" = false;
         "browser.newtabpage.activity-stream.telemetry" = false;
       };
-      extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
-        ublock-origin
-        privacy-badger
-        youtube-shorts-block
-        indie-wiki-buddy
-        reddit-enhancement-suite
-        kagi-search
-        darkreader
-        sponsorblock
-        facebook-container
-        faststream
-        don-t-fuck-with-paste
-        videospeed
-        istilldontcareaboutcookies
-        flagfox
-        floccus
-        stylus
-      ];
+      extensions = {
+        force = true;
+        packages = with pkgs.nur.repos.rycee.firefox-addons; [
+          ublock-origin
+          privacy-badger
+          youtube-shorts-block
+          indie-wiki-buddy
+          reddit-enhancement-suite
+          kagi-search
+          darkreader
+          sponsorblock
+          facebook-container
+          faststream
+          don-t-fuck-with-paste
+          videospeed
+          istilldontcareaboutcookies
+          flagfox
+          floccus
+          stylus
+        ];
+      };
     };
   };
 }

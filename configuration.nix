@@ -1,11 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  inputs,
-  settings,
-  ...
-}: let
+{pkgs, ...}: let
 in {
   imports = [
     ./hardware-configuration.nix
@@ -17,6 +10,7 @@ in {
     ./system/nh.nix
     ./system/users.nix
     ./system/keyboard.nix
+    ./system/boot.nix
     ./desktop/gnome.nix
   ];
   # List packages installed in system profile. To search, run:
@@ -43,7 +37,7 @@ in {
   boot = {
     plymouth = {
       enable = true;
-      logo = ./theming/boot-logo.png;
+    #  logo = ./theming/boot-logo.png;
       # #theme = "rings";
       # themePackages = with pkgs; [
       #   # By default we would install all themes
@@ -93,20 +87,20 @@ in {
   };
 
   # Enable flatpak
- # services.flatpak.enable = true;
+  # services.flatpak.enable = true;
   #systemd.services.flatpak-repo = {
-   # wantedBy = ["multi-user.target"];
-    #path = [pkgs.flatpak];
-    #script = ''
-     # flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    #'';
- # };
-  
+  # wantedBy = ["multi-user.target"];
+  #path = [pkgs.flatpak];
+  #script = ''
+  # flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  #'';
+  # };
+
   system.autoUpgrade = {
     enable = true;
     dates = "daily";
   };
-  
+
   nix = {
     settings = {
       auto-optimise-store = true;

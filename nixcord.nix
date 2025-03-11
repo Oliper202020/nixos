@@ -1,14 +1,13 @@
-{ config, pkgs, inputs, ... }:
-{
+{inputs, ...}: {
   imports = [
     inputs.nixcord.homeManagerModules.nixcord
   ];
-#  xdg.configFile."vesktop/themes".source = vesktop/themes;
+  #  xdg.configFile."vesktop/themes".source = vesktop/themes;
   programs.nixcord = {
     enable = true;
     vesktop.enable = true;
     discord.enable = false;
-   # discord.openASAR.enable = true;
+    # discord.openASAR.enable = true;
     userPlugins = {
       #systemEmoji = ./vesktop/vc-system-emoji;
       #betterActivities = "github:D3SOX/vc-betterActivities/044b504666b8b753ab45d82c0cd0d316b1ea7e60";
@@ -20,9 +19,9 @@
       };
     };
     config = {
-      useQuickCss = true;   # use out quickCSS
+      useQuickCss = true; # use out quickCSS
       transparent = true;
-      themeLinks = [ ];
+      themeLinks = [];
       frameless = false;
       plugins = {
         alwaysTrust = {

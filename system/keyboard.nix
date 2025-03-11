@@ -1,5 +1,4 @@
-{ config, pkgs, settings, ... }:
-{
+{pkgs, ...}: {
   services = {
     xserver = {
       enable = true;
@@ -10,7 +9,7 @@
         variant = "nodeadkeys";
       };
     };
-  # caps to esc
+    # caps to esc
     keyd = {
       enable = true;
       keyboards = {

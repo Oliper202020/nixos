@@ -1,9 +1,8 @@
-
 {
   #user
   username = "oliver";
   full-name = "Oliver Salvesen";
-  
+
   #theming
   base16 = "gruvbox-dark-hard";
   wallpaper = ./theming/gruvbox.png;
@@ -28,11 +27,10 @@
       name = "JetBrainsMono Nerd Font Mono";
     };
     sizes = {
-      applications = 10;
-      terminal = 12;
+      applications = 12;
+      terminal = 14;
       desktop = 10;
       popups = 10;
     };
   };
 }
-

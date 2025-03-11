@@ -1,5 +1,3 @@
-{ config, pkgs, ... }:
-
 {
   programs.hyfetch = {
     enable = true;
@@ -11,8 +9,6 @@
       color_align = {
         mode = "horizontal";
       };
-    };  
+    };
   };
 }
-
-

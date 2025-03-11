@@ -1,12 +1,13 @@
 {
   pkgs,
+  config,
   inputs,
   settings,
   ...
 }: let
   apple-emoji-linux = pkgs.callPackage ../myPkgs/apple-emoji-linux/default.nix {};
 in {
-  stylix = {
+  config.stylix = {
     enable = true;
     autoEnable = true;
     base16Scheme = "${inputs.tt-schemes}/base16/${settings.base16}.yaml";
@@ -33,6 +34,6 @@ in {
       };
       sizes = settings.fonts.sizes;
     };
-    #targets.plymouth.logo = ./boot-logo.png;
+    targets.plymouth.logo = ./boot-logo.png;
   };
 }

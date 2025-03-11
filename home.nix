@@ -1,11 +1,4 @@
-{
-  config,
-  pkgs,
-  inputs,
-  lib,
-  settings,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./spicetify.nix
     ./nixcord.nix
@@ -16,9 +9,10 @@
     ./nnn.nix
     ./ranger.nix
     ./theming/starship.nix
-    ./theming/theming.nix
+    ./theming/theming-home.nix
     ./helix.nix
     ./floorp.nix
+    ./btop.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -65,13 +59,12 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-  
     ".config/fastfetch/config.jsonc".source = ./fastfetch.conf;
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     #".screenrc".source = dotfiles/screenrc;
-    
+
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose
