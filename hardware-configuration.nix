@@ -12,33 +12,37 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-   boot.initrd.availableKernelModules = [ "vmd" "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
-   boot.initrd.kernelModules = [ ];
-   boot.kernelModules = [ "kvm-intel" ];
-   boot.extraModulePackages = [ ];
+  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "usbhid" "sdhci_pci"];
+  boot.initrd.kernelModules = [];
+  boot.kernelModules = ["kvm-amd"];
+  boot.extraModulePackages = [];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/bea5cc1a-1d9c-411f-b153-b332309e9668";
+    device = "/dev/disk/by-uuid/e433f930-5c0a-420a-9b7c-a71db3f4955c";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/1344-0E3E";
+    device = "/dev/disk/by-uuid/7417-6628";
     fsType = "vfat";
     options = ["fmask=0077" "dmask=0077"];
   };
 
   swapDevices = [
-    {device = "/dev/disk/by-uuid/ac427073-cc89-42dc-9770-3aa123ea940b";}
+    {device = "/dev/disk/by-uuid/78621bdb-dc59-43b2-949b-ddb207e0e65e";}
   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-   networking.useDHCP = lib.mkDefault true;
-   networking.interfaces.enp5s0.useDHCP = lib.mkDefault true;
+  networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.eno1.useDHCP = lib.mkDefault true;
+  # networking.interfaces.vboxnet0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.vethcNxmLB.useDHCP = lib.mkDefault true;
+  # networking.interfaces.waydroid0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
 
-   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

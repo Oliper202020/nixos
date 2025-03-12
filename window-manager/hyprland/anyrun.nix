@@ -1,6 +1,6 @@
 {
   programs = {
-    eww = {
+    anyrun = {
       enable = true;
       enableFishIntegration = true;
     };
