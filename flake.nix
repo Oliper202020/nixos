@@ -8,6 +8,9 @@
     nixos-cachyos-kernel = {
       url = "github:drakon64/nixos-cachyos-kernel";
     };
+  #  nixos-facter-modules = {
+  #    url = "github:numtide/nixos-facter-modules";
+  #  };
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -62,6 +65,9 @@
         inherit system;
         modules = [
           inputs.nixos-cachyos-kernel.nixosModules.default
+         # inputs.nixos-facter-modules.nixosModules.facter
+         # { config.facter.reportPath = ./facter.json; }
+         # { boot.loader.systemd-boot.enable = true; }
           inputs.base16.nixosModule
           inputs.solaar.nixosModules.solaar
           inputs.stylix.nixosModules.stylix

@@ -1,0 +1,185 @@
+* {
+  all: unset; 
+  font-size: 12px;
+  font-family: DejaVu Sans Mono, FontAwesome6Free;
+}
+
+$color-white: #ebdbb2;
+$color-black: #282828;
+$color-gray: #928374;
+$color-light-gray: #a89984;
+$color-red: #fb4934;
+$color-green: #b8bb26;
+$color-yellow: #fabd2f;
+$color-blue: #83a598;
+$color-pink: #d3869b;
+$color-purple: #b16286;
+$color-orange: #d65d0e;
+
+.bar {
+  background-color: transparent;
+  color: $color-white;
+  padding: 3px 3px 2px 3px;
+}
+
+tooltip {
+  background-color: $color-black;
+  border-radius: 3px;
+  border: 2px solid $color-gray;
+  color: $color-white;
+}
+
+tooltip label {
+  margin: 6px;
+}
+
+.right_section {
+  color: $color-white;
+}
+
+.left_section_bar0,
+.left_section_bar1,
+.left_section_bar2 {
+  color: $color-white;
+}
+
+.caffeine_on {
+  background: $color-white;
+  color: $color-black;
+  padding: 0 5px 0 5px;
+  margin: 0 6px 0 0px;
+  border-radius: 3px;
+}
+
+.caffeine_off {
+  background: $color-blue;
+  color: $color-black;
+  padding: 0 5px 0 5px;
+  margin: 0 6px 0 0px;
+  border-radius: 3px;
+}
+
+.volume_ok {
+  background: $color-purple;
+  color: $color-black;
+  padding: 0 5px 0 5px;
+  margin: 0 3px;
+  border-radius: 3px;
+}
+
+.volume_mute {
+  background: $color-yellow;
+  color:$color-gray;
+  padding: 0 5px 0 5px;
+  margin: 0 3px;
+  border-radius: 3px;
+}
+
+.time_w,
+.time_w_pm {
+  color: $color-black;
+  padding: 0 5px 0 5px;
+  margin: 0 6px 0 0px;
+  border-radius: 3px;
+}
+.time_w {
+  background: $color-blue;
+}
+
+.time_w_pm {
+  background: $color-purple;
+}
+
+.lang_en,
+.lang_jp {
+  color: $color-white;
+  padding: 0 5px 0 5px;
+  margin: 0 0 0 3px;
+  background-color: $color-black;
+  border-radius: 3px;
+}
+
+.window_w {
+  background-color: $color-black;
+  border-radius: 20px;
+  padding: 0 10px;
+}
+.window_w2 {
+  background-color: transparent;
+}
+
+.workspaces {
+
+}
+
+.workspace-button {
+  color:$color-white;
+  background-color: $color-black;
+  padding: 0 10px;
+  margin: 0 3px 0 0px;
+  border-radius: 20px;
+}
+
+.workspace-button:hover {
+  border: 2px solid $color-white;
+  padding: 0 8px;
+}
+
+.workspace-active {
+  background: $color-white;
+  color: $color-black;
+}
+
+.workspace-urgent{
+  background: $color-red;
+  color: $color-black;
+}
+
+.workspace-visible {
+  background: $color-blue;
+  color: $color-black;
+}
+
+.container {
+	margin: 0px 6px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	border-radius: 0px;
+
+	& > * + * {
+	margin-left: 0px;
+	margin-right: 0px;
+	}
+}
+
+.tray menu {
+	border-radius: 0px;
+	padding: 8px;
+  background-color: $color-black;
+  border: 2px solid $color-white;
+  border-radius: 3px;
+
+
+	>menuitem {
+		padding: 5px;
+    color: $color-white;
+
+		&:disabled label {
+			color: $color-light-gray;
+		}
+
+		&:hover {
+			background-color: $color-blue;
+      color: $color-black;
+      border-radius: 3px;
+		}
+	}
+
+	separator {
+		padding-top: 1px;
+    color: $color-gray;
+
+		&:last-child {
+			padding: unset;
+		}
+	}
+}

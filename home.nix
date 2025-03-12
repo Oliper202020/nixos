@@ -65,6 +65,7 @@
     ".config/fastfetch/config.jsonc".source = ./fastfetch.conf;
     ".config/hypr/hyprland.conf".source = ./window-manager/hyprland/hyprland.conf;
     ".config/eww/eww.yuck".source = ./window-manager/hyprland/eww.conf;
+    ".config/eww/eww.scss".source = ./window-manager/hyprland/eww.scss;
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.

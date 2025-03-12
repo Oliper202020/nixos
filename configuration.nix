@@ -4,7 +4,7 @@ in {
     ./hardware-configuration.nix
     # Inculde the nvidia config
     # ./nvidia.nix
-    ./nvidia/nvidia-selector.nix
+     ./nvidia/nvidia-selector.nix
     ./theming/theming.nix
     ./steam.nix
     ./system/nh.nix
@@ -27,6 +27,7 @@ in {
     android-tools
     protonup
     any-nix-shell
+    anyrun
   ];
 
   virtualisation = {
