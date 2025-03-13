@@ -18,7 +18,8 @@ in {
         "[](fg:#${colors.base0C} bg:#${colors.base02})$time$battery"
         "[](fg:#${colors.base02} bg:#${colors.base0E})$directory"
         "[](fg:#${colors.base0E} bg:#${colors.base09})$git_branch$git_status$git_metrics"
-        "[](fg:#${colors.base09} bg:#none)$character"
+        "[](fg:#${colors.base09} bg:#none)
+$character"
       ];
 
       #  right_format = builtins.concatStringsSep "" [
@@ -120,7 +121,6 @@ in {
         style = "fg:bright-white bg:18";
       };
       character = {
-        format = "\n$character";
         success_symbol = "[ ➜](bold green) ";
         error_symbol = "[ ➜](#EA4D44) ";
       };

@@ -28,6 +28,9 @@ in {
     protonup
     any-nix-shell
     anyrun
+    playerctl
+    wlogout
+    busybox
   ];
 
   virtualisation = {

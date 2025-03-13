@@ -13,7 +13,7 @@
     ./helix.nix
     ./floorp.nix
     ./btop.nix
-    ./window-manager/hyprland/eww.nix
+    ./window-manager/hyprland/waybar.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -64,8 +64,8 @@
   home.file = {
     ".config/fastfetch/config.jsonc".source = ./fastfetch.conf;
     ".config/hypr/hyprland.conf".source = ./window-manager/hyprland/hyprland.conf;
-    ".config/eww/eww.yuck".source = ./window-manager/hyprland/eww.conf;
-    ".config/eww/eww.scss".source = ./window-manager/hyprland/eww.scss;
+    ".config/waybar/config.jsonc".source = ./window-manager/hyprland/waybar.conf;
+    ".config/wlogout/layout".source = ./window-manager/hyprland/wlogout.conf;
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.

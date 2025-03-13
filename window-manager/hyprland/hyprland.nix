@@ -7,7 +7,7 @@
       xwayland.enable = true;
     };
    # uwsm.enable = true;
-    hyprlock.enable = true;
+    #hyprlock.enable = true;
   };
   services.hypridle.enable = true;
   environment.sessionVariables = {

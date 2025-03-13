@@ -1,8 +1,7 @@
 {
   programs = {
-    eww = {
+    waybar = {
       enable = true;
-      enableFishIntegration = true;
     };
   };
 }

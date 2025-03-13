@@ -56,7 +56,7 @@
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
-      overlays = [nur.overlay];
+      overlays = [nur.overlays.default];
     };
     settings = import ./settings.nix;
   in {
