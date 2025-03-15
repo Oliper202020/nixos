@@ -4,7 +4,7 @@
   full-name = "Oliver Salvesen";
 
   #theming
-  base16 = "gruvbox-dark-hard";
+  base16 = "rose-pine";
   wallpaper = ./theming/gruvbox.png;
   polarity = "dark";
   opacity = {

@@ -1,5 +1,4 @@
-{pkgs, ...}: let
-in {
+{ pkgs, ...} : {
   imports = [
     ./hardware-configuration.nix
     # Inculde the nvidia config
@@ -31,6 +30,7 @@ in {
     playerctl
     wlogout
     busybox
+    udiskie
   ];
 
   virtualisation = {
@@ -65,9 +65,12 @@ in {
   #'';
   # };
 
-  system.autoUpgrade = {
-    enable = true;
-    dates = "daily";
+  system = {
+    rebuild.enableNg = true;
+    autoUpgrade = {
+      enable = true;
+      dates = "daily";
+    };
   };
 
   nix = {

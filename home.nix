@@ -5,6 +5,7 @@
     ./kitty.nix
     #./ungoogled-chromium.nix
     ./fish.nix
+    ./nushell.nix
     ./hyfetch.nix
     ./nnn.nix
     ./ranger.nix
@@ -13,7 +14,8 @@
     ./helix.nix
     ./floorp.nix
     ./btop.nix
-    ./window-manager/hyprland/waybar.nix
+    ./window-manager/hyprland/waybar/waybar.nix
+    ./window-manager/hyprland/hyprpanel.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -64,11 +66,12 @@
   home.file = {
     ".config/fastfetch/config.jsonc".source = ./fastfetch.conf;
     ".config/hypr/hyprland.conf".source = ./window-manager/hyprland/hyprland.conf;
-    ".config/waybar/config.jsonc".source = ./window-manager/hyprland/waybar.conf;
-    ".config/wlogout/layout".source = ./window-manager/hyprland/wlogout.conf;
+    #".config/hypr/hypridle.conf".source = ./window-manager/hyprland/hypridle.conf;
+    ".config/waybar/config.jsonc".source = ./window-manager/hyprland/waybar/waybar.conf;
+    ".config/wlogout".source = ./window-manager/hyprland/wlogout;
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
+    # # symlink to the Ni123x store copy.
     #".screenrc".source = dotfiles/screenrc;
 
     # # You can also set the file content immediately.

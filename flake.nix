@@ -29,6 +29,10 @@
       url = "github:tinted-theming/schemes";
       flake = false;
     };
+    hyprpanel = {
+      url = "github:Jas-SinghFSU/HyprPanel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -56,7 +60,10 @@
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
-      overlays = [nur.overlays.default];
+      overlays = [
+        nur.overlays.default
+        inputs.hyprpanel.overlay
+      ];
     };
     settings = import ./settings.nix;
   in {
@@ -82,9 +89,7 @@
     homeConfigurations = {
       oliver = inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = {
-          inherit inputs settings;
-        };
+        extraSpecialArgs = { inherit inputs settings; };
         modules = [
           inputs.stylix.homeManagerModules.stylix
           ./home.nix
