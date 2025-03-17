@@ -40,6 +40,10 @@
     nixcord = {
       url = "github:kaylorben/nixcord";
     };
+    anyrun = {
+      url = "github:anyrun-org/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     solaar = {
       url = "github:Svenum/Solaar-Flake/main";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -78,6 +82,7 @@
           inputs.base16.nixosModule
           inputs.solaar.nixosModules.solaar
           inputs.stylix.nixosModules.stylix
+          {environment.systemPackages = [ inputs.anyrun.packages.${system}.anyrun ];}
           ./configuration.nix
         ];
         specialArgs = {
@@ -92,6 +97,7 @@
         extraSpecialArgs = { inherit inputs settings; };
         modules = [
           inputs.stylix.homeManagerModules.stylix
+          inputs.anyrun.homeManagerModules.default
           ./home.nix
         ];
       };

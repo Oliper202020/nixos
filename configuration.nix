@@ -26,7 +26,6 @@
     android-tools
     protonup
     any-nix-shell
-    anyrun
     playerctl
     wlogout
     busybox

@@ -16,6 +16,7 @@
     ./btop.nix
     ./window-manager/hyprland/waybar/waybar.nix
     ./window-manager/hyprland/hyprpanel.nix
+    ./window-manager/hyprland/anyrun.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -60,7 +61,9 @@
     cmatrix
     kdePackages.dolphin
     mpv
-    mpvpaper
+    swww
+    tetris
+    pipes-rs
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
