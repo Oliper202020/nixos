@@ -12,6 +12,11 @@
     image = settings.wallpaper;
     polarity = settings.polarity;
     opacity = settings.opacity;
+    cursor = {
+      package = pkgs.${settings.cursor.package};
+      name = settings.cursor.name;
+      size = settings.cursor.size;
+    };
     targets.floorp = {
       profileNames = ["oliver"];
       #colorTheme.enable = true;

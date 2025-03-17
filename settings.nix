@@ -13,6 +13,11 @@
     popups = 0.8;
     terminal = 0.8;
   };
+  cursor = {
+    package = "rose-pine-hyprcursor";
+    name = "rose-pine-hyprcursor";
+    size = 24;
+  };
   fonts = {
     serif = {
       package = "dejavu_fonts";

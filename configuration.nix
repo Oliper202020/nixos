@@ -126,6 +126,8 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
+  
+  security.sudo-rs.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

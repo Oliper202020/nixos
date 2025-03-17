@@ -59,6 +59,8 @@
     fastfetch
     cmatrix
     kdePackages.dolphin
+    mpv
+    mpvpaper
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

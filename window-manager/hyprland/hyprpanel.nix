@@ -6,7 +6,7 @@
   programs.hyprpanel = {
     enable = true;
     hyprland.enable = true;
-   # theme = "Rose Pine";
+    theme = "rose_pine";
     settings = {
       theme = {
         bar.transparent = true;
