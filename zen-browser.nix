@@ -1,6 +1,10 @@
+#    zen-browser = {
+#      url = "github:0xc000022070/zen-browser-flake";
+#      inputs.nixpkgs.follows = "nixpkgs";
 {pkgs, ...}: {
-  programs.zen-browser = {
+  programs.firefox = {
     enable = true;
+    package = pkgs.inputs.zen-browser.packages.x86_64-linux.default;
     profiles.oliver = {
       bookmarks = {
       };
@@ -58,7 +62,7 @@
           istilldontcareaboutcookies
           flagfox
           floccus
-          stylus
+         # stylus
         ];
       };
     };
