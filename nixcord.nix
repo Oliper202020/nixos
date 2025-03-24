@@ -1,8 +1,8 @@
+#location; /nixcord.nix
 {inputs, ...}: {
   imports = [
     inputs.nixcord.homeManagerModules.nixcord
   ];
-  #  xdg.configFile."vesktop/themes".source = vesktop/themes;
   programs.nixcord = {
     enable = true;
     vesktop.enable = true;

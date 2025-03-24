@@ -8,9 +8,9 @@
     nixos-cachyos-kernel = {
       url = "github:drakon64/nixos-cachyos-kernel";
     };
-  #  nixos-facter-modules = {
-  #    url = "github:numtide/nixos-facter-modules";
-  #  };
+    nixos-facter-modules = {
+      url = "github:numtide/nixos-facter-modules";
+    };
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -48,6 +48,9 @@
       url = "github:Svenum/Solaar-Flake/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+    };
     jovian-nixos = {
       url = "github:Jovian-Experiments/Jovian-NixOS";
       flake = true;
@@ -74,27 +77,25 @@
     nixosConfigurations = {
       oliver = lib.nixosSystem {
         inherit system;
+        specialArgs = {inherit inputs settings;};
         modules = [
           inputs.nixos-cachyos-kernel.nixosModules.default
-         # inputs.nixos-facter-modules.nixosModules.facter
-         # { config.facter.reportPath = ./facter.json; }
-         # { boot.loader.systemd-boot.enable = true; }
+          inputs.nixos-facter-modules.nixosModules.facter
+          {config.facter.reportPath = ./facter.json;}
+          {boot.loader.systemd-boot.enable = true;}
           inputs.base16.nixosModule
           inputs.solaar.nixosModules.solaar
           inputs.stylix.nixosModules.stylix
-          {environment.systemPackages = [ inputs.anyrun.packages.${system}.anyrun ];}
+          {environment.systemPackages = [inputs.anyrun.packages.${system}.anyrun];}
           ./configuration.nix
         ];
-        specialArgs = {
-          inherit inputs settings;
-        };
       };
     };
 
     homeConfigurations = {
       oliver = inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit inputs settings; };
+        extraSpecialArgs = {inherit inputs settings system;};
         modules = [
           inputs.stylix.homeManagerModules.stylix
           inputs.anyrun.homeManagerModules.default

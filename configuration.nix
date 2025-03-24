@@ -1,16 +1,16 @@
-{ pkgs, ...} : {
+{pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
     # Inculde the nvidia config
     # ./nvidia.nix
-     ./nvidia/nvidia-selector.nix
+    ./nvidia/nvidia-selector.nix
     ./theming/theming.nix
     ./steam.nix
     ./system/nh.nix
     ./system/users.nix
     ./system/keyboard.nix
     ./system/boot.nix
-    ./desktop/gnome.nix
+    #./desktop/gnome.nix
     ./window-manager/hyprland/hyprland.nix
   ];
   # List packages installed in system profile. To search, run:
@@ -19,17 +19,24 @@
     # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
+    uutils-coreutils-noprefix
+    uutils-findutils
+    uutils-diffutils
     lshw
     pokeget-rs
     dconf
     wl-clipboard
     android-tools
+    # nur.repos.xddxdd.magiskboot
     protonup
     any-nix-shell
     playerctl
     wlogout
     busybox
     udiskie
+    rose-pine-hyprcursor
+    rose-pine-cursor
+    nwg-look
   ];
 
   virtualisation = {
@@ -125,12 +132,18 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-  
+
   security.sudo-rs.enable = true;
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
+  nixpkgs.config = {
+    allowUnfree = true;
+    # packageOverrides = pkgs: {
+    #   nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/main.tar.gz") {
+    #     inherit pkgs;
+    #   };
+    # };
+  };
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

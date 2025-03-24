@@ -1,3 +1,5 @@
+#location: /window-manager/hyprland/anyrun.nix
+#imported: home.nix
 { inputs, pkgs, ... }: {
   programs = {
     anyrun = {
@@ -18,6 +20,7 @@
           inputs.anyrun.packages.${pkgs.system}.applications
           inputs.anyrun.packages.${pkgs.system}.kidex
           inputs.anyrun.packages.${pkgs.system}.rink
+          inputs.anyrun.packages.${pkgs.system}.symbols
         ];
       };
       extraCss = /*css */ ''

@@ -13,6 +13,7 @@
     ./theming/theming-home.nix
     ./helix.nix
     ./floorp.nix
+    #  ./zen-browser.nix
     ./btop.nix
     ./window-manager/hyprland/waybar/waybar.nix
     ./window-manager/hyprland/hyprpanel.nix
@@ -64,6 +65,7 @@
     swww
     tetris
     pipes-rs
+    nur.repos.xddxdd.magiskboot
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

@@ -1,14 +1,11 @@
-#    zen-browser = {
-#      url = "github:0xc000022070/zen-browser-flake";
-#      inputs.nixpkgs.follows = "nixpkgs";
-{pkgs, ...}: {
+{pkgs, inputs, system, lib, ...}: {
   programs.firefox = {
     enable = true;
-    package = pkgs.inputs.zen-browser.packages.x86_64-linux.default;
+   # package = lib.mkForce inputs.zen-browser.packages."${system}".default;
     profiles.oliver = {
       bookmarks = {
       };
-      isDefault = true;
+    #  isDefault = true;
       settings = {
         "extensions.autoDisableScopes" = 0;
 

@@ -8,14 +8,14 @@
   wallpaper = ./theming/gruvbox.png;
   polarity = "dark";
   opacity = {
-    applications = 0.7;
-    desktop = 0.7;
-    popups = 0.7;
-    terminal = 0.7;
+    applications = 0.8;
+    desktop = 0.8;
+    popups = 0.8;
+    terminal = 0.8;
   };
   cursor = {
-    package = "rose-pine-hyprcursor";
-    name = "rose-pine-hyprcursor";
+    package = "rose-pine-cursor";
+    name = "rose-pine-cursor";
     size = 24;
   };
   fonts = {
