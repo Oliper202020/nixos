@@ -3,6 +3,7 @@
     enable = true;
     extensions = [
       "nix"
+      "hyprlang"
     ];
     extraPackages = [
       pkgs.nixd
