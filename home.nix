@@ -15,6 +15,7 @@
     ./floorp.nix
     #  ./zen-browser.nix
     ./btop.nix
+    ./zed.nix
     ./window-manager/hyprland/waybar/waybar.nix
     ./window-manager/hyprland/hyprpanel.nix
     ./window-manager/hyprland/anyrun.nix
