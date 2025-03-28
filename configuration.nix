@@ -11,30 +11,29 @@
     ./system/keyboard.nix
     ./system/boot.nix
     #./desktop/gnome.nix
-    ./window-manager/hyprland/hyprland.nix
+    ./wm/hyprland/hyprland.nix
   ];
   environment.systemPackages = with pkgs; [
     # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
+    android-tools
+    busybox
+    dconf
     git
     uutils-coreutils-noprefix
     uutils-findutils
     uutils-diffutils
     lshw
     pokeget-rs
-    dconf
-    wl-clipboard
-    android-tools
-    # nur.repos.xddxdd.magiskboot
     protonup
     any-nix-shell
     playerctl
-    wlogout
-    busybox
     udiskie
     rose-pine-hyprcursor
     rose-pine-cursor
     nwg-look
+    wl-clipboard
+    wget
+    wlogout
   ];
 
   virtualisation = {

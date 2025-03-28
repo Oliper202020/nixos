@@ -1,7 +1,22 @@
 {pkgs, inputs, system, lib, ...}: {
-  programs.firefox = {
+  home.packages = [
+    pkgs.wrapFirefox
+      (inputs.zen-browser.packages."${system}".default.overrideAttrs (prevAttrs: {
+        passthru = prevAttrs.passthru or { } // {
+        #inherit applicationName;
+          binaryName = "zen";
+
+          ffmpegSupport = true;
+          gssSupport = true;
+          gtk3 = pkgs.gtk3;
+        };
+      }));
+  ];
+  programs.zen = {
     enable = true;
-   # package = lib.mkForce inputs.zen-browser.packages."${system}".default;
+    #package = inputs.zen-browser.packages."${system}".default;
+    #package.override = inputs.zen-browser.packages."${system}".default;
+    #finalPackage = inputs.zen-browser.packages."${system}".default;
     profiles.oliver = {
       bookmarks = {
       };
