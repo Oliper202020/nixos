@@ -1,26 +1,11 @@
-{pkgs, inputs, system, lib, ...}: {
-  home.packages = [
-    pkgs.wrapFirefox
-      (inputs.zen-browser.packages."${system}".default.overrideAttrs (prevAttrs: {
-        passthru = prevAttrs.passthru or { } // {
-        #inherit applicationName;
-          binaryName = "zen";
-
-          ffmpegSupport = true;
-          gssSupport = true;
-          gtk3 = pkgs.gtk3;
-        };
-      }));
-  ];
+{pkgs, inputs, system, ...}: {
   programs.zen = {
     enable = true;
-    #package = inputs.zen-browser.packages."${system}".default;
-    #package.override = inputs.zen-browser.packages."${system}".default;
-    #finalPackage = inputs.zen-browser.packages."${system}".default;
+    package = inputs.zen-browser.packages."${system}".default;
     profiles.oliver = {
       bookmarks = {
       };
-    #  isDefault = true;
+      isDefault = true;
       settings = {
         "extensions.autoDisableScopes" = 0;
 
@@ -74,6 +59,7 @@
           istilldontcareaboutcookies
           flagfox
           floccus
+          clearurls
          # stylus
         ];
       };

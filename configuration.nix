@@ -29,11 +29,12 @@
     playerctl
     udiskie
     rose-pine-hyprcursor
-    rose-pine-cursor
     nwg-look
     wl-clipboard
     wget
     wlogout
+    jq
+    hyprlandPlugins.hyprexpo
   ];
 
   virtualisation = {

@@ -4,7 +4,7 @@
     profiles.oliver = {
       bookmarks = {
       };
-      isDefault = true;
+      #isDefault = false;
       settings = {
         "extensions.autoDisableScopes" = 0;
 
@@ -73,6 +73,7 @@
           flagfox
           floccus
           stylus
+          clearurls
         ];
       };
     };

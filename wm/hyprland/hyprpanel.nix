@@ -7,7 +7,7 @@
     enable = true;
     hyprland.enable = true;
     overwrite.enable = true;
-    theme = "rose_pine";
+    #theme = "rose_pine";
     settings = {
       theme = {
         bar.transparent = true;
@@ -54,4 +54,3 @@
     };
   };
 }
-

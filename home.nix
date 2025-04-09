@@ -5,7 +5,7 @@
     ./zed.nix
     ./browsers/floorp.nix
    # ./browsers/ungoogled-chromium.nix
-   # ./browsers/zen-browser.nix
+    ./browsers/zen-browser.nix
     ./cli/btop.nix
     ./cli/kitty.nix
     ./cli/hyfetch.nix
@@ -18,6 +18,7 @@
     ./theming/theming-home.nix
     ./wm/hyprland/waybar/waybar.nix
     ./wm/hyprland/hyprpanel.nix
+    #./wm/hyprland/hyprland-home.nix
     ./wm/hyprland/anyrun.nix
     ./wm/hyprland/wlogout/wlogout.nix
   ];
@@ -57,6 +58,7 @@
     fastfetch
     kdePackages.dolphin
     swww
+    teams-for-linux
     tetris
     mangohud
     mpv
@@ -67,6 +69,8 @@
     ungoogled-chromium
     ventoy
     vlc
+    firefox
+
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -105,6 +109,13 @@
   #
   #  /etc/profiles/per-user/oliver/etc/profile.d/hm-session-vars.sh
   #
+  gtk.cursorTheme = {
+    package = pkgs.rose-pine-cursor;
+    name = "BreezeX-RoséPine";
+    size = 24;
+  };
+
+
   home.sessionVariables = {
     EDITOR = "helix";
     BROWSER = "floorp";

@@ -5,7 +5,7 @@
   settings,
   ...
 }: let
-  apple-emoji-linux = pkgs.callPackage ../myPkgs/apple-emoji-linux/default.nix {};
+  apple-emoji-linux = pkgs.callPackage ../pkgs/apple-emoji-linux/default.nix {};
 in {
   config.stylix = {
     enable = true;
@@ -14,7 +14,7 @@ in {
     image = settings.wallpaper;
     polarity = settings.polarity;
     opacity = settings.opacity;
-    
+
     cursor = {
       package = pkgs.${settings.cursor.package};
       name = settings.cursor.name;
