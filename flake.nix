@@ -80,14 +80,13 @@
         specialArgs = {inherit inputs settings;};
         modules = [
           inputs.nixos-cachyos-kernel.nixosModules.default
-          inputs.nixos-facter-modules.nixosModules.facter
-          {config.facter.reportPath = ./facter.json;}
-          {boot.loader.systemd-boot.enable = true;}
           inputs.base16.nixosModule
           inputs.solaar.nixosModules.solaar
           inputs.stylix.nixosModules.stylix
-          {environment.systemPackages = [inputs.anyrun.packages.${system}.anyrun];}
+          inputs.nixos-facter-modules.nixosModules.facter
+          {config.facter.reportPath = ./hosts/hp-victus/facter.json;}
           ./configuration.nix
+          ./hosts/hp-victus/default.nix
         ];
       };
     };

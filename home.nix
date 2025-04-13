@@ -1,23 +1,11 @@
 {pkgs, ...}: {
   imports = [
-    ./spicetify.nix
-    ./nixcord.nix
-    ./zed.nix
-    ./browsers/floorp.nix
-   # ./browsers/ungoogled-chromium.nix
-    ./browsers/zen-browser.nix
-    ./cli/btop.nix
-    ./cli/kitty.nix
-    ./cli/hyfetch.nix
-    ./cli/helix.nix
-    ./cli/files/nnn.nix
-    ./cli/files/ranger.nix
-    ./cli/shells/fish.nix
-    ./cli/shells/nushell.nix
+    ./modules/home-manager/default.nix
     ./theming/starship.nix
     ./theming/theming-home.nix
     ./wm/hyprland/waybar/waybar.nix
     ./wm/hyprland/hyprpanel.nix
+    ./wm/hyprland/hyprlock.nix
     #./wm/hyprland/hyprland-home.nix
     ./wm/hyprland/anyrun.nix
     ./wm/hyprland/wlogout/wlogout.nix
@@ -25,8 +13,10 @@
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
 
-  home.username = "oliver";
-  home.homeDirectory = "/home/oliver";
+  home = {
+    username = "oliver";
+    homeDirectory = "/home/oliver";
+  };
 
   #programs.kitty.enable = true;
   programs.git = {
@@ -57,6 +47,7 @@
     ghostty
     fastfetch
     kdePackages.dolphin
+    kdePackages.ark
     swww
     teams-for-linux
     tetris
@@ -70,13 +61,15 @@
     ventoy
     vlc
     firefox
-
+    libreoffice
+    gtklock
+    kicad-unstable
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    ".config/fastfetch/config.jsonc".source = ./cli/fastfetch.conf;
+    ".config/fastfetch/config.jsonc".source = ./fastfetch.conf;
     ".config/hypr/hyprland.conf".source = ./wm/hyprland/hyprland.conf;
     #".config/hypr/hypridle.conf".source = ./wm/hyprland/hypridle.conf;
     ".config/waybar/config.jsonc".source = ./wm/hyprland/waybar/waybar.conf;

@@ -16,6 +16,7 @@
   environment.systemPackages = with pkgs; [
     # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     android-tools
+    any-nix-shell
     busybox
     dconf
     git
@@ -25,7 +26,6 @@
     lshw
     pokeget-rs
     protonup
-    any-nix-shell
     playerctl
     udiskie
     rose-pine-hyprcursor
@@ -95,11 +95,22 @@
   # Open WebUI for Ollama
   #services.open-webui.enable = true;
 
-  #install Solaar
-  services.solaar = {
-    enable = true; # Enable the service
-    window = "hide";
-   # batteryIcons = "regular"; # (*regular*, symbolic, solaar)
+  services = {
+    solaar = {
+      enable = true; # Enable the service
+      window = "hide";
+    };
+    greetd = {
+      enable = true;
+      settings = rec {
+        initial_session = {
+          command = "${pkgs.hyprland}/bin/hyprland";
+          user = "oliver";
+        };
+        default_session = initial_session;
+        terminal.vt = 1;
+      };
+    };
   };
 
   # Configure console keymap
