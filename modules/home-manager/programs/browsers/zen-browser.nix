@@ -8,6 +8,11 @@
       isDefault = true;
       settings = {
         "extensions.autoDisableScopes" = 0;
+        /*
+        * ZEN **
+        */
+        "zen.welcome-screen.seen" = true;
+        "zen.tab-unloader.timeout-minutes" = 20;
 
         "extensions.webextensions.ExtensionStorageIDB.migrated.search@kagi.com" = true;
         "ui.key.menuAccessKeyFocuses" = false;

@@ -75,7 +75,7 @@
     settings = import ./settings.nix;
   in {
     nixosConfigurations = {
-      oliver = lib.nixosSystem {
+      hp-victus = lib.nixosSystem {
         inherit system;
         specialArgs = {inherit inputs settings;};
         modules = [
@@ -97,7 +97,7 @@
         extraSpecialArgs = {inherit inputs settings system;};
         modules = [
           inputs.stylix.homeManagerModules.stylix
-          inputs.anyrun.homeManagerModules.default
+         # inputs.anyrun.homeManagerModules.default
           ./home.nix
         ];
       };

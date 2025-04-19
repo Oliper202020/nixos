@@ -1,9 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./hardware-configuration.nix
     # Inculde the nvidia config
-    # ./nvidia.nix
-    ./nvidia/nvidia-selector.nix
     ./theming/theming.nix
     ./steam.nix
     ./system/nh.nix
@@ -23,16 +20,16 @@
     uutils-coreutils-noprefix
     uutils-findutils
     uutils-diffutils
-    lshw
+    #lshw
     pokeget-rs
     protonup
     playerctl
     udiskie
     rose-pine-hyprcursor
-    nwg-look
-    wl-clipboard
+    #nwg-look
+    #wl-clipboard
     wget
-    wlogout
+    #wlogout
     jq
     hyprlandPlugins.hyprexpo
   ];

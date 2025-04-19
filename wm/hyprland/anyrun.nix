@@ -1,9 +1,9 @@
-#location: /window-manager/hyprland/anyrun.nix
+#location: /wm/hyprland/anyrun.nix
 #imported: home.nix
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, lib, ... }: {
   programs = {
     anyrun = {
-      enable = true;
+      enable = lib.mkForce true;
       config = {
         x = { fraction = 0.5; };
         y = { fraction = 0.3; };
