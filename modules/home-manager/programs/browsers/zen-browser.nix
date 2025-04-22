@@ -1,13 +1,18 @@
-{pkgs, inputs, system, lib, ...}: {
-  programs.firefox = {
+{pkgs, inputs, system, ...}: {
+  programs.zen = {
     enable = true;
-   # package = lib.mkForce inputs.zen-browser.packages."${system}".default;
+    package = inputs.zen-browser.packages."${system}".default;
     profiles.oliver = {
       bookmarks = {
       };
-    #  isDefault = true;
+      isDefault = true;
       settings = {
         "extensions.autoDisableScopes" = 0;
+        /*
+        * ZEN **
+        */
+        "zen.welcome-screen.seen" = true;
+        "zen.tab-unloader.timeout-minutes" = 20;
 
         "extensions.webextensions.ExtensionStorageIDB.migrated.search@kagi.com" = true;
         "ui.key.menuAccessKeyFocuses" = false;
@@ -59,6 +64,7 @@
           istilldontcareaboutcookies
           flagfox
           floccus
+          clearurls
          # stylus
         ];
       };

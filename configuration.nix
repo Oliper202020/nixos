@@ -1,9 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./hardware-configuration.nix
     # Inculde the nvidia config
-    # ./nvidia.nix
-    ./nvidia/nvidia-selector.nix
     ./theming/theming.nix
     ./steam.nix
     ./system/nh.nix
@@ -11,30 +8,30 @@
     ./system/keyboard.nix
     ./system/boot.nix
     #./desktop/gnome.nix
-    ./window-manager/hyprland/hyprland.nix
+    ./wm/hyprland/hyprland.nix
   ];
   environment.systemPackages = with pkgs; [
     # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
+    android-tools
+    any-nix-shell
+    busybox
+    dconf
     git
     uutils-coreutils-noprefix
     uutils-findutils
     uutils-diffutils
-    lshw
+    #lshw
     pokeget-rs
-    dconf
-    wl-clipboard
-    android-tools
-    # nur.repos.xddxdd.magiskboot
     protonup
-    any-nix-shell
     playerctl
-    wlogout
-    busybox
     udiskie
     rose-pine-hyprcursor
-    rose-pine-cursor
-    nwg-look
+    #nwg-look
+    #wl-clipboard
+    wget
+    #wlogout
+    jq
+    hyprlandPlugins.hyprexpo
   ];
 
   virtualisation = {
@@ -95,11 +92,22 @@
   # Open WebUI for Ollama
   #services.open-webui.enable = true;
 
-  #install Solaar
-  services.solaar = {
-    enable = true; # Enable the service
-    window = "hide";
-   # batteryIcons = "regular"; # (*regular*, symbolic, solaar)
+  services = {
+    solaar = {
+      enable = true; # Enable the service
+      window = "hide";
+    };
+    greetd = {
+      enable = true;
+      settings = rec {
+        initial_session = {
+          command = "${pkgs.hyprland}/bin/hyprland";
+          user = "oliver";
+        };
+        default_session = initial_session;
+        terminal.vt = 1;
+      };
+    };
   };
 
   # Configure console keymap

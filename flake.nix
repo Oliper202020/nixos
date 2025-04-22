@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs = {
-      url = "nixpkgs/nixos-unstable";
+      url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";#"nixpkgs/nixos-unstable";
     };
     nixos-cachyos-kernel = {
       url = "github:drakon64/nixos-cachyos-kernel";
@@ -16,7 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      url = "github:0x006e/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
@@ -75,19 +75,18 @@
     settings = import ./settings.nix;
   in {
     nixosConfigurations = {
-      oliver = lib.nixosSystem {
+      hp-victus = lib.nixosSystem {
         inherit system;
         specialArgs = {inherit inputs settings;};
         modules = [
           inputs.nixos-cachyos-kernel.nixosModules.default
-          inputs.nixos-facter-modules.nixosModules.facter
-          {config.facter.reportPath = ./facter.json;}
-          {boot.loader.systemd-boot.enable = true;}
           inputs.base16.nixosModule
           inputs.solaar.nixosModules.solaar
           inputs.stylix.nixosModules.stylix
-          {environment.systemPackages = [inputs.anyrun.packages.${system}.anyrun];}
+          inputs.nixos-facter-modules.nixosModules.facter
+          {config.facter.reportPath = ./hosts/hp-victus/facter.json;}
           ./configuration.nix
+          ./hosts/hp-victus/default.nix
         ];
       };
     };
@@ -98,7 +97,7 @@
         extraSpecialArgs = {inherit inputs settings system;};
         modules = [
           inputs.stylix.homeManagerModules.stylix
-          inputs.anyrun.homeManagerModules.default
+         # inputs.anyrun.homeManagerModules.default
           ./home.nix
         ];
       };

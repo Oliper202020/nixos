@@ -1,30 +1,17 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   imports = [
-    ./spicetify.nix
-    ./nixcord.nix
-    ./kitty.nix
-    #./ungoogled-chromium.nix
-    ./fish.nix
-    ./nushell.nix
-    ./hyfetch.nix
-    ./nnn.nix
-    ./ranger.nix
+    ./modules/home-manager/default.nix
     ./theming/starship.nix
     ./theming/theming-home.nix
-    ./helix.nix
-    ./floorp.nix
-    #  ./zen-browser.nix
-    ./btop.nix
-    ./zed.nix
-    ./window-manager/hyprland/waybar/waybar.nix
-    ./window-manager/hyprland/hyprpanel.nix
-    ./window-manager/hyprland/anyrun.nix
+    ./wm/hyprland/default.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
 
-  home.username = "oliver";
-  home.homeDirectory = "/home/oliver";
+  home = {
+    username = "oliver";
+    homeDirectory = "/home/oliver";
+  };
 
   #programs.kitty.enable = true;
   programs.git = {
@@ -47,48 +34,32 @@
   # The option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    ungoogled-chromium
-    vlc
-    firefox
-    makemkv
-    prismlauncher
     bottles
-    ventoy
+    cmatrix
     inkscape
     gimp
     gparted
-    mangohud
-    ghostty
-    fastfetch
-    cmatrix
+   # ghostty
+    kdePackages.ark
     kdePackages.dolphin
-    mpv
+    kdePackages.dolphin-plugins
     swww
+    teams-for-linux
     tetris
-    pipes-rs
+    mangohud
+    mpv
+    makemkv
     nur.repos.xddxdd.magiskboot
+    prismlauncher
+    pipes-rs
+    ungoogled-chromium
+    ventoy
+    vlc
+    firefox
+    libreoffice
+    gtklock
+    kicad-unstable
   ];
-
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
-  home.file = {
-    ".config/fastfetch/config.jsonc".source = ./fastfetch.conf;
-    ".config/hypr/hyprland.conf".source = ./window-manager/hyprland/hyprland.conf;
-    #".config/hypr/hypridle.conf".source = ./window-manager/hyprland/hypridle.conf;
-    ".config/waybar/config.jsonc".source = ./window-manager/hyprland/waybar/waybar.conf;
-    ".config/wlogout".source = ./window-manager/hyprland/wlogout;
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Ni123x store copy.
-    #".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
-  };
-
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
   # shell provided by Home Manager. If you don't want to manage your shell
@@ -105,6 +76,17 @@
   #
   #  /etc/profiles/per-user/oliver/etc/profile.d/hm-session-vars.sh
   #
+  home.pointerCursor = {
+    enable = true;
+    gtk.enable = true;
+    package = lib.mkForce pkgs.rose-pine-cursor;
+    name = "rose-pine-cursor";
+  };
+  gtk = {
+    enable = true;
+    cursorTheme.name = "rose-pine-cursor";
+  };
+
   home.sessionVariables = {
     EDITOR = "helix";
     BROWSER = "floorp";
