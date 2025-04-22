@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs = {
-      url = "nixpkgs/nixos-unstable";
+      url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";#"nixpkgs/nixos-unstable";
     };
     nixos-cachyos-kernel = {
       url = "github:drakon64/nixos-cachyos-kernel";
