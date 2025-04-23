@@ -5,5 +5,6 @@
     ./helix.nix
     ./hyfetch.nix
     ./kitty.nix
+    ./starship.nix
   ];
 }

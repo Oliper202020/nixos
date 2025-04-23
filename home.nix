@@ -37,7 +37,7 @@
     bottles
     cmatrix
     inkscape
-    gimp
+    gimp3
     gparted
    # ghostty
     kdePackages.ark
@@ -50,6 +50,7 @@
     mpv
     makemkv
     nur.repos.xddxdd.magiskboot
+    nur.repos.nltch.ciscoPacketTracer8
     prismlauncher
     pipes-rs
     ungoogled-chromium
@@ -57,8 +58,8 @@
     vlc
     firefox
     libreoffice
-    gtklock
     kicad-unstable
+    ciscoPacketTracer8
   ];
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
