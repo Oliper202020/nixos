@@ -1,9 +1,8 @@
 {pkgs, lib, ...}: {
   imports = [
-    ./modules/home-manager/default.nix
-    ./theming/starship.nix
+    ./modules/home-manager
     ./theming/theming-home.nix
-    ./wm/hyprland/default.nix
+    ./wm/hyprland
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.

@@ -1,7 +1,5 @@
 {
   config,
-  inputs,
-  settings,
   ...
 }: let
   colors = config.lib.stylix.colors;
@@ -18,8 +16,8 @@ in {
         "[󰌽 ](bg:#${colors.base0C} fg:#${colors.base01})"
         "[](fg:#${colors.base0C} bg:#${colors.base02})$time$battery"
         "[](fg:#${colors.base02} bg:#${colors.base0E})$directory"
-        "[](fg:#${colors.base0E} bg:#${colors.base09})$git_branch$git_status$git_metrics"
-        "[](fg:#${colors.base09} bg:#none)
+        "[](fg:#${colors.base0E} bg:#${colors.base08})$git_branch$git_status$git_metrics"
+        "[](fg:#${colors.base08} bg:#none)
 $character"
       ];
 
@@ -101,16 +99,16 @@ $character"
       git_branch = {
         format = "[ \$symbol\$branch(:\$remote_branch) ](\$style)";
         symbol = "  ";
-        style = "fg:#${colors.base02} bg:#${colors.base09}";
+        style = "fg:#${colors.base02} bg:#${colors.base08}";
       };
       git_status = {
         format = "[$all_status](\$style)";
-        style = "fg:#${colors.base02} bg:#${colors.base09}";
+        style = "fg:#${colors.base02} bg:#${colors.base08}";
       };
       git_metrics = {
         format = "([+\$added](\$added_style))([-\$deleted](\$deleted_style))";
-        added_style = "fg:#${colors.base02} bg:#${colors.base09}";
-        deleted_style = "fg:#${colors.base02} bg:#${colors.base09}";
+        added_style = "fg:#${colors.base02} bg:#${colors.base08}";
+        deleted_style = "fg:#${colors.base02} bg:#${colors.base08}";
         disabled = false;
       };
       hg_branch = {

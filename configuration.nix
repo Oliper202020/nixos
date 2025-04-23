@@ -3,10 +3,7 @@
     # Inculde the nvidia config
     ./theming/theming.nix
     ./steam.nix
-    ./system/nh.nix
-    ./system/users.nix
-    ./system/keyboard.nix
-    ./system/boot.nix
+    ./system
     #./desktop/gnome.nix
     ./wm/hyprland/hyprland.nix
   ];
