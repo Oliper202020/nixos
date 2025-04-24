@@ -5,6 +5,9 @@
   settings,
   ...
 }: {
+  imports = [
+    inputs.stylix.homeManagerModules.stylix
+  ];
   config.stylix = {
     enable = true;
     autoEnable = true;

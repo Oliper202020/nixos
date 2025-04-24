@@ -48,7 +48,6 @@
     mangohud
     mpv
     makemkv
-    nur.repos.xddxdd.magiskboot
     nur.repos.nltch.ciscoPacketTracer8
     prismlauncher
     pipes-rs

@@ -1,12 +1,12 @@
 {
   pkgs,
-  config,
   inputs,
   settings,
   ...
-}: let
-  apple-emoji-linux = pkgs.callPackage ../pkgs/apple-emoji-linux/default.nix {};
-in {
+}: {
+  imports = [
+    inputs.stylix.nixosModules.stylix
+  ];
   config.stylix = {
     enable = true;
     autoEnable = true;
@@ -34,7 +34,7 @@ in {
         name = "JetBrainsMono Nerd Font Mono";
       };
       emoji = {
-        package = apple-emoji-linux;
+        package = pkgs.apple-color-emoji;
         name = "Apple Color Emoji";
       };
       sizes = settings.fonts.sizes;

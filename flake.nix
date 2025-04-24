@@ -70,33 +70,34 @@
       overlays = [
         nur.overlays.default
         inputs.hyprpanel.overlay
+        overlays
       ];
     };
+   # nixpkgs.overlays = [
+      # Add nur overlay for Firefox addons
+    #  nur.overlay
+     # (import ./overlays)
+    #];
     settings = import ./settings.nix;
+    overlays = import ./pkgs;
   in {
     nixosConfigurations = {
       hp-victus = lib.nixosSystem {
-        inherit system;
+        inherit system pkgs;
         specialArgs = {inherit inputs settings;};
         modules = [
-          inputs.nixos-cachyos-kernel.nixosModules.default
-          inputs.base16.nixosModule
           inputs.solaar.nixosModules.solaar
-          inputs.stylix.nixosModules.stylix
-          inputs.nixos-facter-modules.nixosModules.facter
-          {config.facter.reportPath = ./hosts/hp-victus/facter.json;}
           ./configuration.nix
-          ./hosts/hp-victus/default.nix
+          ./hosts/hp-victus
         ];
       };
     };
 
     homeConfigurations = {
       oliver = inputs.home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+        inherit system pkgs;
         extraSpecialArgs = {inherit inputs settings system;};
         modules = [
-          inputs.stylix.homeManagerModules.stylix
          # inputs.anyrun.homeManagerModules.default
           ./home.nix
         ];

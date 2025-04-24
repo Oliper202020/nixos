@@ -8,7 +8,6 @@
     ./wm/hyprland/hyprland.nix
   ];
   environment.systemPackages = with pkgs; [
-    # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     android-tools
     any-nix-shell
     busybox
@@ -17,23 +16,20 @@
     uutils-coreutils-noprefix
     uutils-findutils
     uutils-diffutils
-    #lshw
     pokeget-rs
     protonup
     playerctl
     udiskie
     rose-pine-hyprcursor
-    #nwg-look
-    #wl-clipboard
     wget
-    #wlogout
     jq
     hyprlandPlugins.hyprexpo
+    nur.repos.xddxdd.magiskboot
   ];
 
   virtualisation = {
     virtualbox.host.enable = true;
-    #waydroid.enable = true;
+    waydroid.enable = true;
   };
 
   # Set your time zone.
@@ -148,9 +144,9 @@
  # };
 
   # Allow unfree packages
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
+ # nixpkgs.config = {
+  #  allowUnfree = true;
+ # };
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
