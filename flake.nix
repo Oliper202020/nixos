@@ -86,7 +86,7 @@
         inherit system pkgs;
         specialArgs = {inherit inputs settings;};
         modules = [
-          inputs.solaar.nixosModules.solaar
+          {networking.hostName = "hp-victus";}
           ./configuration.nix
           ./hosts/hp-victus
         ];
@@ -95,7 +95,7 @@
 
     homeConfigurations = {
       oliver = inputs.home-manager.lib.homeManagerConfiguration {
-        inherit system pkgs;
+        inherit pkgs;
         extraSpecialArgs = {inherit inputs settings system;};
         modules = [
          # inputs.anyrun.homeManagerModules.default

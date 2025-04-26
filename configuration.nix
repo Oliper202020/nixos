@@ -86,10 +86,6 @@
   #services.open-webui.enable = true;
 
   services = {
-    solaar = {
-      enable = true; # Enable the service
-      window = "hide";
-    };
     greetd = {
       enable = true;
       settings = rec {
@@ -113,6 +109,9 @@
 
   # Enable bluetooth
   hardware.bluetooth.enable = true;
+
+  # Enable Network
+  networking.networkmanager.enable = true;
 
   # Enable sound with pipewire.
   security.rtkit.enable = true;
