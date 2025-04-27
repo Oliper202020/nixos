@@ -26,12 +26,12 @@
     hyprlandPlugins.hyprexpo
     nur.repos.xddxdd.magiskboot
   ];
-
+  programs.gnome-disks.enable = true;
   virtualisation = {
     virtualbox.host.enable = true;
     waydroid.enable = true;
   };
-
+  #services.mautrix-telegram.enable = true;
   # Set your time zone.
   time.timeZone = "Europe/Copenhagen";
 
