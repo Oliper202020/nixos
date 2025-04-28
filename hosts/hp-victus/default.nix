@@ -1,6 +1,7 @@
 {
   settings,
   inputs,
+  pkgs,
   ...
 }: {
   imports = [
@@ -21,5 +22,8 @@
       enable = true; # Enable the service
       window = "hide";
     };
+  };
+  boot = {
+    kernelPackages = with pkgs; linuxPackagesFor linuxPackages_cachyos;
   };
 }

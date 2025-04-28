@@ -1,7 +1,5 @@
-{pkgs, ...}: {
-  # Bootloader.
+{
   boot = {
-    kernelPackages = with pkgs; linuxPackagesFor linuxPackages_cachyos;
     plymouth = {
       enable = true;
       #  logo = ./theming/boot-logo.png;
@@ -38,4 +36,3 @@
 }
 # #theme = "rings";
 # themePackages =
-

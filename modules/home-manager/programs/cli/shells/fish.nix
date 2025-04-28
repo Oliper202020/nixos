@@ -22,7 +22,7 @@
 
     lsd = {
       enable = true;
-      enableAliases = true;
+      enableFishIntegration = true;
     };
     carapace = {
       enable = true;
