@@ -60,6 +60,7 @@
     ciscoPacketTracer8
     telegram-desktop
     ninvaders
+    qbittorrent
   ];
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
