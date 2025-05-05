@@ -5,12 +5,13 @@
     ./steam.nix
     ./system
     #./desktop/gnome.nix
-    ./wm/hyprland/hyprland.nix
+    #./wm/hyprland/hyprland.nix
   ];
   environment.systemPackages = with pkgs; [
     android-tools
     any-nix-shell
     busybox
+    brightnessctl
     dconf
     git
     uutils-coreutils-noprefix

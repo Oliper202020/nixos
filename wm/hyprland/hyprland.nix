@@ -1,7 +1,9 @@
+{pkgs, ...}:
 {
   programs = {
     hyprland = {
       enable = true;
+      portalPackage = pkgs.xdg-desktop-portal-hyprland;
       # withUWSM = true;
       #nvidiaPatches = true;
       xwayland.enable = true;
