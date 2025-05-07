@@ -27,6 +27,9 @@ in
           "XCURSOR_THEME,rose-pine-cursor"
           "HYPRCURSOR_SIZE,24"
           "HYPRCURSOR_THEME,rose-pine-hyprcursor"
+          "XDG_CURRENT_DESKTOP,Hyprland"
+          "XDG_SESSION_TYPE,wayland"
+          "XDG_SESSION_DESKTOP,Hyprland"
         ];
 
         monitor=",preferred,auto,auto";
@@ -44,9 +47,29 @@ in
           border_size = 2;
           layout = "dwindle";
           allow_tearing = false;
-          resize_on_border = true
-          col.active_border = rgba(${colors.base08}) rgba(${colors.base0E}) 45deg
-          col.inactive_border = rgba(${colors.base02})
+          resize_on_border = true;
+          col.active_border = rgba(${colors.base08}) rgba(${colors.base0E}) 45deg;
+          col.inactive_border = rgba(${colors.base02});
+        };
+        decoration = {
+          rounding = 7 # 10
+          rounding_power = 2
+          # Change transparency of focused and unfocused windows
+          active_opacity = 1.0
+          inactive_opacity = 0.95
+          shadow = {
+            enabled = true
+            range = 4
+            render_power = 3
+            color = rgba(1a1a1aee)
+          };
+          # https://wiki.hyprland.org/Configuring/Variables/#blur
+          blur = {
+            enabled = true
+            size = 3
+            passes = 1
+            vibrancy = 0.1696
+          };
         };
 
         bind = [

@@ -1753,7 +1753,7 @@
           "[13]",
           "[14]"
         ],
-        "bogo": 6388.32,
+        "bogo": 6388.5,
         "cache": 512,
         "units": 16,
         "physical_id": 0,
@@ -2017,7 +2017,7 @@
           },
           {
             "type": "irq",
-            "base": 98,
+            "base": 97,
             "triggered": 0,
             "enabled": true
           },
@@ -2059,7 +2059,7 @@
           "command": 1031,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 98,
+          "irq": 97,
           "prog_if": 0
         },
         "driver": "nvidia",
@@ -2622,7 +2622,7 @@
           {
             "type": "mem",
             "base": 0,
-            "range": 16063123456,
+            "range": 16063119360,
             "enabled": true,
             "access": "read_write",
             "prefetch": "unknown"
@@ -2842,9 +2842,9 @@
           "hex": "ce7d",
           "value": 52861
         },
-        "sysfs_id": "/devices/platform/AMDI0010:03/i2c-0/i2c-SYNA32B9:00/0018:06CB:CE7D.0001/input/input12",
+        "sysfs_id": "/devices/platform/AMDI0010:03/i2c-0/i2c-SYNA32B9:00/0018:06CB:CE7D.0005/input/input27",
         "unix_device_names": [
-          "/dev/input/event8",
+          "/dev/input/event14",
           "/dev/input/ + handler"
         ]
       }
@@ -2915,7 +2915,7 @@
           },
           {
             "type": "irq",
-            "base": 97,
+            "base": 100,
             "triggered": 0,
             "enabled": true
           },
@@ -3020,7 +3020,7 @@
           "command": 1031,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 97,
+          "irq": 100,
           "prog_if": 0
         },
         "driver": "rtw89_8852ae",
@@ -3150,43 +3150,6 @@
     "network_interface": [
       {
         "index": 69,
-        "attached_to": 0,
-        "class_list": [
-          "network_interface"
-        ],
-        "base_class": {
-          "hex": "0107",
-          "name": "Network Interface",
-          "value": 263
-        },
-        "sub_class": {
-          "hex": "0001",
-          "name": "Ethernet",
-          "value": 1
-        },
-        "model": "Ethernet network interface",
-        "sysfs_id": "/class/net/vboxnet0",
-        "unix_device_name": "vboxnet0",
-        "unix_device_names": [
-          "vboxnet0"
-        ],
-        "resources": [
-          {
-            "type": "hwaddr",
-            "address": 48
-          },
-          {
-            "type": "phwaddr",
-            "address": 48
-          }
-        ],
-        "driver": "vboxnet",
-        "drivers": [
-          "vboxnet"
-        ]
-      },
-      {
-        "index": 70,
         "attached_to": 26,
         "class_list": [
           "network_interface"
@@ -3225,6 +3188,43 @@
         ],
         "driver_modules": [
           "r8169"
+        ]
+      },
+      {
+        "index": 70,
+        "attached_to": 0,
+        "class_list": [
+          "network_interface"
+        ],
+        "base_class": {
+          "hex": "0107",
+          "name": "Network Interface",
+          "value": 263
+        },
+        "sub_class": {
+          "hex": "0001",
+          "name": "Ethernet",
+          "value": 1
+        },
+        "model": "Ethernet network interface",
+        "sysfs_id": "/class/net/vboxnet0",
+        "unix_device_name": "vboxnet0",
+        "unix_device_names": [
+          "vboxnet0"
+        ],
+        "resources": [
+          {
+            "type": "hwaddr",
+            "address": 48
+          },
+          {
+            "type": "phwaddr",
+            "address": 48
+          }
+        ],
+        "driver": "vboxnet",
+        "drivers": [
+          "vboxnet"
         ]
       },
       {
@@ -3344,7 +3344,7 @@
         "resources": [
           {
             "type": "irq",
-            "base": 86,
+            "base": 87,
             "triggered": 0,
             "enabled": true
           },
@@ -3367,20 +3367,12 @@
         ],
         "detail": {
           "function": 2,
-          "command": 1030,
+          "command": 2,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 86,
+          "irq": 87,
           "prog_if": 0
         },
-        "driver": "ccp",
-        "driver_module": "ccp",
-        "drivers": [
-          "ccp"
-        ],
-        "driver_modules": [
-          "ccp"
-        ],
         "module_alias": "pci:v00001022d000015DFsv0000103Csd000088EEbc10sc80i00"
       },
       {
@@ -3500,7 +3492,7 @@
         "resources": [
           {
             "type": "irq",
-            "base": 92,
+            "base": 93,
             "triggered": 0,
             "enabled": true
           },
@@ -3518,7 +3510,7 @@
           "command": 1030,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 92,
+          "irq": 93,
           "prog_if": 0
         },
         "driver": "snd_rn_pci_acp3x",
@@ -3587,7 +3579,7 @@
         "resources": [
           {
             "type": "irq",
-            "base": 40,
+            "base": 41,
             "triggered": 0,
             "enabled": true
           },
@@ -3605,7 +3597,7 @@
           "command": 1030,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 40,
+          "irq": 41,
           "prog_if": 1
         },
         "driver": "sdhci-pci",
@@ -3740,7 +3732,7 @@
         "resources": [
           {
             "type": "irq",
-            "base": 39,
+            "base": 40,
             "triggered": 0,
             "enabled": true
           },
@@ -3758,7 +3750,7 @@
           "command": 1030,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 39,
+          "irq": 40,
           "prog_if": 0
         },
         "driver": "snd_hda_intel",
@@ -3824,7 +3816,7 @@
         "resources": [
           {
             "type": "irq",
-            "base": 99,
+            "base": 98,
             "triggered": 0,
             "enabled": true
           },
@@ -3842,7 +3834,7 @@
           "command": 6,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 99,
+          "irq": 98,
           "prog_if": 0
         },
         "driver": "snd_hda_intel",
@@ -3909,7 +3901,7 @@
         "resources": [
           {
             "type": "irq",
-            "base": 37,
+            "base": 39,
             "triggered": 0,
             "enabled": true
           },
@@ -3927,7 +3919,7 @@
           "command": 1030,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 37,
+          "irq": 39,
           "prog_if": 2
         },
         "driver": "nvme",
@@ -4268,7 +4260,7 @@
         "resources": [
           {
             "type": "irq",
-            "base": 69,
+            "base": 70,
             "triggered": 0,
             "enabled": true
           },
@@ -4286,7 +4278,7 @@
           "command": 1031,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 69,
+          "irq": 70,
           "prog_if": 48
         },
         "driver": "xhci_hcd",

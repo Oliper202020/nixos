@@ -10,7 +10,10 @@
     #theme = "rose_pine";
     settings = {
       theme = {
-        bar.transparent = true;
+        bar = {
+          transparent = true;
+          buttons.borderSize = "0em";
+        };
         osd = {
           duration = 2000;
         #  location = "bottom";

@@ -8,7 +8,7 @@
     ./nvidia.nix
     ./hardware-configuration.nix
     inputs.solaar.nixosModules.solaar
-    inputs.nixos-cachyos-kernel.nixosModules.default
+    #linuxKernel.packages.linux_zen  inputs.nixos-cachyos-kernel.nixosModules.default
     inputs.nixos-facter-modules.nixosModules.facter
     {config.facter.reportPath = ./facter.json;}
   ];
@@ -24,6 +24,6 @@
     };
   };
   boot = {
-    kernelPackages = with pkgs; linuxPackagesFor linuxPackages_cachyos;
+    kernelPackages = with pkgs; linuxPackagesFor linux_zen;
   };
 }
