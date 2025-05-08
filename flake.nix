@@ -1,5 +1,5 @@
 {
-  description = "A very basic flake";
+  #description = "A very basic flake";
 
   inputs = {
     nixpkgs = {
