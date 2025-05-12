@@ -5,7 +5,7 @@
     ./hyprlock.nix
     ./anyrun.nix
     ./wlogout/wlogout.nix
-    #./hyprland-home.nix
+    #./hyprland.nix
   ];
   home.file = {
     ".config/hypr/hyprland.conf".source = ./hyprland.conf;

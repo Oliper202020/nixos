@@ -48,8 +48,8 @@ in
           layout = "dwindle";
           allow_tearing = false;
           resize_on_border = true;
-          col.active_border = rgba(${colors.base08}) rgba(${colors.base0E}) 45deg;
-          col.inactive_border = rgba(${colors.base02});
+          col.active_border = rgba("${colors.base08}") rgba("${colors.base0E}") 45deg;
+          col.inactive_border = rgba("${colors.base02}");
         };
         decoration = {
           rounding = 7; # 10

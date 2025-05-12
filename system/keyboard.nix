@@ -1,14 +1,14 @@
 {pkgs, ...}: {
   services = {
-    xserver = {
-      enable = true;
-      excludePackages = [pkgs.xterm];
+  #  xserver = {
+    #  enable = true;
+   #   excludePackages = [pkgs.xterm];
       # Configure keymap in X11
-      xkb = {
-        layout = "dk";
-        variant = "nodeadkeys";
-      };
-    };
+    #  xkb = {
+      #  layout = "dk";
+     #   variant = "nodeadkeys";
+        #  };
+    #};
     # caps to esc
     keyd = {
       enable = true;

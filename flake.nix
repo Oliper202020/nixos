@@ -70,7 +70,10 @@
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
-      config.allowUnfree = true;
+      config = {
+        allowUnfree = true;
+        allowInsecurePredicate = pkg: builtins.elem (lib.getName pkg) ["ventoy"];
+      };
       overlays = [
         nur.overlays.default
         inputs.hyprpanel.overlay

@@ -43,6 +43,7 @@
         dashboard = {
           directories.left.directory3.command = "bash -c \"xdg-open $HOME/.dotfiles/\"";
           directories.left.directory3.label = "󰚝 .dotfiles";
+          shortcuts.enabled = true;
           directories.enabled = true;
           stats.enable_gpu = true;
         };

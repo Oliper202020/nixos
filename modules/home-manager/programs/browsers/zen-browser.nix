@@ -13,6 +13,7 @@
         */
         "zen.welcome-screen.seen" = true;
         "zen.tab-unloader.timeout-minutes" = 20;
+        "zen.widget.linux.transparency" = true;
 
         "extensions.webextensions.ExtensionStorageIDB.migrated.search@kagi.com" = true;
         "ui.key.menuAccessKeyFocuses" = false;

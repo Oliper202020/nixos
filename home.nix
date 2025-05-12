@@ -2,7 +2,6 @@
   imports = [
     ./modules/home-manager
     ./theming/theming-home.nix
-    ./wm/hyprland
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -11,7 +10,6 @@
     username = "oliver";
     homeDirectory = "/home/oliver";
   };
-
   #programs.kitty.enable = true;
   programs.git = {
     enable = true;
@@ -56,7 +54,7 @@
     vlc
     firefox
     libreoffice
-    kicad-unstable
+    kicad
     ciscoPacketTracer8
     telegram-desktop
     ninvaders
@@ -81,6 +79,7 @@
   home.pointerCursor = {
     enable = true;
     gtk.enable = true;
+
     package = lib.mkForce pkgs.rose-pine-cursor;
     name = "rose-pine-cursor";
   };
@@ -94,7 +93,6 @@
     BROWSER = "floorp";
     TERMINAL = "kitty";
   };
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

@@ -27,7 +27,7 @@ in {
       rotatingCoverart
       pointer
     ];
-    theme = lib.mkForce spicePkgs.themes.text;
-    colorScheme = lib.mkForce "RosePine";
+   # theme = lib.mkForce spicePkgs.themes.text;
+   # colorScheme = lib.mkForce "RosePine";
   };
 }

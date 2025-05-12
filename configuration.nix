@@ -2,10 +2,8 @@
   imports = [
     # Inculde the nvidia config
     ./theming/theming.nix
-    ./steam.nix
+    ./modules/nixos
     ./system
-    #./desktop/gnome.nix
-    ./wm/hyprland/hyprland.nix
   ];
   environment.systemPackages = with pkgs; [
     android-tools
@@ -26,7 +24,16 @@
     jq
     hyprlandPlugins.hyprexpo
     nur.repos.xddxdd.magiskboot
+    xdg-desktop-portal-hyprland
   ];
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
+    ];
+  };
+
   programs.gnome-disks.enable = true;
   virtualisation = {
     virtualbox.host.enable = true;
@@ -102,7 +109,7 @@
 
   # Configure console keymap
   console = {
-    useXkbConfig = true;
+    #useXkbConfig = true;
   };
 
   # Enable CUPS to print documents.
@@ -137,16 +144,6 @@
 
   security.sudo-rs.enable = true;
 
- # packageOverrides = pkgs: {
- #   nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/main.tar.gz") {
- #     inherit pkgs;
- #   };
- # };
-
-  # Allow unfree packages
- # nixpkgs.config = {
-  #  allowUnfree = true;
- # };
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
