@@ -5,6 +5,7 @@
     ./modules/nixos
     ./system
   ];
+
   environment.systemPackages = with pkgs; [
     android-tools
     any-nix-shell
@@ -22,22 +23,21 @@
     rose-pine-hyprcursor
     wget
     jq
-    hyprlandPlugins.hyprexpo
+    #hyprlandPlugins.hyprexpo
     nur.repos.xddxdd.magiskboot
     xdg-desktop-portal-hyprland
   ];
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-hyprland
-      xdg-desktop-portal-gtk
-    ];
-  };
 
-  programs.gnome-disks.enable = true;
+ # xdg.portal = {
+   # enable = true;
+   # extraPortals = with pkgs; [
+     # xdg-desktop-portal-hyprland
+     # xdg-desktop-portal-gtk
+   # ];
+  #};
   virtualisation = {
     virtualbox.host.enable = true;
-    waydroid.enable = true;
+    #waydroid.enable = true;
   };
   #services.mautrix-telegram.enable = true;
   # Set your time zone.

@@ -15,4 +15,8 @@
   };
   home.sessionVariables.XDG_CURRENT_DESKTOP = "Hyprland";
   xdg.portal.enable = true;
+  services.xserver = {
+    enable = true;
+    excludePackages = [pkgs.xterm];
+  };
 }

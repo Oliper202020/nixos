@@ -59,6 +59,10 @@
     telegram-desktop
     ninvaders
     qbittorrent
+    xfce.thunar
+    xfce.thunar-media-tags-plugin
+    xfce.thunar-archive-plugin
+    xfce.thunar-volman
   ];
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
@@ -76,18 +80,6 @@
   #
   #  /etc/profiles/per-user/oliver/etc/profile.d/hm-session-vars.sh
   #
-  home.pointerCursor = {
-    enable = true;
-    gtk.enable = true;
-
-    package = lib.mkForce pkgs.rose-pine-cursor;
-    name = "rose-pine-cursor";
-  };
-  gtk = {
-    enable = true;
-    cursorTheme.name = "rose-pine-cursor";
-  };
-
   home.sessionVariables = {
     EDITOR = "helix";
     BROWSER = "floorp";

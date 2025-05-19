@@ -49,8 +49,8 @@ in
       window {
         font-family: monospace;
         font-size: 14pt;
-        color: #${colors.base01}; /* text */
-        background-color: rgba(30, 30, 46, 0.5);
+        color: #cdd6f4; /* text */
+        background-color: rgba(#${colors.base03}88);
       }
 
       button {
@@ -58,17 +58,17 @@ in
         background-position: center;
         background-size: 25%;
         border: none;
-        background-color: #${colors.base03} /* rgba(30, 30, 46, 0)*/;
+        background-color: rgba(#00000000);
         margin: 5px;
         transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
       }
 
       button:hover {
-        background-color: #${colors.base09} /*rgba(49, 50, 68, 0.3)*/;
+        background-color: rgba(49, 50, 68, 0.3);
       }
 
       button:focus {
-        background-color: #${colors.base08};
+        background-color: #cba6f7;
         color: #1e1e2e;
       }
       #lock {

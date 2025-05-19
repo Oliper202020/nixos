@@ -13,11 +13,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:0x006e/home-manager";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
       url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     base16 = {
       url = "github:SenchoPens/base16.nix";
@@ -51,13 +52,6 @@
     jovian-nixos = {
       url = "github:Jovian-Experiments/Jovian-NixOS";
       flake = true;
-    };
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-    };
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
     };
   };
 

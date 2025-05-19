@@ -6,13 +6,13 @@
   ...
 }: {
   imports = [
-    inputs.stylix.homeManagerModules.stylix
+    inputs.stylix.homeModules.stylix
   ];
   config.stylix = {
     enable = true;
     autoEnable = true;
     base16Scheme = "${inputs.tt-schemes}/base16/${settings.base16}.yaml";
-    image = settings.wallpaper;
+    #image = settings.wallpaper;
     polarity = settings.polarity;
     opacity = settings.opacity;
     cursor = {
@@ -20,9 +20,11 @@
       name = settings.cursor.name;
       size = settings.cursor.size;
     };
-    targets.floorp = {
-      profileNames = ["oliver"];
-      #colorTheme.enable = true;
+    targets = {
+      floorp = {
+        profileNames = ["oliver"];
+        #colorTheme.enable = true;
+      };
     };
   };
 }

@@ -12,7 +12,10 @@
       theme = {
         bar = {
           transparent = true;
-          buttons.borderSize = "0em";
+          buttons = {
+            borderSize = "0.05em";
+            enableBorders = true;
+          };
         };
         osd = {
           duration = 2000;
