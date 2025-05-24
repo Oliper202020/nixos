@@ -5,7 +5,7 @@
       shellInit = ''pokeget random --hide-name'';
       interactiveShellInit = ''
         set -g fish_greeting ""
-        any-nix-shell fish --info-right | source
+        any-nix-shell fish | source
       '';
       shellAliases = {
         "matrix" = "cmatrix";
@@ -17,6 +17,7 @@
         #"# " = "sudo ";
         "hy" = "hyfetch";
         "neo" = "fastfetch";
+        "suod" = "sudo";
       };
     };
 

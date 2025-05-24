@@ -1,4 +1,4 @@
-{pkgs, config, lib, inputs, ...}:
+{pkgs, config, lib, ...}:
 let
   colors = config.lib.stylix.colors;
 in
@@ -40,8 +40,9 @@ in
       monitor=",preferred,auto,auto";
 
       input = {
-        kb_layout = "dk";
-        kb_variant = "nodeadkeys";
+        kb_layout = "us";
+        kb_variant = "workman";
+        #kb_variant = "nodeadkeys";
         follow_mouse = "1";
         touchpad.natural_scroll = true;
       };
@@ -193,25 +194,4 @@ in
   systemd.user.targets.hyprland-session.Unit.Wants = [
     "xdg-desktop-autostart.target"
   ];
-  #services.hypridle = {
-  #  enable.true;
-  #  settings = {
-  #    general = {
-  #      after_sleep_cmd = "hyprctl dispatch dpms on";
-  #      ignore_dbus_inhibit = false;
-  #      lock_cmd = "hyprlock";
-  #    };
-  #    listener = [
-  #      {
-  #        timeout = 900;
-  #        on-timeout = "hyprlock";
-  #      }
-  #      {
-  #        timeout = 1200;
-  #        on-timeout = "hyprctl dispatch dpms off";
-  #        on-resume = "hyprctl dispatch dpms on";
-  #      }
-  #    ];
-  #  };
-  #};
 }

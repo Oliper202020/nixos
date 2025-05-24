@@ -32,7 +32,7 @@
         "hy" = "hyfetch";
         "neo" = "fastfetch";
         "matrix" = "cmatrix";
-        clear = "command clear; pokeget random --hide-name";
+        #clear = "command clear; pokeget random --hide-name";
        # "rebuild" = '''
      #     do {
    #         nh os switch ~/.dotfiles;
@@ -43,4 +43,3 @@
     };
   };
 }
-

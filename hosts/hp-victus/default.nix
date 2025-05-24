@@ -12,6 +12,7 @@
     inputs.nixos-facter-modules.nixosModules.facter
     {config.facter.reportPath = ./facter.json;}
   ];
+  networking.hostName = "hp-victus";
   # Enable automatic login for the user.
   services = {
     displayManager.autoLogin = {

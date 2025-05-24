@@ -1,4 +1,4 @@
-{pkgs, lib, ...}: {
+{pkgs, ...}: {
   imports = [
     ./modules/home-manager
     ./theming/theming-home.nix
