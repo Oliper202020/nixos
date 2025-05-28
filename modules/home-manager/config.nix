@@ -24,7 +24,7 @@
 
   home.sessionVariables = {
     EDITOR = "zed";
-    BROWSER = "zen-beta";
+    BROWSER = "zen-twilight";
     TERMINAL = "kitty";
   };
 

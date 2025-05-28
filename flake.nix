@@ -85,38 +85,38 @@
   in {
 
     nixosConfigurations = {
-      installer = lib.nixosSystem {
-        modules = [
+      #installer = lib.nixosSystem {
+        #modules = [
           # setup live-bootable installer
-          host.all-hardware
-          (
-            { config, lib, modulesPath, ... }:
-            {
-              imports = [ "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix" ];
-              config = {
+         # host.all-hardware
+         # (
+           # { config, lib, modulesPath, ... }:
+           # {
+              #imports = [ "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix" ];
+              #config = {
                 #isoImage.isoBaseName = "nixos-my-setup";
-                networking.hostName = "nixos-my-setup";
-                system.stateVersion = lib.versions.majorMinor config.system.nixos.version;
-                nix.settings.experimental-features = [ "nix-command" "flakes" ];
-              };
-            }
-          )
+                #networking.hostName = "nixos-my-setup";
+                #system.stateVersion = lib.versions.majorMinor config.system.nixos.version;
+                #nix.settings.experimental-features = [ "nix-command" "flakes" ];
+                # };
+              # }
+            # )
           # configure disko-install-menu
-          inputs.disko-install-menu.nixosModules.default
-          {
-            programs.disko-install-menu = {
-              enable = true;
-              options = {
+         # inputs.disko-install-menu.nixosModules.default
+         # {
+           # programs.disko-install-menu = {
+             # enable = true;
+             # options = {
                 # set those to your liking
-                defaultFlake = "gitlab:salvesen1/nixos";
-                defaultHost = "empty";
-              };
-            };
-          }
+               # defaultFlake = "gitlab:salvesen1/nixos";
+               # defaultHost = "empty";
+                # };
+              # };
+            # }
           # and everything else you think you might need …
-        ];
-        system = "x86_64-linux";
-      };
+          # ];
+      #  system = "x86_64-linux";
+     # };
       hp-victus = lib.nixosSystem {
         inherit system pkgs;
         specialArgs = {inherit inputs settings;};

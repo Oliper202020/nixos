@@ -64,6 +64,11 @@
     xfce.thunar-archive-plugin
     xfce.thunar-volman
   ];
+
+  home.file = {
+    #".config/hypr/hyprland.conf".source = ./hyprland.conf;
+    ".config/.lesskey".source = ./config/less.conf;
+  };
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
   # shell provided by Home Manager. If you don't want to manage your shell
@@ -80,11 +85,6 @@
   #
   #  /etc/profiles/per-user/oliver/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    EDITOR = "helix";
-    BROWSER = "floorp";
-    TERMINAL = "kitty";
-  };
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

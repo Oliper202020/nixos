@@ -120,8 +120,10 @@
   hardware.bluetooth.enable = true;
 
   # Enable Network
-  networking.networkmanager.enable = true;
-
+  networking = {
+    useNetworkd = true;
+    networkmanager.enable = true;
+  };
   # Enable sound with pipewire.
   security.rtkit.enable = true;
   services = {
