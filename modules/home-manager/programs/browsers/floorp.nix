@@ -1,6 +1,12 @@
 {pkgs, ...}: {
   programs.floorp = {
     enable = true;
+    policies = {
+      DisableFirefoxAccounts = true;
+      NoDefaultBookmarks = true;
+      DisableProfileImport = true;
+      DontCheckDefaultBrowser = true;
+    };
     profiles.oliver = {
       bookmarks = {
       };

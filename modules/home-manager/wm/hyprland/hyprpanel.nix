@@ -10,13 +10,6 @@ in
   programs.hyprpanel = {
     enable = true;
     hyprland.enable = true;
-    overwrite = {
-      enable = true;
-      #"bar.theme.buttons.workspaces" = "${colors.base08}";
-      #"theme.bar.buttons.workspaces.active" = accent;
-      #"theme.bar.buttons.workspaces.available" = "${colors.base08}";
-      #"theme.bar.buttons.workspaces.occupied" = "${colors.base08}";
-    };
     settings = {
       theme = {
         bar = {

@@ -7,6 +7,8 @@
     policies = {
       DisableFirefoxAccounts = true;
       NoDefaultBookmarks = true;
+      DisableProfileImport = true;
+      DontCheckDefaultBrowser = true;
     };
     profiles.oliver = {
       bookmarks = {

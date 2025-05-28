@@ -59,15 +59,11 @@
     telegram-desktop
     ninvaders
     qbittorrent
-    xfce.thunar
-    xfce.thunar-media-tags-plugin
-    xfce.thunar-archive-plugin
-    xfce.thunar-volman
   ];
 
   home.file = {
     #".config/hypr/hyprland.conf".source = ./hyprland.conf;
-    ".config/.lesskey".source = ./config/less.conf;
+    #".config/.lesskey".source = ./config/less.conf;
   };
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a

@@ -15,7 +15,7 @@ in
       "$mainMod" = "SUPER";
       "$terminal" = "kitty";
       "$browser" = "zen-twilight";
-      "$fileManager" = "dolphin";
+      "$fileManager" = "thunar";
 
       exec-once = [
         "hyprpanel"
@@ -25,6 +25,7 @@ in
         "sh wall-switch.sh"
         "wl-clip-persist --clipboard both &"
         "wl-paste --watch cliphist store &"
+        "[specialworkspace btop] btop"
       ];
 
       env = [
@@ -85,7 +86,8 @@ in
         "$mainMod, P, pseudo, # dwindle"
         "$mainMod SHIFT, J, togglesplit, # dwindle"
         "$mainMod SHIFT, L, exec, killall wlogout 2>/dev/null; wlogout --buttons-per-row 4 --margin-top=400px --margin-bottom=400px --margin-left=400px --margin-right=400px"
-        "$mainMod, B, exec, $browser"
+        "$mainMod, K, exec, $browser"
+        #"$mainMod, W, exec, [workspace, special:btop] btop"
         # "$mainMod SHIFT, B, exec, waybar"
         "ALT, SPACE, exec, anyrun"
         #"$mainMod, TAB, hyprexpo:expo, toggle"
@@ -98,33 +100,32 @@ in
 
         # Switch workspaces with mainMod + [0-9]
         "$mainMod, 1, workspace, 1"
-        "$mainMod, 2, workspace, 2"
-        "$mainMod, 3, workspace, 3"
-        "$mainMod, 4, workspace, 4"
-        "$mainMod, 5, workspace, 5"
-        "$mainMod, 6, workspace, 6"
-        "$mainMod, 7, workspace, 7"
-        "$mainMod, 8, workspace, 8"
-        "$mainMod, 9, workspace, 9"
-        "$mainMod, 0, workspace, 10"
-        "$mainMod, G, workspace, Games"
-
-        # Move active window to a workspace with mainMod + SHIFT + [0-9]
         "$mainMod SHIFT, 1, movetoworkspace, 1"
+        "$mainMod, 2, workspace, 2"
         "$mainMod SHIFT, 2, movetoworkspace, 2"
+        "$mainMod, 3, workspace, 3"
         "$mainMod SHIFT, 3, movetoworkspace, 3"
+        "$mainMod, 4, workspace, 4"
         "$mainMod SHIFT, 4, movetoworkspace, 4"
+        "$mainMod, 5, workspace, 5"
         "$mainMod SHIFT, 5, movetoworkspace, 5"
+        "$mainMod, 6, workspace, 6"
         "$mainMod SHIFT, 6, movetoworkspace, 6"
+        "$mainMod, 7, workspace, 7"
         "$mainMod SHIFT, 7, movetoworkspace, 7"
+        "$mainMod, 8, workspace, 8"
         "$mainMod SHIFT, 8, movetoworkspace, 8"
+        "$mainMod, 9, workspace, 9"
         "$mainMod SHIFT, 9, movetoworkspace, 9"
+        "$mainMod, 0, workspace, 10"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
+        "$mainMod, G, workspace, Games"
         "$mainMod SHIFT, G, movetoworkspace, Games"
-
-        # Example special workspace (scratchpad)
         "$mainMod, S, togglespecialworkspace, spotify"
         "$mainMod SHIFT, S, movetoworkspace, special:spotify"
+        "$mainMod, B, togglespecialworkspace, btop"
+        "$mainMod SHIFT, B, movetoworkspace, special:btop"
+
 
         # Scroll through existing workspaces with mainMod + scroll
         "$mainMod, mouse_down, workspace, e+1"
