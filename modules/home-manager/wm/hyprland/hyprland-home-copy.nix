@@ -18,6 +18,7 @@ in
       "$fileManager" = "thunar";
 
       exec-once = [
+        "hyprlock"
         "hyprpanel"
         "spotify"
         "$browser"

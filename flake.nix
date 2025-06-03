@@ -32,8 +32,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:Gerg-L/spicetify-nix/24.11";
+      #inputs.nixpkgs.follows = "nixpkgs";
     };
     nixcord = {
       url = "github:kaylorben/nixcord";
@@ -42,10 +42,10 @@
       url = "github:anyrun-org/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    solaar = {
-      url = "github:Svenum/Solaar-Flake/main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #solaar = {
+    #  url = "github:Svenum/Solaar-Flake/main";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
     };

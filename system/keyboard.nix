@@ -2,8 +2,8 @@
   services = {
     xserver = {
       xkb = {
-        layout = "dk";
-        variant = "nodeadkeys";
+        layout = "us";
+        variant = "workman";
       };
     };
     # caps to esc

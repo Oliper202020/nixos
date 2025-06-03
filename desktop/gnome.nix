@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  services.xserver = {
+  services = {
     displayManager.gdm = {
       enable = true;
       wayland = true;
