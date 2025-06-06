@@ -42,10 +42,9 @@
       url = "github:anyrun-org/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    #solaar = {
-    #  url = "github:Svenum/Solaar-Flake/main";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    qbittorrent-flake = {
+      url = "gitlab:salvesen1/qbittorrent-flake";
+    };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
     };

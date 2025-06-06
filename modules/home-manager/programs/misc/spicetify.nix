@@ -1,9 +1,4 @@
-{
-  pkgs,
-  inputs,
-  lib,
-  ...
-}: let
+{ pkgs, inputs, lib, ... }: let
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
 in {
   imports = [

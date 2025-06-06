@@ -418,6 +418,27 @@
     "home-manager_2": {
       "inputs": {
         "nixpkgs": [
+          "qbittorrent-flake",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1748955489,
+        "narHash": "sha256-OmZXyW2g5qIuo5Te74McwR0TwauCO2sF3/SjGDVuxyg=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "bb846c031be68a96466b683be32704ef6e07b159",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "home-manager_3": {
+      "inputs": {
+        "nixpkgs": [
           "stylix",
           "nixpkgs"
         ]
@@ -436,7 +457,7 @@
         "type": "github"
       }
     },
-    "home-manager_3": {
+    "home-manager_4": {
       "inputs": {
         "nixpkgs": [
           "zen-browser",
@@ -623,6 +644,23 @@
       "locked": {
         "lastModified": 1748693115,
         "narHash": "sha256-StSrWhklmDuXT93yc3GrTlb0cKSS0agTAxMGjLKAsY8=",
+        "ref": "nixos-unstable",
+        "rev": "910796cabe436259a29a72e8d3f5e180fc6dfacc",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/NixOS/nixpkgs"
+      },
+      "original": {
+        "ref": "nixos-unstable",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/NixOS/nixpkgs"
+      }
+    },
+    "nixpkgs_5": {
+      "locked": {
+        "lastModified": 1748693115,
+        "narHash": "sha256-StSrWhklmDuXT93yc3GrTlb0cKSS0agTAxMGjLKAsY8=",
         "owner": "NixOS",
         "repo": "nixpkgs",
         "rev": "910796cabe436259a29a72e8d3f5e180fc6dfacc",
@@ -635,7 +673,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_5": {
+    "nixpkgs_6": {
       "locked": {
         "lastModified": 1743448293,
         "narHash": "sha256-bmEPmSjJakAp/JojZRrUvNcDX2R5/nuX6bm+seVaGhs=",
@@ -699,6 +737,25 @@
         "type": "github"
       }
     },
+    "qbittorrent-flake": {
+      "inputs": {
+        "home-manager": "home-manager_2",
+        "nixpkgs": "nixpkgs_4"
+      },
+      "locked": {
+        "lastModified": 1748977681,
+        "narHash": "sha256-0gWsNBSbRayWWCtOIYFZDzK9jZEARGeETG8MslEvUus=",
+        "owner": "salvesen1",
+        "repo": "qbittorrent-flake",
+        "rev": "dea2deb6fd03d9e641550a9e3b1dcd92ba35a593",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "salvesen1",
+        "repo": "qbittorrent-flake",
+        "type": "gitlab"
+      }
+    },
     "root": {
       "inputs": {
         "anyrun": "anyrun",
@@ -710,6 +767,7 @@
         "nixos-facter-modules": "nixos-facter-modules",
         "nixpkgs": "nixpkgs_3",
         "nur": "nur",
+        "qbittorrent-flake": "qbittorrent-flake",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix",
         "tt-schemes": "tt-schemes",
@@ -718,7 +776,7 @@
     },
     "spicetify-nix": {
       "inputs": {
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_5",
         "systems": "systems_2"
       },
       "locked": {
@@ -747,7 +805,7 @@
         "flake-parts": "flake-parts_4",
         "git-hooks": "git-hooks",
         "gnome-shell": "gnome-shell",
-        "home-manager": "home-manager_2",
+        "home-manager": "home-manager_3",
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -960,8 +1018,8 @@
     },
     "zen-browser": {
       "inputs": {
-        "home-manager": "home-manager_3",
-        "nixpkgs": "nixpkgs_5"
+        "home-manager": "home-manager_4",
+        "nixpkgs": "nixpkgs_6"
       },
       "locked": {
         "lastModified": 1748920570,
