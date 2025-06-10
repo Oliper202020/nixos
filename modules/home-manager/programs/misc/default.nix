@@ -2,7 +2,7 @@
   imports = [
     ./nixcord.nix
     ./spicetify.nix
-    ./qbittorrent
+    ./qbittorrent.nix
     ./zed.nix
   ];
 }

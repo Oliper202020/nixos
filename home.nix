@@ -58,7 +58,7 @@
     ciscoPacketTracer8
     telegram-desktop
     ninvaders
-    qbittorrent-enhanced
+    #qbittorrent-enhanced
   ];
 
   home.file = {

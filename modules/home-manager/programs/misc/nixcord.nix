@@ -1,4 +1,3 @@
-#location; /nixcord.nix
 { inputs, ... }: {
   imports = [
     inputs.nixcord.homeModules.nixcord

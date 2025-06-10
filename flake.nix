@@ -54,11 +54,7 @@
     };
   };
 
-  outputs = {
-    nixpkgs,
-    nur,
-    ...
-  } @ inputs: let
+  outputs = { nixpkgs, nur, ... } @ inputs: let
     lib = nixpkgs.lib;
     system = "x86_64-linux";
     pkgs = import nixpkgs {
