@@ -58,6 +58,7 @@
     ciscoPacketTracer8
     telegram-desktop
     ninvaders
+    minicom
     #qbittorrent-enhanced
   ];
 

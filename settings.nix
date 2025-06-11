@@ -4,8 +4,8 @@
   full-name = "Oliver Salvesen";
 
   #theming
-  base16 = "tokyo-city-terminal-dark";
-  wallpaper = ./theming/gruvbox.png;
+  base16 = "rose-pine";
+  #wallpaper = ./theming/gruvbox.png;
   polarity = "dark";
   opacity = {
     applications = 0.8;

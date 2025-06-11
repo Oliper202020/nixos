@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, ... }:
 
 {
   # Load nvidia driver for Xorg and Wayland
@@ -21,7 +21,7 @@
 
     # Enable the NVIDIA settings GUI (accessible via `nvidia-settings`)
     nvidiaSettings = true;
-    
+
     # Driver package (stable version)
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
