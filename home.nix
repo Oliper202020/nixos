@@ -55,7 +55,6 @@
     firefox
     libreoffice
     kicad
-    ciscoPacketTracer8
     telegram-desktop
     ninvaders
     minicom

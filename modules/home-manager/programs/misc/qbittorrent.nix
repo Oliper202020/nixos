@@ -14,9 +14,9 @@
         "Accepted" = "true";
       };
     };
-    #searchPluginPackages = [
-    #  1337x
-   #   audiobookbay
-   # ];
+    searchPluginPackages = with pkgs; [
+      1337x
+      audiobookbay
+    ];
   };
 }
