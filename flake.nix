@@ -3,13 +3,13 @@
 
   inputs = {
     nixpkgs = {
-      url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";#"nixpkgs/nixos-unstable";
+      url = "github:NixOS/nixpkgs/nixos-unstable";#"nixpkgs/nixos-unstable";
     };
     nixos-facter-modules = {
       url = "github:numtide/nixos-facter-modules";
     };
     nur = {
-      url = "github:nix-community/NUR";
+      url = "github:Oliper202020/NUR";#nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
@@ -42,7 +42,7 @@
       url = "github:anyrun-org/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    qbittorrent-flake = {
+    qbittorrent = {
       url = "gitlab:salvesen1/qbittorrent-flake";
     };
     zen-browser = {
@@ -52,54 +52,53 @@
       url = "github:Jovian-Experiments/Jovian-NixOS";
       flake = true;
     };
+    devshell = {
+      url = "github:numtide/devshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, nur, ... } @ inputs: let
-    lib = nixpkgs.lib;
+  outputs = { ... } @ inputs: let
+    lib = inputs.nixpkgs.lib;
     system = "x86_64-linux";
-    pkgs = import nixpkgs {
+    pkgs = import inputs.nixpkgs {
       inherit system;
       config = {
         allowUnfree = true;
         allowInsecurePredicate = pkg: builtins.elem (lib.getName pkg) ["ventoy"];
       };
       overlays = [
-        nur.overlays.default
-        inputs.hyprpanel.overlay
+        inputs.nur.overlays.default
+        inputs.qbittorrent.overlays.default
+        #inputs.hyprpanel.overlay
         overlays
       ];
     };
-   # nixpkgs.overlays = [
-      # Add nur overlay for Firefox addons
-    #  nur.overlay
-     # (import ./overlays)
-    #];
     settings = import ./settings.nix;
     overlays = import ./pkgs;
     host = import ./hosts;
   in {
 
     nixosConfigurations = {
-      hp-victus = lib.nixosSystem {
+      thinkpad-l540 = lib.nixosSystem {
         inherit system pkgs;
         specialArgs = {inherit inputs settings;};
         modules = [
           ./configuration.nix
-          host.hp-victus
+          host.thinkpad-l540
+        ];
+      };
+      hpe-dl380p-gen8 = lib.nixosSystem {
+        inherit system pkgs;
+        specialArgs = {inherit inputs settings;};
+        modules = [
+          ./modules/server
+          host.hpe-dl380p-gen8
         ];
       };
     };
-
-    homeConfigurations = {
-      oliver = inputs.home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = {inherit inputs settings system;};
-        modules = [
-         # inputs.anyrun.homeManagerModules.default
-          ./home.nix
-        ];
-      };
+    devshells = import ./devshells {
+      inherit pkgs inputs;
     };
   };
-
 }

@@ -3,6 +3,9 @@ let
   colors = config.lib.stylix.colors;
 in
 {
+  imports = [
+    ../../../../../theming/theming-home.nix
+  ];
   programs.wlogout = {
     enable = true;
     #package = pkgs.wleave;

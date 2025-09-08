@@ -1,9 +1,11 @@
 {pkgs, ...}: {
   imports = [
     # Inculde the nvidia config
-    ./theming/theming.nix
+    #./theming/theming.nix
     ./modules/nixos
     ./system
+    ./home.nix
+    ./desktop/gnome.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -23,9 +25,12 @@
     rose-pine-hyprcursor
     wget
     jq
+    kitty
     #hyprlandPlugins.hyprexpo
     nur.repos.xddxdd.magiskboot
     xdg-desktop-portal-hyprland
+    tetris-workman
+    nur.repos.workman-nur.ninvaders-workman
   ];
 
  # xdg.portal = {
@@ -66,7 +71,7 @@
   # flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
   #'';
   # };
-
+  #nixpkgs.config.allowUnfree = true;
   system = {
     rebuild.enableNg = true;
     autoUpgrade = {
@@ -76,10 +81,10 @@
   };
 
   nix = {
-    channel.enable = false;
+    channel.enable = true;
     settings = {
-      substituters = ["https://drakon64-nixos-cachyos-kernel.cachix.org"];
-      trusted-public-keys = ["drakon64-nixos-cachyos-kernel.cachix.org-1:J3gjZ9N6S05pyLA/P0M5y7jXpSxO/i0rshrieQJi5D0="];
+      substituters = [""];
+      trusted-public-keys = [""];
       auto-optimise-store = true;
       experimental-features = ["nix-command" "flakes"];
     };
@@ -95,8 +100,9 @@
   #services.open-webui.enable = true;
 
   services = {
+    seatd.enable = true;
     greetd = {
-      enable = true;
+      enable = false;
       settings = rec {
         initial_session = {
           command = "${pkgs.hyprland}/bin/hyprland";# and ${pkgs.hyprlock}/bin/hyprlock";
@@ -153,5 +159,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 }

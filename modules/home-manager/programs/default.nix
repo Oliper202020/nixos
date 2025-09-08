@@ -3,5 +3,6 @@
     ./browsers
     ./misc
     ./cli
+    ./packages.nix
   ];
 }

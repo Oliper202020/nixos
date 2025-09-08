@@ -2,13 +2,15 @@
   pkgs,
   inputs,
   settings,
+  lib,
   ...
 }: {
   imports = [
     inputs.stylix.nixosModules.stylix
   ];
-  config.stylix = {
+  config.stylix = lib.mkForce {
     enable = true;
+    gnome.enable = lib.mkForce false;
     autoEnable = true;
     base16Scheme = "${inputs.tt-schemes}/base16/${settings.base16}.yaml";
     #image = settings.wallpaper;

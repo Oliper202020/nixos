@@ -19,7 +19,7 @@ in
 
       exec-once = [
         "hyprlock"
-        "hyprpanel"
+        #"ashell"
         "spotify"
         "$browser"
         "udiskie"
@@ -86,7 +86,7 @@ in
         "$mainMod, R, exec, $menu"
         "$mainMod, P, pseudo, # dwindle"
         "$mainMod SHIFT, J, togglesplit, # dwindle"
-        "$mainMod SHIFT, L, exec, killall wlogout 2>/dev/null; wlogout --buttons-per-row 4 --margin-top=400px --margin-bottom=400px --margin-left=400px --margin-right=400px"
+        "$mainMod, L, exec, killall wlogout 2>/dev/null; wlogout --buttons-per-row 4 --margin-top=400px --margin-bottom=400px --margin-left=400px --margin-right=400px"
         "$mainMod, K, exec, $browser"
         #"$mainMod, W, exec, [workspace, special:btop] btop"
         # "$mainMod SHIFT, B, exec, waybar"

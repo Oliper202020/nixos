@@ -4,6 +4,9 @@
     extensions = [
       "nix"
       "hyprlang"
+      "clangd"
+      "omnisharp"
+      "pylsp"
     ];
     extraPackages = [
       pkgs.nixd

@@ -1,7 +1,8 @@
 {pkgs, ...}: {
   imports = [
-    ./waybar/waybar.nix
-    ./hyprpanel.nix
+    #./waybar/waybar.nix
+    #./hyprpanel.nix
+    ./ashell.nix
     ./hyprlock.nix
     ./anyrun.nix
     ./wlogout/wlogout.nix

@@ -19,13 +19,19 @@ $character"
       ];
 
       right_format = builtins.concatStringsSep "" [
-        #"[*](fg:#${colors.base0E} bg:#${colors.base08})$nix_shell"
+        "[$nix_shell](fg:#${colors.base0E} bg:#${colors.base08})"
       ];
 
       #  custom.any_nix_shell = {
       #    command = "any-nix-shell fish --info-right | source";
       #    format = "[$output]";
       #  };
+      nix_shell = {
+        disabled = false;
+        symbol = "*";
+        pure_msg = "";
+        impure_msg = "";
+      };
       shell = {
         fish_indicator = "";
         bash_indicator = "";

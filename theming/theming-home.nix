@@ -9,6 +9,7 @@
   ];
   config.stylix = {
     enable = true;
+    #gnome.enable = false;
     autoEnable = true;
     base16Scheme = "${inputs.tt-schemes}/base16/${settings.base16}.yaml";
     #image = settings.wallpaper;
@@ -20,6 +21,10 @@
       size = settings.cursor.size;
     };
     targets = {
+      zen-browser = {
+        profileNames = ["oliver"];
+        #colorTheme.enable = true;
+      };
       floorp = {
         profileNames = ["oliver"];
         #colorTheme.enable = true;

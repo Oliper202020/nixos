@@ -1,8 +1,4 @@
-{
-  pkgs,
-  settings,
-  ...
-}: {
+{ pkgs, settings, ... }: {
   users.users.${settings.username} = {
     shell = pkgs.fish;
     ignoreShellProgramCheck = true;

@@ -19,7 +19,6 @@
           "welcome-screen.seen" = true;
           "tab-unloader.timeout-minutes" = 20;
           "widget.linux.transparency" = true;
-          "view.experimental-no-window-controls" = true;
         };
         "extensions" = {
           "webextensions.ExtensionStorageIDB.migrated.search@kagi.com" = true;

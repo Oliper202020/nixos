@@ -8,7 +8,7 @@ in
   ];
 
   programs.hyprpanel = {
-    enable = true;
+    #enable = true;
     hyprland.enable = true;
     settings = {
       theme = {
