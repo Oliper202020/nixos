@@ -3,7 +3,7 @@
     ./nh.nix
     ./steam.nix
     ./thunar.nix
-    ./programs.nix
+    ./packages.nix
     #./hyprland.nix
   ];
 }
