@@ -11,7 +11,7 @@
       kdePackages.dolphin-plugins
       swww
       teams-for-linux
-      tetris
+      #tetris
       mangohud
       mpv
       # makemkv
@@ -29,7 +29,9 @@
       kitty
       hyprland
       telegram-desktop
-      ninvaders
+      #ninvaders
       minicom
+      nur.repos.workman-nur.tetris-workman
+      nur.repos.workman-nur.ninvaders-workman
     ];
 }
