@@ -29,7 +29,7 @@
     #hyprlandPlugins.hyprexpo
     nur.repos.xddxdd.magiskboot
     xdg-desktop-portal-hyprland
-    tetris-workman
+    nur.repos.workman-nur.tetris-workman
     nur.repos.workman-nur.ninvaders-workman
   ];
 
