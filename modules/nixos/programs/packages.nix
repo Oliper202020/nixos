@@ -2,23 +2,22 @@
   environment.systemPackages = with pkgs; [
     android-tools
     any-nix-shell
-    busybox
     brightnessctl
+    busybox
     dconf
     git
-    uutils-coreutils-noprefix
-    uutils-findutils
-    uutils-diffutils
-    pokeget-rs
-    protonup
-    playerctl
-    udiskie
-    rose-pine-hyprcursor
-    wget
     jq
     kitty
-    #hyprlandPlugins.hyprexpo
     nur.repos.xddxdd.magiskboot
+    playerctl
+    pokeget-rs
+    protonup
+    rose-pine-hyprcursor
+    udiskie
+    uutils-coreutils-noprefix
+    uutils-diffutils
+    uutils-findutils
+    wget
     xdg-desktop-portal-hyprland
   ];
 }
