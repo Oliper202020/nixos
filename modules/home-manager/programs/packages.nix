@@ -17,7 +17,7 @@
     mangohud
     minicom
     mpv
-    nur.repos.nltch.ciscoPacketTracer8
+    ciscoPacketTracer8-fix
     nur.repos.workman-nur.ninvaders-workman
     nur.repos.workman-nur.tetris-workman
     pipes-rs

@@ -1,7 +1,5 @@
 { pkgs, inputs, settings, ... }: {
   imports = [
-    # ./modules/home-manager
-    #./theming/theming-home.nix
     inputs.home-manager.nixosModules.home-manager
   ];
   home-manager = {

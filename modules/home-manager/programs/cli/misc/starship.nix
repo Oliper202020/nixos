@@ -33,7 +33,7 @@ $character"
         impure_msg = "";
       };
       shell = {
-        fish_indicator = "";
+        fish_indicator = "󰈺";
         bash_indicator = "";
         nu_indicator = "󰟆";
         unknown_indicator = "?";

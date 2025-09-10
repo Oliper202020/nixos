@@ -8,31 +8,6 @@
     ./desktop/gnome.nix
   ];
 
-  environment.systemPackages = with pkgs; [
-    android-tools
-    any-nix-shell
-    busybox
-    brightnessctl
-    dconf
-    git
-    uutils-coreutils-noprefix
-    uutils-findutils
-    uutils-diffutils
-    pokeget-rs
-    protonup
-    playerctl
-    udiskie
-    rose-pine-hyprcursor
-    wget
-    jq
-    kitty
-    #hyprlandPlugins.hyprexpo
-    nur.repos.xddxdd.magiskboot
-    xdg-desktop-portal-hyprland
-    nur.repos.workman-nur.tetris-workman
-    nur.repos.workman-nur.ninvaders-workman
-  ];
-
  # xdg.portal = {
    # enable = true;
    # extraPortals = with pkgs; [
