@@ -9,7 +9,7 @@
       url = "github:numtide/nixos-facter-modules";
     };
     nur = {
-      url = "github:Oliper202020/NUR";#nix-community/NUR";
+      url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
@@ -32,8 +32,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix/24.11";
-      #inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixcord = {
       url = "github:kaylorben/nixcord";

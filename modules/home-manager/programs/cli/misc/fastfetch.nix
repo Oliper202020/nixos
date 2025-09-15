@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       logo = {
-        source = "~/.dotfiles/theming/nwixowos.png";
+        source = ../../../../../theming/nwixowos.png;
         type = "kitty";
       };
       display = {

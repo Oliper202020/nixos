@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   programs.floorp = {
     enable = true;
+    package = pkgs.floorp-bin;
     policies = {
       DisableFirefoxAccounts = true;
       NoDefaultBookmarks = true;
