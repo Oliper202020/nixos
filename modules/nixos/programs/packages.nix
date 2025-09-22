@@ -7,8 +7,6 @@
     dconf
     git
     jq
-    kitty
-    nur.repos.xddxdd.magiskboot
     playerctl
     pokeget-rs
     protonup
