@@ -2,9 +2,8 @@
   imports = [
     # Inculde the nvidia config
     #./theming/theming.nix
-    ./modules/nixos
+    ./modules
     ./system
-    ./home.nix
     ./desktop/gnome.nix
   ];
 

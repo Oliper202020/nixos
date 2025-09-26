@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   inputs,
   settings,
   ...
@@ -11,7 +12,7 @@
     enable = true;
     #gnome.enable = false;
     autoEnable = true;
-    base16Scheme = "${inputs.tt-schemes}/base16/${settings.base16}.yaml";
+    base16Scheme = lib.mkForce "${inputs.tt-schemes}/base16/${settings.base16}.yaml";
     #image = settings.wallpaper;
     polarity = settings.polarity;
     opacity = settings.opacity;

@@ -1,8 +1,15 @@
-{
+
+{ pkgs, inputs, settings, ... }: {
   imports = [
-    ./programs
-    ./wm
-    ./config.nix
-    ../../theming/theming-home.nix
+    inputs.home-manager.nixosModules.home-manager
   ];
+  home-manager = {
+    users.oliver = import [
+      ./programs
+      ./wm
+      ./config.nix
+      ../../theming/theming-home.nix
+    ];
+    extraSpecialArgs = { inherit inputs settings pkgs; };
+  };
 }

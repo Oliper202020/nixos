@@ -14,7 +14,7 @@
     terminal = 0.8;
   };
   cursor = {
-    package = "rose-pine-cursor";
+    package = "rose-pine-hyprcursor";
     name = "rose-pine-cursor";
     size = 24;
   };
