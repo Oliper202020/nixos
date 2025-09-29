@@ -1,4 +1,5 @@
 {
+  console.useXkbConfig = true;
   services = {
     xserver = {
       xkb = {
