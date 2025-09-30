@@ -8,7 +8,6 @@
         any-nix-shell fish | source
       '';
       shellAliases = {
-        "matrix" = "cmatrix";
         clear = "command clear; and pokeget random --hide-name";
         "rebuild" = "nh os switch; and nh home switch";
       };
@@ -19,16 +18,6 @@
         "neo" = "fastfetch";
         "suod" = "sudo";
       };
-    };
-
-    lsd = {
-      enable = true;
-      enableFishIntegration = true;
-    };
-    carapace = {
-      enable = true;
-      enableFishIntegration = true;
-      enableNushellIntegration = true;
     };
   };
 }

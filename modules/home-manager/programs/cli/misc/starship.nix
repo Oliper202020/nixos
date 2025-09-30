@@ -5,6 +5,7 @@ in {
     enable = true;
     enableFishIntegration = true;
     enableNushellIntegration = true;
+    enableBashIntegration = true;
     settings = {
       command_timeout = 1000;
       add_newline = true;
@@ -33,7 +34,7 @@ $character"
         impure_msg = "";
       };
       shell = {
-        fish_indicator = "";
+        fish_indicator = "󰈺";
         bash_indicator = "";
         nu_indicator = "󰟆";
         unknown_indicator = "?";
