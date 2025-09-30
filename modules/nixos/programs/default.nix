@@ -4,6 +4,6 @@
     #./steam.nix
     ./thunar.nix
     ./packages.nix
-    #./hyprland.nix
+    ./greet
   ];
 }

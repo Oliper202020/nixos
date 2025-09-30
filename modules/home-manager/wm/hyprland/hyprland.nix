@@ -5,7 +5,7 @@ in
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    #package = inputs.hyprland.homeManagerModules.default;
+    package = pkgs.hyprland;
     portalPackage = pkgs.xdg-desktop-portal-hyprland;
     xwayland.enable = true;
     plugins = [
