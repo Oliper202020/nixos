@@ -1,6 +1,6 @@
 {
   imports = [
     ./greetd.nix
-    ./regreet.nix
+    #./regreet.nix
   ];
 }

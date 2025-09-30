@@ -1,10 +1,10 @@
-{pkgs, ...}: {
+{ ... }: {
   imports = [
     # Inculde the nvidia config
     #./theming/theming.nix
-    ./modules
-    ./system
-    ./desktop/gnome.nix
+    ./home.nix
+    ./modules/nixos
+    #./desktop/gnome.nix
   ];
 
  # xdg.portal = {
@@ -73,25 +73,8 @@
   # Open WebUI for Ollama
   #services.open-webui.enable = true;
 
-  services = {
-    seatd.enable = true;
-    greetd = {
-      enable = false;
-      settings = rec {
-        initial_session = {
-          command = "${pkgs.hyprland}/bin/hyprland";# and ${pkgs.hyprlock}/bin/hyprlock";
-          user = "oliver";
-        };
-        default_session = initial_session;
-        terminal.vt = 1;
-      };
-    };
-  };
 
-  # Configure console keymap
-  console = {
-    #useXkbConfig = true;
-  };
+
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -101,7 +84,7 @@
 
   # Enable Network
   networking = {
-    useNetworkd = true;
+    #useNetworkd = true;
     networkmanager.enable = true;
   };
   # Enable sound with pipewire.
