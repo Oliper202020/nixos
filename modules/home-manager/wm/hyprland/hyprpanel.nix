@@ -1,15 +1,11 @@
-{ inputs, ... }:
+{ ... }:
 let
   #colors = config.lib.stylix.colors;
 in
 {
-  imports = [
-    inputs.hyprpanel.homeManagerModules.hyprpanel
-  ];
-
   programs.hyprpanel = {
-    #enable = true;
-    hyprland.enable = true;
+    enable = true;
+    #hyprland.enable = true;
     settings = {
       theme = {
         bar = {
