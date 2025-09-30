@@ -1,6 +1,6 @@
 {
-  console.useXkbConfig = true;
   services = {
+    kmscon.useXkbConfig = true;
     xserver = {
       xkb = {
         layout = "us";
