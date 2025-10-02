@@ -1,10 +1,10 @@
-{
+{ pkgs, ... }: {
   programs = {
     bash = {
       enable = true;
-      initExtra = ''pokeget random --hide-name'';
+      initExtra = ''${pkgs.pokeget-rs}/bin/pokeget random --hide-name'';
       shellAliases = {
-        clear = "command clear; and pokeget random --hide-name";
+        clear = "command clear && ${pkgs.pokeget-rs}/bin/pokeget random --hide-name";
         "rebuild" = "nh os switch; and nh home switch";
       };
     };
