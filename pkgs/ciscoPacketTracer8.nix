@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 pkgs.ciscoPacketTracer8.overrideAttrs (prev: {
     src = pkgs.fetchurl {
