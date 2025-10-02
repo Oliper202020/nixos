@@ -86,11 +86,11 @@ in
         "$mainMod, R, exec, $menu"
         "$mainMod, P, pseudo, # dwindle"
         "$mainMod SHIFT, J, togglesplit, # dwindle"
-        "$mainMod, L, exec, killall wlogout 2>/dev/null; wlogout --buttons-per-row 4 --margin-top=400px --margin-bottom=400px --margin-left=400px --margin-right=400px"
+        "$mainMod, L, exec, killall wlogout 2>/dev/null; wlogout -b 4 -T 400 -B 400 -L 400 -R 400"
         "$mainMod, K, exec, $browser"
         #"$mainMod, W, exec, [workspace, special:btop] btop"
         # "$mainMod SHIFT, B, exec, waybar"
-        "ALT, SPACE, exec, anyrun"
+        "ALT, SPACE, exec, killall wlogout 2>/dev/null; anyrun"
         #"$mainMod, TAB, hyprexpo:expo, toggle"
 
         # Move focus with mainMod + arrow keys
@@ -151,6 +151,10 @@ in
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioPrev, exec, playerctl previous"
       ];
+      ecosystem = {
+        no_donation_nag = true;
+        no_update_news = true;
+      };
       misc = {
         disable_hyprland_logo = true;
         force_default_wallpaper = 0;
