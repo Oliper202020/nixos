@@ -94,10 +94,10 @@ in
         #"$mainMod, TAB, hyprexpo:expo, toggle"
 
         # Move focus with mainMod + arrow keys
-        "$mainMod, H, movefocus, l"
-        "$mainMod, J, movefocus, d"
-        "$mainMod, K, movefocus, u"
-        "$mainMod, L, movefocus, r"
+        "$mainMod, Y, movefocus, l"
+        "$mainMod, N, movefocus, d"
+        "$mainMod, E, movefocus, u"
+        "$mainMod, O, movefocus, r"
 
         # Switch workspaces with mainMod + [0-9]
         "$mainMod, 1, workspace, 1"
