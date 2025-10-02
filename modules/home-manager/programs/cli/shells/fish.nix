@@ -1,14 +1,14 @@
-{
+{ pkgs, ... }: {
   programs = {
     fish = {
       enable = true;
-      shellInit = ''pokeget random --hide-name'';
+      shellInit = ''${pkgs.pokeget-rs}/bin/pokeget random --hide-name'';
       interactiveShellInit = ''
         set -g fish_greeting ""
         any-nix-shell fish | source
       '';
       shellAliases = {
-        clear = "command clear; and pokeget random --hide-name";
+        clear = ''command clear; and ${pkgs.pokeget-rs}/bin/pokeget random --hide-name'';
         "rebuild" = "nh os switch; and nh home switch";
       };
       shellAbbrs = {
