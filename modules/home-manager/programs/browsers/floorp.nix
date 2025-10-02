@@ -1,8 +1,8 @@
 {pkgs, ...}: let
   settings = import ./firefox/settings.nix;
-  extensions = import ./firefox/extensions.nix{ inherit pkgs; };
+  extensions = import ./firefox/extensions.nix { inherit pkgs; };
   containers = import ./firefox/containers.nix;
-in{
+in {
   programs.floorp = {
     enable = true;
     package = pkgs.floorp-bin;
