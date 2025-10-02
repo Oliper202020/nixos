@@ -1,15 +1,18 @@
-{
+#{ config }:
+let
+  #colors = config.lib.stylix.colors;
+in {
   containersForce = true;
   containers = {
     Personal = {
-      color = "purple";
-      icon = "fingerprint";
-      id = 1;
+      color = "orange";#"${colors.base08}";
+      icon  = "fingerprint";
+      id    = 1;
     };
-    school = {
-      color = "blue";
-      icon = "briefcase";
-      id = 2;
+    School = {
+      color = "red";#"${colors.base0E}";
+      icon  = "briefcase";
+      id    = 2;
     };
   };
 }
