@@ -5,10 +5,8 @@
     brightnessctl
     busybox
     dconf
-    git
     jq
     playerctl
-    pokeget-rs
     protonup
     rose-pine-hyprcursor
     udiskie
@@ -16,6 +14,5 @@
     uutils-diffutils
     uutils-findutils
     wget
-    xdg-desktop-portal-hyprland
   ];
 }
