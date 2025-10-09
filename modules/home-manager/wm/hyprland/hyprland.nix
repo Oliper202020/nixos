@@ -86,11 +86,11 @@ in
         "$mainMod, R, exec, $menu"
         "$mainMod, P, pseudo, # dwindle"
         "$mainMod SHIFT, J, togglesplit, # dwindle"
-        "$mainMod, L, exec, killall wlogout 2>/dev/null; wlogout -b 4 -T 400 -B 400 -L 400 -R 400"
+        "$mainMod, L, exec, ${pkgs.killall}/bin/killall wlogout 2>/dev/null; wlogout -b 4 -T 400 -B 400 -L 400 -R 400"
         "$mainMod, K, exec, $browser"
         #"$mainMod, W, exec, [workspace, special:btop] btop"
         # "$mainMod SHIFT, B, exec, waybar"
-        "ALT, SPACE, exec, killall wlogout 2>/dev/null; anyrun"
+        "ALT, SPACE, exec, ${pkgs.killall}/bin/killall anyrun 2>/dev/null; anyrun"
         #"$mainMod, TAB, hyprexpo:expo, toggle"
 
         # Move focus with mainMod + arrow keys
