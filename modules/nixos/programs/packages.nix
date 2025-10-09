@@ -3,7 +3,6 @@
     android-tools
     any-nix-shell
     brightnessctl
-    busybox
     dconf
     jq
     playerctl
