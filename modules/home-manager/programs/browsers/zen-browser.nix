@@ -2,6 +2,7 @@
   settings = import ./firefox/settings.nix;
   containers = import ./firefox/containers.nix;
   extensions = import ./firefox/extensions.nix { inherit pkgs; };
+  colors = config.lib.stylix.colors;
 in {
   imports = [
     inputs.zen-browser.homeModules.twilight
@@ -28,6 +29,12 @@ in {
           icon = "https://raw.githubusercontent.com/lucide-icons/lucide/f4d451de802c7110ad7acd14f2d76746bde3ebfe/icons/house.svg";
           container = containers."Personal".id;
           position = 1000;
+          theme.color = {
+            red = ${colors.base0C-rgb-r};
+            green = ${colors.base0C-rgb-g};
+            blue = ${colors.base0C-rgb-b};
+            algorithm = complementary;
+          };
         };
         "School" = {
           id = "cdd10fab-4fc5-494b-9041-325e5759195b";
