@@ -1,12 +1,72 @@
 {
-  #description = "A very basic flake";
+  description = "Nugget likes the pretty Lily. He also misses her brother, Billy. Nugget likes the Lily's hair. Nugget likes to smell her chair.";
+  outputs =
+    {
+      self,
+      home-manager,
+      nixpkgs,
+      ...
+    }@inputs:
+    let
+      inherit (self) outputs;
+      # systems = [
+      #   "aarch64-linux"
+      #   "i686-linux"
+      #   "x86_64-linux"
+      #   "aarch64-darwin"
+      #   "x86_64-darwin"
+      # ];
+      #forAllSystems = nixpkgs.lib.genAttrs systems;
+      settings = import ./settings.nix;
+    in
+    {
+      #packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+      overlays = import ./overlays { inherit inputs; };
+
+      nixConfig = {
+        extra-substituters = [
+          # "https://anyrun.cachix.org"
+          "https://noctalia.cachix.org"
+        ];
+        extra-trusted-public-keys = [
+          # "anyrun.cachix.org-1:pqBobmOjI7nKlsUMV25u9QHa9btJK65/C8vnO3p346s="
+          "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+        ];
+      };
+      nixosConfigurations = {
+        thinkpad-l540 = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./configuration.nix
+            ./hosts/thinkpad-l540
+          ];
+        };
+        framework = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs settings; };
+          modules = [
+            ./configuration.nix
+            ./hosts/framework
+          ];
+        };
+      };
+    };
 
   inputs = {
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-unstable";#"nixpkgs/nixos-unstable";
+      url = "github:NixOS/nixpkgs/nixos-unstable";
     };
-    nixos-facter-modules = {
-      url = "github:numtide/nixos-facter-modules";
+    nixpkgs-stable = {
+      url = "github:NixOS/nixpkgs/nixos-25.11";
+    };
+    lix = {
+      url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
+      flake = false;
+    };
+
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.lix.follows = "lix";
     };
     nur = {
       url = "github:nix-community/NUR";
@@ -27,74 +87,45 @@
       url = "github:tinted-theming/schemes";
       flake = false;
     };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixcord = {
-      url = "github:kaylorben/nixcord";
-    };
-    anyrun = {
-      url = "github:anyrun-org/anyrun";
+    niri-flake = {
+      url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixcord = {
+      url = "github:FlameFlag/nixcord";
     };
     qbittorrent = {
       url = "gitlab:salvesen1/qbittorrent-flake";
     };
+    nixos-millennium = {
+      url = "github:re1n0/nixos-millennium";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    millennium = {
+      url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+    };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
     };
-    jovian-nixos = {
-      url = "github:Jovian-Experiments/Jovian-NixOS";
-      flake = true;
-    };
-    devshell = {
-      url = "github:numtide/devshell";
+    #jovian-nixos = {
+    # url = "github:Jovian-Experiments/Jovian-NixOS";
+    #flake = true;
+    # };
+    # devshell = {
+    #  url = "github:numtide/devshell";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    disko = {
+      url = "github:nix-community/disko/master";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
-
-  outputs = { ... } @ inputs: let
-    lib = inputs.nixpkgs.lib;
-    system = "x86_64-linux";
-    pkgs = import inputs.nixpkgs {
-      inherit system;
-      config = {
-        allowUnfree = true;
-        allowInsecurePredicate = pkg: builtins.elem (lib.getName pkg) ["ventoy"];
-      };
-      overlays = [
-        inputs.nur.overlays.default
-        inputs.qbittorrent.overlays.default
-        #inputs.hyprpanel.overlay
-        overlays
-      ];
-    };
-    settings = import ./settings.nix;
-    overlays = import ./pkgs;
-    host = import ./hosts;
-  in {
-
-    nixosConfigurations = {
-      thinkpad-l540 = lib.nixosSystem {
-        inherit system pkgs;
-        specialArgs = {inherit inputs settings;};
-        modules = [
-          ./configuration.nix
-          host.thinkpad-l540
-        ];
-      };
-      hpe-dl380p-gen8 = lib.nixosSystem {
-        inherit system pkgs;
-        specialArgs = {inherit inputs settings;};
-        modules = [
-          ./modules/server
-          host.hpe-dl380p-gen8
-        ];
-      };
-    };
-    devshells = import ./devshells {
-      inherit pkgs inputs;
     };
   };
 }
