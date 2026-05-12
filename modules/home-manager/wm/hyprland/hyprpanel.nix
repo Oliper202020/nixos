@@ -1,10 +1,14 @@
-{ ... }:
+{
+  #config,
+  #lib,
+  ...
+}:
 let
-  #colors = config.lib.stylix.colors;
+  # #colors = config.lib.stylix.colors;
 in
 {
   programs.hyprpanel = {
-    enable = true;
+    enable = false;
     #hyprland.enable = true;
     settings = {
       theme = {
@@ -17,10 +21,10 @@ in
         };
         osd = {
           duration = 2000;
-        #  location = "bottom";
-       #   orientation = "horizontaal";
+          #  location = "bottom";
+          #   orientation = "horizontaal";
         };
-        font.size = "0.95rem";
+        font.size = "0.75rem";
       };
       bar = {
         launcher = {
@@ -30,13 +34,13 @@ in
         workspaces = {
           show_icons = true;
           #workspaceIcons = {"1" = ""};
-        #  names = {
+          #  names = {
           #  "1" = "";  # Terminal
-       #     "2" = "";  # Browser
-         #   "3" = "";  # Code editor
-        #    "4" = "";  # File manager
-        #    "5" = "";  # Music
-    #    };
+          #     "2" = "";  # Browser
+          #   "3" = "";  # Code editor
+          #    "4" = "";  # File manager
+          #    "5" = "";  # Music
+          #    };
         };
         clock.format = "%a %b %d  %I:%M";
       };
