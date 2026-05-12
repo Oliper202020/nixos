@@ -1,17 +1,18 @@
-{pkgs, ...}: let
-  settings = import ./firefox/settings.nix;
-  extensions = import ./firefox/extensions.nix { inherit pkgs; };
-  containers = import ./firefox/containers.nix;
-in {
+{ pkgs, ... }:
+let
+  settings = import ./common/settings.nix;
+  extensions = import ./common/extensions.nix { inherit pkgs; };
+  containers = import ./common/containers.nix;
+  policies = import ./common/policies.nix;
+in
+{
   programs.floorp = {
     enable = true;
     package = pkgs.floorp-bin;
     policies = {
-      DisableFirefoxAccounts = true;
-      NoDefaultBookmarks = true;
-      DisableProfileImport = true;
-      DontCheckDefaultBrowser = true;
-    };
+
+    }
+    // policies;
     profiles.oliver = {
       bookmarks = {
       };
@@ -27,10 +28,13 @@ in {
         "floorp.browser.workspaces.enabled" = false;
         "browser.newtabpage.activity-stream.floorp.background.type" = 2;
         "browser.newtabpage.activity-stream.floorp.newtab.releasenote.hide" = true;
-      } // settings;
+      }
+      // settings;
       extensions = {
 
-      } // extensions;
-    } // containers;
+      }
+      // extensions;
+    }
+    // containers;
   };
 }
