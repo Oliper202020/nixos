@@ -1,10 +1,15 @@
 {
+  pkgs,
+  ...
+}:
+{
   programs.fastfetch = {
     enable = true;
     settings = {
       logo = {
         source = ../../../../../theming/nwixowos.png;
         type = "kitty";
+        #size = "25";
       };
       display = {
         separator = "  ";
