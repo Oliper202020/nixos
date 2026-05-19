@@ -1,19 +1,21 @@
-{pkgs, ...}:
+{
+  pkgs,
+  ...
+}:
 {
   programs = {
     hyprland = {
-      enable = true;
+      enable = false;
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
       xwayland.enable = true;
     };
   };
 
-
   xdg.portal = {
     enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-wlr];
+    extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
   };
-  environment.pathsToLink = ["/libexec"];
+  environment.pathsToLink = [ "/libexec" ];
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
   };
@@ -23,7 +25,7 @@
   };
   services.xserver = {
     enable = true;
-    excludePackages = [pkgs.xterm];
+    excludePackages = [ pkgs.xterm ];
   };
 
 }
