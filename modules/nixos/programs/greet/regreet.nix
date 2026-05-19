@@ -1,6 +1,10 @@
-{ pkgs, ... }: {
+{
+  pkgs,
+  ...
+}:
+{
   programs.regreet = {
-    enable = true;
+    enable = false;
     font = {
       size = 16;
       name = "Cantarell";
