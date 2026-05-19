@@ -1,32 +1,40 @@
-{ pkgs, ... }: {
+{
+  pkgs,
+  ...
+}:
+{
   home.packages = with pkgs; [
-    bottles
+    calibre
+    #ciscoPacketTracer8-fix
+    cisco-packet-tracer_9-fix
     cmatrix
     firefox
     gimp3
     gparted
-    hyprland
     inkscape
+    itch
     kdePackages.ark
-    kdePackages.dolphin
-    kdePackages.dolphin-plugins
-    kicad
     kitty
     libreoffice
     makemkv
     mangohud
-    minicom
+    mgba
     mpv
-    ciscoPacketTracer8-fix
     nur.repos.workman-nur.ninvaders-workman
     nur.repos.workman-nur.tetris-workman
     pipes-rs
     prismlauncher
-    swww
+    qbittorrent
+    stable.kicad
+    stable.minicom
+    rose-pine-hyprcursor
+    rose-pine-cursor
     teams-for-linux
     telegram-desktop
+    thorium-reader
     ungoogled-chromium
     ventoy
     vlc
+    freecad-wayland
   ];
 }

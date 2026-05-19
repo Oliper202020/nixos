@@ -1,4 +1,10 @@
-{ inputs, ... }: {
+{
+  inputs,
+  lib,
+  config,
+  ...
+}:
+{
   imports = [
     inputs.nixcord.homeModules.nixcord
   ];
@@ -20,7 +26,7 @@
     config = {
       useQuickCss = true; # use out quickCSS
       transparent = true;
-      themeLinks = [];
+      themeLinks = [ ];
       frameless = false;
       plugins = {
         alwaysTrust = {
@@ -29,7 +35,7 @@
           file = true;
         };
         biggerStreamPreview.enable = true;
-        clearURLs.enable = true;
+        ClearURLs.enable = true;
         fakeNitro.enable = true;
         favoriteEmojiFirst.enable = true;
         favoriteGifSearch.enable = true;
@@ -44,11 +50,43 @@
         noF1.enable = true;
         noTypingAnimation.enable = true;
         noUnblockToJump.enable = true;
-        onePingPerDM.enable = true;
+        OnePingPerDM.enable = true;
         reverseImageSearch.enable = true;
         shikiCodeblocks.enable = true;
         showAllMessageButtons.enable = true;
         spotifyCrack.enable = true;
+        textReplace = {
+          # regexRules = [
+          #   {
+          #     find = "(https:\/\/)bsky\.app(\/[^/]+\/[^/]+)(\$?.*)?$";
+          #     replace = "$1fxbsky.app$2$3";
+          #   }
+          #   {
+          #     find = "https\:\/\/(?:.*?twitter.*?|.*?x.*?)\.com\/([a-zA-Z0-9_]+\/status\/\d+)\S*src";
+          #     replace = "[[source]](<https://fxtwitter.com/$1>) [[raw]](https://fxtwitter.com/$1.mp4)";
+          #   }
+          #   {
+          #     find = "/https?:\/\/(?:(?:vm|www)\.)?tiktok\.com\/((?:(?=@)@.+?\/video|(?!@)).+)/gi";
+          #     replace = "https://tiktxk.com/$1";
+          #   }
+          #   {
+          #     find = "/(?:https?:\/\/)?(?:www\.)?instagram\.com\/(?<path>p|reel)\//gi";
+          #     replace = "https://www.ddinstagram.com/$<path>/";
+          #   }
+          #   {
+          #     find = "http(?:s)?://(?:[\w-]+?\.)?reddit\.com";
+          #     replace = "https://rxddit.com";
+          #   }
+          #   {
+          #     find = "https?:\/\/(?:clips\.twitch\.tv|(?:www\.)?twitch\.tv\/\w+\/clip)\/([A-Za-z0-9\-_]+)";
+          #     replace = "https://fxtwitch.seria.moe/clip/$1";
+          #   }
+          #   {
+          #     find = "(?:www\.)?youtube.com\/watch\?v=";
+          #     replace = "youtu.be/";
+          #   }
+          # ];
+        };
         unlockedAvatarZoom.enable = true;
         viewIcons.enable = true;
         youtubeAdblock.enable = true;

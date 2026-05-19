@@ -1,7 +1,7 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     git
-    uutils-coreutils-noprefix
     wget
   ];
 
@@ -31,12 +31,15 @@
   };
 
   nix = {
-   # channel.enable = false;
+    # channel.enable = false;
     settings = {
-      substituters = [""];
-      trusted-public-keys = [""];
+      substituters = [ "" ];
+      trusted-public-keys = [ "" ];
       auto-optimise-store = true;
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
   };
   # Configure console keymap

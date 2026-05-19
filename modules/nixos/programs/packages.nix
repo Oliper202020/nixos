@@ -1,4 +1,8 @@
-{ pkgs, ... }: {
+{
+  pkgs,
+  ...
+}:
+{
   environment.systemPackages = with pkgs; [
     android-tools
     any-nix-shell
@@ -6,12 +10,11 @@
     dconf
     jq
     playerctl
-    protonup
-    rose-pine-hyprcursor
     udiskie
-    uutils-coreutils-noprefix
-    uutils-diffutils
-    uutils-findutils
     wget
+    killall
+    qt5.qtwayland
+    qt6.qtwayland
+    rose-pine-cursor
   ];
 }

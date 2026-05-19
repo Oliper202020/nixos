@@ -1,7 +1,11 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  ...
+}:
+{
   programs.helix = {
     enable = true;
-    extraPackages = with pkgs; [wl-clipboard];
+    extraPackages = with pkgs; [ wl-clipboard ];
     settings = {
       keys.normal = {
         y = "yank_to_clipboard";
@@ -26,7 +30,7 @@
           formatter = {
             command = "${pkgs.alejandra}/bin/alejandra";
           };
-          language-servers = ["nixd"];
+          language-servers = [ "nixd" ];
         }
       ];
       "language-server" = {

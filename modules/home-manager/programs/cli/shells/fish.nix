@@ -1,4 +1,8 @@
-{ pkgs, ... }: {
+{
+  pkgs,
+  ...
+}:
+{
   programs = {
     fish = {
       enable = true;
@@ -9,7 +13,8 @@
       '';
       shellAliases = {
         clear = ''command clear; and ${pkgs.pokeget-rs}/bin/pokeget random --hide-name'';
-        "rebuild" = "nh os switch; and nh home switch";
+        #"rebuild" = "nh os switch; and nh home switch";
+        #fastfetch = ''command fastfetch --logo-hight 25'';
       };
       shellAbbrs = {
         #"$ " = "";
