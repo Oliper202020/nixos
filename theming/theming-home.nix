@@ -4,7 +4,8 @@
   inputs,
   settings,
   ...
-}: {
+}:
+{
   imports = [
     inputs.stylix.homeModules.stylix
   ];
@@ -23,11 +24,13 @@
     };
     targets = {
       zen-browser = {
-        profileNames = ["oliver"];
+        enable = false;
+        #profileNames = ["oliver"];
         #colorTheme.enable = true;
       };
+      spicetify.enable = false;
       floorp = {
-        profileNames = ["oliver"];
+        profileNames = [ "oliver" ];
         #colorTheme.enable = true;
       };
     };
