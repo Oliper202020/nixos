@@ -14,8 +14,8 @@
     terminal = 0.8;
   };
   cursor = {
-    package = "rose-pine-hyprcursor";
-    name = "rose-pine-cursor";
+    package = "rose-pine-cursor";
+    name = "BreezeX-RoséPine";
     size = 24;
   };
   fonts = {
