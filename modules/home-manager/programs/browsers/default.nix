@@ -1,7 +1,7 @@
 {
   imports = [
-    ./floorp.nix
+    #./floorp.nix
     #./ungoogled-chromium.nix
-    ./zen-browser.nix
+    ./firefox
   ];
 }
