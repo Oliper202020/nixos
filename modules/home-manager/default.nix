@@ -3,6 +3,6 @@
     ./programs
     ./wm
     ./config.nix
-    ../../theming/theming-home.nix
+    #../../theming/theming-home.nix
   ];
 }
