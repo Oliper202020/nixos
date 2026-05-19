@@ -1,4 +1,8 @@
-{ pkgs, ... }: {
+{
+  pkgs,
+  ...
+}:
+{
   programs.zed-editor = {
     enable = true;
     extensions = [
@@ -7,14 +11,30 @@
       "clangd"
       "omnisharp"
       "pylsp"
+      "autocorrect"
     ];
-    extraPackages = [
-      pkgs.nixd
+    mutableUserSettings = false;
+    extraPackages = with pkgs; [
+      nil
+      statix
+      nixd
     ];
     userSettings = {
       telemetry = {
         metrics = false;
       };
+      default_model = {
+        provider = "ollama";
+        model = "demodllc/demod-nix-assistant:8b";
+      };
     };
+    # lsp = {
+    #  nix = {
+    #   binary = {
+    #    path = lib.getExe pkgs.nil;
+    #path_lookup = true;
+    # };
+    #};
+    #   };
   };
 }
