@@ -19,6 +19,11 @@
           name = "Official Noctalia Plugins";
           url = "https://github.com/noctalia-dev/noctalia-plugins";
         }
+        {
+          enabled = true;
+          name = "Screen Toolkit plugin for Noctalia";
+          url = "https://github.com/ycf-anon/screen-toolkit";
+        }
       ];
       states = {
         catwalk = {
@@ -35,7 +40,7 @@
         };
         screen-toolkit = {
           enabled = true;
-          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          sourceUrl = "https://github.com/ycf-anon/screen-toolkit";
         };
         slowbongo = {
           enabled = true;
@@ -49,6 +54,9 @@
         minimumThreshold = 25;
         hideBackground = true;
       };
+      # screen-toolkit = {
+
+      # };
       # slowbongo = {
       #   idleTimeout = 150;
       #   waitingTimeout = 30000;
