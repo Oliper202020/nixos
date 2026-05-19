@@ -99,6 +99,9 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    apple-emoji-ttf = {
+      url = "https://github.com/samuelngs/apple-emoji-ttf";
+    };
     nixcord = {
       url = "github:FlameFlag/nixcord";
     };
