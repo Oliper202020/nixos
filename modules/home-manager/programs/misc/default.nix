@@ -1,7 +1,8 @@
 {
   imports = [
+    ./dolphin.nix
     ./nixcord.nix
-    ./spicetify.nix
+    #./spicetify.nix
     #./qbittorrent.nix
     ./zed.nix
   ];
