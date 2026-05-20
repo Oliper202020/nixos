@@ -31,6 +31,10 @@
       package = "nerd-fonts.jetbrains-mono";
       name = "JetBrainsMono Nerd Font Mono";
     };
+    emoji = {
+      package = ./theming/AppleColorEmoji-Linux.ttf;
+      # name = "Noto Color Emoji";
+    };
     sizes = {
       applications = 12;
       terminal = 14;
