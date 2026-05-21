@@ -8,7 +8,7 @@
 }:
 {
   imports = [
-    inputs.nixos-millennium.nixosModules.default
+    # inputs.nixos-millennium.nixosModules.default
   ];
   options.steam.enable = lib.mkEnableOption {
     default = false;
