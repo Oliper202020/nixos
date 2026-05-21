@@ -13,7 +13,7 @@
       "pylsp"
       "autocorrect"
     ];
-    mutableUserSettings = false;
+    mutableUserSettings = true;
     extraPackages = with pkgs; [
       nil
       statix
