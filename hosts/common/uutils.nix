@@ -36,7 +36,7 @@ in
       newDependency = pkgs.symlinkJoin {
         # Make the name length match so it builds
         name = coreutils-full-name;
-        paths = [ pkgs.uutils-coreutils-noprefix ];
+        paths = [ pkgs.stable.uutils-coreutils-noprefix ];
       };
     }
     {
@@ -45,7 +45,7 @@ in
       newDependency = pkgs.symlinkJoin {
         # Make the name length match so it builds
         name = coreutils-name;
-        paths = [ pkgs.uutils-coreutils-noprefix ];
+        paths = [ pkgs.stable.uutils-coreutils-noprefix ];
       };
     }
     # findutils
