@@ -9,27 +9,15 @@
     }@inputs:
     let
       inherit (self) outputs;
-      # systems = [
-      #   "aarch64-linux"
-      #   "i686-linux"
-      #   "x86_64-linux"
-      #   "aarch64-darwin"
-      #   "x86_64-darwin"
-      # ];
-      #forAllSystems = nixpkgs.lib.genAttrs systems;
       settings = import ./settings.nix;
     in
     {
-      #packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
       overlays = import ./overlays { inherit inputs; };
-
       nixConfig = {
         extra-substituters = [
-          # "https://anyrun.cachix.org"
           "https://noctalia.cachix.org"
         ];
         extra-trusted-public-keys = [
-          # "anyrun.cachix.org-1:pqBobmOjI7nKlsUMV25u9QHa9btJK65/C8vnO3p346s="
           "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
         ];
       };
@@ -76,6 +64,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    flake-parts.url = {
+      url = "github:hercules-ci/flake-parts";
+    import-tree.url = {
+      url = "github:vic/import-tree";
+    };
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -118,14 +111,6 @@
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
     };
-    #jovian-nixos = {
-    # url = "github:Jovian-Experiments/Jovian-NixOS";
-    #flake = true;
-    # };
-    # devshell = {
-    #  url = "github:numtide/devshell";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    # };
     disko = {
       url = "github:nix-community/disko/master";
       inputs.nixpkgs.follows = "nixpkgs";
