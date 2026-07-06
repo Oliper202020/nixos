@@ -36,5 +36,6 @@
     ventoy
     vlc
     freecad-wayland
+    proton-pass
   ];
 }
